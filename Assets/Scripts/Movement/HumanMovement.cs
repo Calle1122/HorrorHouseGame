@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 namespace Movement
@@ -10,10 +9,11 @@ namespace Movement
 
         [SerializeField] protected float jumpForce;
 
-        private bool _canJump = true;
-
         private void Update()
         {
+            //Get Input
+            MovementInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+
             JumpCheck();
             RotatePlayer();
         }
@@ -25,18 +25,10 @@ namespace Movement
 
         private void JumpCheck()
         {
-            if (shouldJump && Physics.CheckSphere(feetTransform.position, .25f, floorMask) && _canJump)
+            if (Input.GetKeyDown(KeyCode.Space) && Physics.CheckSphere(feetTransform.position, .25f, floorMask))
             {
                 Rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-                StartCoroutine(ResetJumpCooldown());
             }
-        }
-
-        private IEnumerator ResetJumpCooldown()
-        {
-            _canJump = false;
-            yield return new WaitForSeconds(.2f);
-            _canJump = true;
         }
     }
 }

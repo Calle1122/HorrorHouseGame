@@ -1,35 +1,112 @@
+using System.Collections;
 using System.Collections.Generic;
-using Cinemachine;
 using UnityEngine;
+using Cinemachine;
 
 public class CameraManagerScript : MonoBehaviour
 {
-    public static CinemachineVirtualCamera CurrentActiveCamera;
-    [SerializeField] private CinemachineVirtualCamera startCamera;
-    [SerializeField] private List<CinemachineVirtualCamera> cameras = new();
+    [SerializeField] CinemachineVirtualCamera startCamera;
+    [SerializeField] CinemachineVirtualCamera camera1 = null;
+    [SerializeField] CinemachineVirtualCamera camera2 = null;
+    [SerializeField] CinemachineVirtualCamera camera3 = null;
+    [SerializeField] CinemachineVirtualCamera camera4 = null;
+    [SerializeField] CinemachineVirtualCamera camera5 = null;
+    [SerializeField] CinemachineVirtualCamera camera6 = null;
+    [SerializeField] CinemachineVirtualCamera camera7 = null;
+    [SerializeField] CinemachineVirtualCamera camera8 = null;
+    [SerializeField] CinemachineVirtualCamera camera9 = null;
+    [SerializeField] CinemachineVirtualCamera camera10 = null;
+    private List<CinemachineVirtualCamera> allMyCameras = new List<CinemachineVirtualCamera>();
+    public static CinemachineVirtualCamera currentActiveCamera = null;
 
-    private void Start()
+    private void Awake()
     {
-        CurrentActiveCamera = startCamera;
+        PopulateCameraList();
     }
 
-    private void LateUpdate()
+    // Start is called before the first frame update
+    void Start()
     {
-        SwitchToCamera();
+        currentActiveCamera = startCamera;
     }
 
-    private void SwitchToCamera()
+    // Update is called once per frame
+    void LateUpdate()
     {
-        if (CurrentActiveCamera.Priority == 10)
+        SwitchToCamera(currentActiveCamera);
+        //Debug.Log(currentActiveCamera);
+    }
+
+    private void PopulateCameraList()
+    {
+        if (camera1 != null)
         {
-            return;
+            allMyCameras.Add(camera1);
         }
 
-        foreach (var virtualCamera in cameras)
+        if (camera2 != null)
         {
-            virtualCamera.Priority = 0;
+            allMyCameras.Add(camera2);
         }
 
-        CurrentActiveCamera.Priority = 10;
+        if (camera3 != null)
+        {
+            allMyCameras.Add(camera3);
+        }
+
+        if (camera4 != null)
+        {
+            allMyCameras.Add(camera4);
+        }
+
+        if (camera5 != null)
+        {
+            allMyCameras.Add(camera5);
+        }
+
+        if (camera6 != null)
+        {
+            allMyCameras.Add(camera6);
+        }
+
+        if (camera7 != null)
+        {
+            allMyCameras.Add(camera7);
+        }
+
+        if (camera8 != null)
+        {
+            allMyCameras.Add(camera8);
+        }
+
+        if (camera9 != null)
+        {
+            allMyCameras.Add(camera9);
+        }
+
+        if (camera10 != null)
+        {
+            allMyCameras.Add(camera10);
+        }
     }
+
+    private void SwitchToCamera(CinemachineVirtualCamera newActiveCam)
+    {
+        
+        if (newActiveCam.Priority != 10)
+        {
+            
+            //Debug.Log(currentActiveCamera);
+            foreach(CinemachineVirtualCamera cammy in allMyCameras)
+            {
+                cammy.Priority = 0;
+            }
+            newActiveCam.Priority = 10;
+            
+        }
+    }
+
+    
+
+
 }

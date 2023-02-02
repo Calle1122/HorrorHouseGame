@@ -1,16 +1,42 @@
-using Cinemachine;
-using GameConstants;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class CameraTriggerScript : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera triggerCamera;
+    public string playerObjectTag = "Player";
 
-    private void OnTriggerEnter(Collider other)
+    // Start is called before the first frame update
+    void Start()
     {
-        if (other.CompareTag(Tags.PlayerTag))
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Ghost")
         {
-            CameraManagerScript.CurrentActiveCamera = triggerCamera;
+            
+            CameraManagerScript.currentActiveCamera = triggerCamera;
         }
     }
+
+    /*
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Ghost")
+        {
+
+            CameraManagerScript.currentActiveCamera = triggerCamera;
+        }
+    }
+    */
 }

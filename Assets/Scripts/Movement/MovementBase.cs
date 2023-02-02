@@ -4,11 +4,10 @@ namespace Movement
 {
     public abstract class MovementBase : MonoBehaviour
     {
-        public Vector3 MovementInput;
-        public bool shouldJump;
+        protected Vector3 MovementInput;
+        protected Rigidbody Rb;
 
         [SerializeField] protected float moveSpeed;
-        protected Rigidbody Rb;
 
         protected void Awake()
         {
@@ -17,7 +16,7 @@ namespace Movement
 
         protected void MovePlayer()
         {
-            var moveDirection = MovementInput * moveSpeed;
+            Vector3 moveDirection = MovementInput * moveSpeed;
             Rb.velocity = new Vector3(moveDirection.x, Rb.velocity.y, moveDirection.z);
         }
 
@@ -25,7 +24,7 @@ namespace Movement
         {
             if (MovementInput != Vector3.zero)
             {
-                var targetRotation = Quaternion.LookRotation(MovementInput);
+                Quaternion targetRotation = Quaternion.LookRotation(MovementInput);
                 targetRotation =
                     Quaternion.RotateTowards(transform.rotation, targetRotation, 360 * Time.fixedDeltaTime);
                 Rb.MoveRotation(targetRotation);
