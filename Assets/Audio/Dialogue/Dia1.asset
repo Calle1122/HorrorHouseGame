@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Dia1
   m_EditorClassIdentifier: 
   dialogueSound: {fileID: 11400000, guid: fd643e411e6825042b22245ea225dfd5, type: 2}
-  dialogueText: It's locked.
+  dialogueText: 'Ghost: It''s locked.'

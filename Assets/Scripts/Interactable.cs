@@ -9,11 +9,11 @@ public class Interactable : MonoBehaviour
 
     [SerializeField] private Transform parentTransform;
     [SerializeField] private Collider physicsCollider;
-    private InteractableState interactableState;
+    public InteractableState interactableState;
 
     private Collider interactableTrigger;
     private bool isEnabled;
-    private Transform ownerTransform;
+    public Transform ownerTransform;
 
     private void Start()
     {
@@ -62,14 +62,20 @@ public class Interactable : MonoBehaviour
     public void PickUp(Transform newOwner)
     {
         ownerTransform = newOwner;
-        ToggleCollider();
+        if (followOffset == Vector3.zero)
+        {
+            ToggleCollider();
+        }
         interactableState = InteractableState.Interacted;
     }
 
     public void Drop()
     {
         ownerTransform = null;
-        ToggleCollider();
+        if (followOffset == Vector3.zero)
+        {
+            ToggleCollider();
+        }
         interactableState = InteractableState.Free;
     }
 
@@ -93,7 +99,7 @@ public class Interactable : MonoBehaviour
     }
 }
 
-internal enum InteractableState
+public enum InteractableState
 {
     Free,
     Interacted,

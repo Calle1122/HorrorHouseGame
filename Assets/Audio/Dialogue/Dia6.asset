@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Dia6
   m_EditorClassIdentifier: 
   dialogueSound: {fileID: 11400000, guid: 08e1a1618f4289f4d8c20ed5ee6b097b, type: 2}
-  dialogueText: Perfect! Now to move the sofa. Looks heavy.
+  dialogueText: 'Human: Perfect! Now to move the sofa. Looks heavy.'

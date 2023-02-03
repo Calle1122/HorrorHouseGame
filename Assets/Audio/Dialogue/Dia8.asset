@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Dia8
   m_EditorClassIdentifier: 
   dialogueSound: {fileID: 11400000, guid: a13ef26e39150a847a13836130ce7d60, type: 2}
-  dialogueText: Awesome, now we have... this...
+  dialogueText: 'Human: Awesome, now we have... this...'

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Dia3
   m_EditorClassIdentifier: 
   dialogueSound: {fileID: 11400000, guid: b124ea92d2b86364b928accaaddcfd9c, type: 2}
-  dialogueText: What's that in the cabinet?
+  dialogueText: 'Human: What''s that in the cabinet?'

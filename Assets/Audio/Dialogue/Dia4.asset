@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Dia4
   m_EditorClassIdentifier: 
   dialogueSound: {fileID: 11400000, guid: 3de9094deda854344874ddbfc6e6a76e, type: 2}
-  dialogueText: It's locked, we need to find a key.
+  dialogueText: 'Ghost: It''s locked, we need to find a key.'

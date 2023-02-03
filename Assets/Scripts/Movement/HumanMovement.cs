@@ -23,6 +23,37 @@ namespace Movement
             MovePlayer();
         }
 
+        private void OnEnable()
+        {
+            Game.CharacterHandler.OnHumanMovementInput.AddListener(OnHumanMovementInput);
+            Game.CharacterHandler.OnHumanNoMovementInput.AddListener(OnHumanMovementInput);
+            Game.CharacterHandler.OnHumanJumpPressed.AddListener(OnHumanJumpPressed);
+            Game.CharacterHandler.OnHumanJumpReleased.AddListener(OnHumanJumpReleased);
+        }
+
+        private void OnDisable()
+        {
+            Game.CharacterHandler.OnHumanMovementInput.RemoveListener(OnHumanMovementInput);
+            Game.CharacterHandler.OnHumanNoMovementInput.RemoveListener(OnHumanMovementInput);
+            Game.CharacterHandler.OnHumanJumpPressed.RemoveListener(OnHumanJumpPressed);
+            Game.CharacterHandler.OnHumanJumpReleased.RemoveListener(OnHumanJumpReleased);
+        }
+
+        private void OnHumanMovementInput(Vector3 input)
+        {
+            MovementInput = input;
+        }
+
+        private void OnHumanJumpPressed()
+        {
+            shouldJump = true;
+        }
+
+        private void OnHumanJumpReleased()
+        {
+            shouldJump = false;
+        }
+
         private void JumpCheck()
         {
             if (shouldJump && Physics.CheckSphere(feetTransform.position, .25f, floorMask) && _canJump)

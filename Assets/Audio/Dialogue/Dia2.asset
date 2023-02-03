@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Dia2
   m_EditorClassIdentifier: 
   dialogueSound: {fileID: 11400000, guid: cdd52e3e195265b488f219f391485655, type: 2}
-  dialogueText: You're a ghost... Go through the door and open it for me.
+  dialogueText: 'Human: You''re a ghost... Go through the door and open it for me.'

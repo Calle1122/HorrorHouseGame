@@ -1,10 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Audio
 {
     public class DialogueTrigger : MonoBehaviour
     {
-        [SerializeField] private DialogueSo dialogue;
+        [SerializeField] private List<DialogueSo> dialogue;
 
         public TriggerType triggerType;
         
@@ -14,7 +15,10 @@ namespace Audio
         {
             if (!_hasPlayed)
             {
-                DialogueCanvas.Instance.QueueDialogue(dialogue);
+                foreach (DialogueSo dia in dialogue)
+                {
+                    DialogueCanvas.Instance.QueueDialogue(dia);
+                }
             }
             
             if (triggerType == TriggerType.PlayOnce)

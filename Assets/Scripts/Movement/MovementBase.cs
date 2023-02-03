@@ -4,7 +4,7 @@ namespace Movement
 {
     public abstract class MovementBase : MonoBehaviour
     {
-        public Vector3 MovementInput;
+        protected Vector3 MovementInput;
         public bool shouldJump;
 
         [SerializeField] protected float moveSpeed;

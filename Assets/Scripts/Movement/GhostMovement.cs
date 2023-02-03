@@ -45,5 +45,36 @@ namespace Movement
         {
             MovePlayer();
         }
+
+        private void OnEnable()
+        {
+            Game.CharacterHandler.OnGhostMovementInput.AddListener(OnGhostMovementInput);
+            Game.CharacterHandler.OnGhostNoMovementInput.AddListener(OnGhostMovementInput);
+            Game.CharacterHandler.OnGhostJumpPressed.AddListener(OnGhostJumpPressed);
+            Game.CharacterHandler.OnGhostJumpReleased.AddListener(OnGhostJumpReleased);
+        }
+
+        private void OnDisable()
+        {
+            Game.CharacterHandler.OnGhostMovementInput.RemoveListener(OnGhostMovementInput);
+            Game.CharacterHandler.OnGhostNoMovementInput.RemoveListener(OnGhostMovementInput);
+            Game.CharacterHandler.OnGhostJumpPressed.RemoveListener(OnGhostJumpPressed);
+            Game.CharacterHandler.OnGhostJumpReleased.RemoveListener(OnGhostJumpReleased);
+        }
+
+        private void OnGhostJumpPressed()
+        {
+            shouldJump = true;
+        }
+
+        private void OnGhostJumpReleased()
+        {
+            shouldJump = false;
+        }
+
+        private void OnGhostMovementInput(Vector3 input)
+        {
+            MovementInput = input;
+        }
     }
 }

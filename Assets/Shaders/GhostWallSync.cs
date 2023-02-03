@@ -4,6 +4,9 @@ namespace Shaders
 {
     public class GhostWallSync : MonoBehaviour
     {
+        [SerializeField] private Transform wallOpenerFront, wallOpenerBack;
+        private Transform _wallOpener;
+        
         public static int PosID = Shader.PropertyToID("_Position");
         public static int SizeID = Shader.PropertyToID("_Size");
 
@@ -18,21 +21,23 @@ namespace Shaders
         private void Start()
         {
             cam = Camera.main;
+            _wallOpener = wallOpenerFront;
         }
 
         private void Update()
         {
-            var lookUpPos = (transform.position - cam.transform.position) * 1.0025f;
-            var dir = cam.transform.position - lookUpPos;
-            var ray = new Ray(lookUpPos, dir.normalized);
+            var dir = cam.transform.position - _wallOpener.position;
+            var ray = new Ray(_wallOpener.position, dir.normalized);
 
             if (Physics.Raycast(ray, Mathf.Infinity, mask))
             {
+                _wallOpener = wallOpenerBack;
                 _desiredSize = 1f;
                 _animationSpeed = 5f;
             }
             else
             {
+                _wallOpener = wallOpenerFront;
                 _desiredSize = 0f;
                 _animationSpeed = 2f;
             }

@@ -7,27 +7,38 @@ using UnityEngine.InputSystem;
 
 public class CharacterHandler : MonoBehaviour
 {
-    [SerializeField] private GameObject playerInputPrefab;
     [SerializeField] private GameObject humanPrefab;
     [SerializeField] private GameObject ghostPrefab;
 
-    [Header("Settings")] [SerializeField] private bool spawnPlayersOnStart;
-    private MovementBase ghostMovementBase;
-    private MovementBase humanMovementBase;
+    public UnityEvent<Vector3> OnGhostMovementInput;
+    public UnityEvent<Vector3> OnGhostNoMovementInput;
+
+    public UnityEvent<Vector3> OnHumanMovementInput;
+    public UnityEvent<Vector3> OnHumanNoMovementInput;
+
+    public UnityEvent OnGhostJumpPressed;
+    public UnityEvent OnGhostJumpReleased;
+
+    public UnityEvent OnHumanJumpPressed;
+    public UnityEvent OnHumanJumpReleased;
+
+    public UnityEvent OnHumanInteract;
+    public UnityEvent OnGhostInteract;
 
     private GameObject ghostPlayer;
     private GameObject humanPlayer;
-
     private InputAction inputActions;
 
     // ReSharper disable once ArrangeObjectCreationWhenTypeEvident
     private List<InputDevice> inputDevices = new List<InputDevice>();
-
+    private bool movementInputEnabled;
     private PlayerInput player1Input;
     private PlayerInput player2Input;
 
-    public UnityEvent OnHumanInteract;
-    public UnityEvent OnGhostInteract;
+    private void Start()
+    {
+        movementInputEnabled = true;
+    }
 
     private void Update()
     {
@@ -52,15 +63,15 @@ public class CharacterHandler : MonoBehaviour
                 Debug.Log($"Unsubscribed {action}.");
                 if (action.name == Strings.Move)
                 {
-                    action.performed -= OnHumanMovementInput;
-                    action.canceled -= OnHumanNoMovementInput;
+                    action.performed -= HumanMovementInput;
+                    action.canceled -= HumanNoMovementInput;
                 }
                 else if (action.name == Strings.Jump)
                 {
-                    action.started -= OnHumanJumpPressed;
-                    action.canceled -= OnHumanJumpReleased;
+                    action.started -= HumanJumpPressed;
+                    action.canceled -= HumanJumpReleased;
                 }
-                
+
                 else if (action.name == Strings.Interact)
                 {
                     action.started -= HumanInteract;
@@ -79,13 +90,13 @@ public class CharacterHandler : MonoBehaviour
                 Debug.Log($"Unsubscribed {action}.");
                 if (action.name == Strings.Move)
                 {
-                    action.performed -= OnGhostMovementInput;
-                    action.canceled -= OnGhostNoMovementInput;
+                    action.performed -= GhostMovementInput;
+                    action.canceled -= GhostNoMovementInput;
                 }
                 else if (action.name == Strings.Jump)
                 {
-                    action.started -= OnGhostJumpPressed;
-                    action.canceled -= OnGhostJumpReleased;
+                    action.started -= GhostJumpPressed;
+                    action.canceled -= GhostJumpReleased;
                 }
                 else if (action.name == Strings.Interact)
                 {
@@ -95,48 +106,46 @@ public class CharacterHandler : MonoBehaviour
         }
     }
 
-    private void OnHumanMovementInput(InputAction.CallbackContext context)
+    private void HumanMovementInput(InputAction.CallbackContext context)
     {
-        var newMovementInput = context.ReadValue<Vector2>();
-        humanMovementBase.MovementInput.z = newMovementInput.y;
-        humanMovementBase.MovementInput.x = newMovementInput.x;
+        var newMovementInput = new Vector3(context.ReadValue<Vector2>().x, 0, context.ReadValue<Vector2>().y);
+        OnHumanMovementInput.Invoke(newMovementInput);
     }
 
-    private void OnHumanNoMovementInput(InputAction.CallbackContext obj)
+    private void HumanNoMovementInput(InputAction.CallbackContext obj)
     {
-        humanPlayer.GetComponent<MovementBase>().MovementInput = Vector3.zero;
+        OnHumanNoMovementInput.Invoke(Vector3.zero);
     }
 
-    private void OnGhostMovementInput(InputAction.CallbackContext context)
+    private void GhostMovementInput(InputAction.CallbackContext context)
     {
-        var newMovementInput = context.ReadValue<Vector2>();
-        ghostMovementBase.MovementInput.z = newMovementInput.y;
-        ghostMovementBase.MovementInput.x = newMovementInput.x;
+        var newMovementInput = new Vector3(context.ReadValue<Vector2>().x, 0 ,context.ReadValue<Vector2>().y);
+        OnGhostMovementInput.Invoke(newMovementInput);
     }
 
-    private void OnGhostNoMovementInput(InputAction.CallbackContext obj)
+    private void GhostNoMovementInput(InputAction.CallbackContext obj)
     {
-        ghostMovementBase.MovementInput = Vector3.zero;
+        OnGhostNoMovementInput.Invoke(Vector3.zero);
     }
 
-    private void OnGhostJumpPressed(InputAction.CallbackContext context)
+    private void GhostJumpPressed(InputAction.CallbackContext context)
     {
-        ghostMovementBase.shouldJump = true;
+        OnGhostJumpPressed.Invoke();
     }
 
-    private void OnGhostJumpReleased(InputAction.CallbackContext obj)
+    private void GhostJumpReleased(InputAction.CallbackContext obj)
     {
-        ghostMovementBase.shouldJump = false;
+        OnGhostJumpReleased.Invoke();
     }
 
-    private void OnHumanJumpPressed(InputAction.CallbackContext obj)
+    private void HumanJumpPressed(InputAction.CallbackContext obj)
     {
-        humanMovementBase.shouldJump = true;
+        OnHumanJumpPressed.Invoke();
     }
 
-    private void OnHumanJumpReleased(InputAction.CallbackContext obj)
+    private void HumanJumpReleased(InputAction.CallbackContext obj)
     {
-        humanMovementBase.shouldJump = false;
+        OnHumanJumpReleased.Invoke();
     }
 
     private void HumanInteract(InputAction.CallbackContext obj)
@@ -146,6 +155,7 @@ public class CharacterHandler : MonoBehaviour
 
     private void GhostInteract(InputAction.CallbackContext obj)
     {
+        OnGhostInteract.Invoke();
     }
 
     private void SpawnCharacters()
@@ -153,20 +163,17 @@ public class CharacterHandler : MonoBehaviour
         humanPlayer = Instantiate(humanPrefab);
         ghostPlayer = Instantiate(ghostPrefab);
 
-        humanMovementBase = humanPlayer.GetComponent<MovementBase>();
-        ghostMovementBase = ghostPlayer.GetComponent<MovementBase>();
-
         foreach (var action in player1Input.currentActionMap.actions)
         {
             if (action.name == Strings.Move)
             {
-                action.performed += OnHumanMovementInput;
-                action.canceled += OnHumanNoMovementInput;
+                action.performed += HumanMovementInput;
+                action.canceled += HumanNoMovementInput;
             }
             else if (action.name == Strings.Jump)
             {
-                action.started += OnHumanJumpPressed;
-                action.canceled += OnHumanJumpReleased;
+                action.started += HumanJumpPressed;
+                action.canceled += HumanJumpReleased;
             }
             else if (action.name == Strings.Interact)
             {
@@ -183,19 +190,21 @@ public class CharacterHandler : MonoBehaviour
         {
             if (action.name == Strings.Move)
             {
-                action.performed += OnGhostMovementInput;
-                action.canceled += OnGhostNoMovementInput;
+                action.performed += GhostMovementInput;
+                action.canceled += GhostNoMovementInput;
             }
             else if (action.name == Strings.Jump)
             {
-                action.started += OnGhostJumpPressed;
-                action.canceled += OnGhostJumpReleased;
+                action.started += GhostJumpPressed;
+                action.canceled += GhostJumpReleased;
             }
             else if (action.name == Strings.Interact)
             {
                 action.started += GhostInteract;
             }
         }
+
+        movementInputEnabled = true;
     }
 
 

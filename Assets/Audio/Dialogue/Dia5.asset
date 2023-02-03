@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Dia5
   m_EditorClassIdentifier: 
   dialogueSound: {fileID: 11400000, guid: 4f496c937c68ca248ae710b6e5e76c38, type: 2}
-  dialogueText: That box on top of the cabinet. I can't reach it, little help?
+  dialogueText: 'Human: That box on top of the cabinet. I can''t reach it, little
+    help?'
