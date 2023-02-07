@@ -5,13 +5,47 @@ namespace Puzzle
 {
     public class PuzzleTrigger : MonoBehaviour
     {
-        [SerializeField] private GameObject qteObject;
+        public enum TriggerProfile
+        {
+            GhostTrigger,
+            HumanTrigger
+        }
+
+        public TriggerProfile thisTriggerProfile;
         
+        [SerializeField] private GameObject qteObject;
         [SerializeField] private bool canActivate = false;
 
-        private void Awake()
+        private void OnEnable()
         {
-            Game.CharacterHandler.OnGhostInteract.AddListener(EnableQte);
+            switch (thisTriggerProfile)
+            {
+                case TriggerProfile.GhostTrigger:
+                    Game.CharacterHandler.OnGhostInteract.AddListener(EnableQte);
+                    break;
+                case TriggerProfile.HumanTrigger:
+                    Game.CharacterHandler.OnHumanInteract.AddListener(EnableQte);
+                    break;
+                default:
+                    Debug.LogError("Incorrect trigger profile", this);
+                    break;
+            }
+        }
+
+        private void OnDisable()
+        {
+            switch (thisTriggerProfile)
+            {
+                case TriggerProfile.GhostTrigger:
+                    Game.CharacterHandler.OnGhostInteract.RemoveListener(EnableQte);
+                    break;
+                case TriggerProfile.HumanTrigger:
+                    Game.CharacterHandler.OnHumanInteract.RemoveListener(EnableQte);
+                    break;
+                default:
+                    Debug.LogError("Incorrect trigger profile", this);
+                    break;
+            }
         }
 
         private void OnTriggerEnter(Collider other)

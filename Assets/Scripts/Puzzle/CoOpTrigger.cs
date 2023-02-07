@@ -1,15 +1,16 @@
-using System;
 using System.Collections;
 using Audio;
+using Events;
 using UnityEngine;
 
 namespace Puzzle
 {
     public class CoOpTrigger : MonoBehaviour
     {
+        public DefaultEvent eventToRaise;
 
         [SerializeField] private GameObject qteObjectH, qteObjectG;
-        
+
         [SerializeField] private bool ghostIsInteracting, humanIsInteracting;
 
         [SerializeField] private bool canActivate = true;
@@ -17,7 +18,7 @@ namespace Puzzle
         [SerializeField] private DialogueSo waitingDialogue;
 
         private int _successCounter = 0;
-        
+
         private void OnTriggerEnter(Collider other)
         {
             //Human layer
@@ -25,7 +26,7 @@ namespace Puzzle
             {
                 Game.CharacterHandler.OnHumanInteract.AddListener(HumanInteract);
             }
-            
+
             //Ghost layer
             if (other.gameObject.layer == 6)
             {
@@ -40,7 +41,7 @@ namespace Puzzle
             {
                 Game.CharacterHandler.OnHumanInteract.RemoveListener(HumanInteract);
             }
-            
+
             //Ghost layer
             if (other.gameObject.layer == 6)
             {
@@ -71,7 +72,7 @@ namespace Puzzle
                 qteObjectH.SetActive(true);
             }
         }
-        
+
         public void ResetQteTimer(float secondsToWait)
         {
             StartCoroutine(QteCooldown(secondsToWait));
@@ -82,15 +83,15 @@ namespace Puzzle
             humanIsInteracting = false;
             ghostIsInteracting = false;
             _successCounter = 0;
-            
+
             qteObjectH.SetActive(false);
             qteObjectG.SetActive(false);
-            
+
             yield return new WaitForSeconds(secondsToWait);
 
             canActivate = true;
         }
-        
+
         private void DestroyTrigger()
         {
             Game.CharacterHandler.OnHumanInteract.RemoveListener(HumanInteract);
@@ -109,7 +110,7 @@ namespace Puzzle
 
         public void CompleteEvent()
         {
-            GameObject.Find("PuzzleManager").GetComponent<CabinetPuzzle>().UpdateState(4);
+            eventToRaise.RaiseEvent();
             DestroyTrigger();
         }
 
