@@ -27,7 +27,7 @@ namespace Puzzle
                     Game.CharacterHandler.OnHumanInteract.AddListener(EnableQte);
                     break;
                 default:
-                    Debug.Log("Incorrect trigger profile", this);
+                    Debug.LogError("Incorrect trigger profile", this);
                     break;
             }
         }
@@ -43,7 +43,7 @@ namespace Puzzle
                     Game.CharacterHandler.OnHumanInteract.RemoveListener(EnableQte);
                     break;
                 default:
-                    Debug.Log("Incorrect trigger profile", this);
+                    Debug.LogError("Incorrect trigger profile", this);
                     break;
             }
         }

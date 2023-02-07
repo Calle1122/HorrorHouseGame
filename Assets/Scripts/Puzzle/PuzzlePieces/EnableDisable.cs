@@ -6,16 +6,7 @@ namespace Puzzle.PuzzlePieces
     {
         public void OnOffObj(GameObject reference)
         {
-            switch (reference.activeSelf)
-            {
-                case true:
-                    reference.SetActive(false);
-                    break;
-
-                case false:
-                    reference.SetActive(true);
-                    break;
-            }
+            reference.SetActive(!reference.activeSelf);
         }
     }
 }
