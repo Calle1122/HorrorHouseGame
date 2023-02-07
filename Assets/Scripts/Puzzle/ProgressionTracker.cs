@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
 using Events;
-using Puzzle;
 using UnityEngine;
 
 namespace Puzzle
@@ -10,9 +7,15 @@ namespace Puzzle
     {
         [SerializeField] private DefaultEvent gameStartEvent;
 
-        private void Start()
+        [SerializeField] private bool hasStarted = false;
+
+        private void Update()
         {
-            gameStartEvent.RaiseEvent();
+            if (Input.GetKeyDown(KeyCode.U) && !hasStarted)
+            {
+                hasStarted = true;
+                gameStartEvent.RaiseEvent();
+            }
         }
     }
 }

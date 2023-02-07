@@ -142,7 +142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &19714355
 Transform:
   m_ObjectHideFlags: 0
@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f52dd7a360e5395439fe0cee013860ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventToRaise: {fileID: 11400000, guid: 488fe5c474e9f2b408e1b9cb571061f4, type: 2}
   qteObjectH: {fileID: 2100074468}
   qteObjectG: {fileID: 216486995}
   ghostIsInteracting: 0
@@ -3840,6 +3841,11 @@ GameObject:
   m_Component:
   - component: {fileID: 69768146}
   - component: {fileID: 69768147}
+  - component: {fileID: 69768152}
+  - component: {fileID: 69768151}
+  - component: {fileID: 69768150}
+  - component: {fileID: 69768149}
+  - component: {fileID: 69768148}
   m_Layer: 0
   m_Name: FinishState
   m_TagString: Untagged
@@ -3860,7 +3866,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 779709521}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &69768147
 MonoBehaviour:
@@ -3877,7 +3883,166 @@ MonoBehaviour:
   event: {fileID: 11400000, guid: 53d232e66473c5142828c38d347e3929, type: 2}
   response:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 69768152}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.EnableDisable, Assembly-CSharp
+        m_MethodName: OnOffObj
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 4785528762298499183}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 69768148}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.ChangeCamera, Assembly-CSharp
+        m_MethodName: SetActiveCam
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 852681643}
+          m_ObjectArgumentAssemblyTypeName: Cinemachine.CinemachineVirtualCamera,
+            Cinemachine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 69768148}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.ChangeCamera, Assembly-CSharp
+        m_MethodName: SetActiveCamWithDelay
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 852681644}
+          m_ObjectArgumentAssemblyTypeName: Cinemachine.CinemachineVirtualCamera,
+            Cinemachine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 69768151}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.HumanStopInteract, Assembly-CSharp
+        m_MethodName: StopInteract
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1691287245653245358}
+          m_ObjectArgumentAssemblyTypeName: Interactable, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 69768149}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.DestroyObject, Assembly-CSharp
+        m_MethodName: DestroyObj
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1691287246415703556}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 69768150}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.DialogueLine, Assembly-CSharp
+        m_MethodName: QueueDialogue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: f854b8c6e3f25ce47965d580f4965cae,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 69768149}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.DestroyObject, Assembly-CSharp
+        m_MethodName: DestroyObj
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1646565196}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 69768152}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.EnableDisable, Assembly-CSharp
+        m_MethodName: OnOffObj
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 919132147510099137}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &69768148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69768145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d858c09402d7944448c843ee6feffae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &69768149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69768145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a93f1122df47e144aa77022e1f1d9a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &69768150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69768145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea817e709e63904c9112836b73b2ee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &69768151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69768145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d7268467f71c2a4a90729181c1a7487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &69768152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69768145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bba58012a864e94982e937e39e04507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &75115044
 GameObject:
   m_ObjectHideFlags: 0
@@ -5759,7 +5924,7 @@ PrefabInstance:
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
       propertyPath: onSuccess.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
@@ -5769,7 +5934,7 @@ PrefabInstance:
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
       propertyPath: onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
@@ -5785,7 +5950,8 @@ PrefabInstance:
         type: 3}
       propertyPath: onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 65210819e79ce4b459f483c5dca5a4bb,
+        type: 2}
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
       propertyPath: onSuccess.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -5814,7 +5980,7 @@ PrefabInstance:
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
       propertyPath: onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UpdateState
+      value: RaiseEvent
       objectReference: {fileID: 0}
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
@@ -5829,7 +5995,7 @@ PrefabInstance:
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
       propertyPath: onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Puzzle.CabinetPuzzle, Assembly-CSharp
+      value: Events.DefaultEvent, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
@@ -5839,7 +6005,7 @@ PrefabInstance:
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
       propertyPath: onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
@@ -5966,54 +6132,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 306829465}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &309314708
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 309314709}
-  - component: {fileID: 309314710}
-  m_Layer: 0
-  m_Name: EnteredLivingRoomState
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &309314709
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 309314708}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 779709521}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &309314710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 309314708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc261ad22ddc9d64da02ae6e19214b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  event: {fileID: 11400000, guid: 5650bd6c068ea51478bdce61c992ef06, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &310379837
 GameObject:
   m_ObjectHideFlags: 0
@@ -6097,96 +6215,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 310379837}
   m_Mesh: {fileID: 8733429697405204941, guid: 6d0729e588450334fab9bc164133a927, type: 3}
---- !u!1001 &318773100
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1176434459}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 534f99c7524f29e469a77f8de197044b,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 534f99c7524f29e469a77f8de197044b,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 534f99c7524f29e469a77f8de197044b,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 534f99c7524f29e469a77f8de197044b,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 534f99c7524f29e469a77f8de197044b,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.253
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 534f99c7524f29e469a77f8de197044b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.474
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 534f99c7524f29e469a77f8de197044b,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.59
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 534f99c7524f29e469a77f8de197044b,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 534f99c7524f29e469a77f8de197044b,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 534f99c7524f29e469a77f8de197044b,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 534f99c7524f29e469a77f8de197044b,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 534f99c7524f29e469a77f8de197044b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 534f99c7524f29e469a77f8de197044b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 534f99c7524f29e469a77f8de197044b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 534f99c7524f29e469a77f8de197044b,
-        type: 3}
-      propertyPath: m_Name
-      value: Couch
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 534f99c7524f29e469a77f8de197044b, type: 3}
---- !u!4 &318773101 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 534f99c7524f29e469a77f8de197044b,
-    type: 3}
-  m_PrefabInstance: {fileID: 318773100}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &320949470
 GameObject:
   m_ObjectHideFlags: 0
@@ -6315,7 +6343,6 @@ Transform:
   - {fileID: 19714355}
   - {fileID: 100922985}
   - {fileID: 751924443}
-  - {fileID: 1176434459}
   m_Father: {fileID: 1178829079}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6407,7 +6434,7 @@ PrefabInstance:
     - target: {fileID: 2320435821792827309, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2320435821792827309, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
@@ -6543,7 +6570,7 @@ PrefabInstance:
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
       propertyPath: onSuccess.m_PersistentCalls.m_Calls.Array.size
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
@@ -6553,7 +6580,7 @@ PrefabInstance:
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
       propertyPath: onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
@@ -6584,22 +6611,23 @@ PrefabInstance:
         type: 3}
       propertyPath: onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 3fdbcf8e4609f8847bb2af2a58658e30,
+        type: 2}
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
       propertyPath: onSuccess.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1964527982}
+      objectReference: {fileID: 680678041}
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
       propertyPath: onSuccess.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 1022649854}
+      objectReference: {fileID: 680678041}
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
       propertyPath: onSuccess.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 1691287246415703558}
+      objectReference: {fileID: 680678041}
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
       propertyPath: onSuccess.m_PersistentCalls.m_Calls.Array.data[4].m_Target
@@ -6643,22 +6671,22 @@ PrefabInstance:
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
       propertyPath: onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UpdateState
+      value: RaiseEvent
       objectReference: {fileID: 0}
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
       propertyPath: onSuccess.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: TurnOff
+      value: DestroyTrigger
       objectReference: {fileID: 0}
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
       propertyPath: onSuccess.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: TurnOn
+      value: DestroyTrigger
       objectReference: {fileID: 0}
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
       propertyPath: onSuccess.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: TurnOn
+      value: DestroyTrigger
       objectReference: {fileID: 0}
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
@@ -6673,22 +6701,22 @@ PrefabInstance:
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
       propertyPath: onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Puzzle.CabinetPuzzle, Assembly-CSharp
+      value: Events.DefaultEvent, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
       propertyPath: onSuccess.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: Puzzle.ItemController, Assembly-CSharp
+      value: Puzzle.PuzzleTrigger, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
       propertyPath: onSuccess.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: Puzzle.ItemController, Assembly-CSharp
+      value: Puzzle.PuzzleTrigger, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
       propertyPath: onSuccess.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: Puzzle.ItemController, Assembly-CSharp
+      value: Puzzle.PuzzleTrigger, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
@@ -6698,7 +6726,7 @@ PrefabInstance:
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
       propertyPath: onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7440405545736869669, guid: f3aeb2136127fb048842810af4635ffa,
         type: 3}
@@ -7550,8 +7578,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1119828183}
+  m_Children: []
   m_Father: {fileID: 91771515}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7699,6 +7726,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1119828183}
   - {fileID: 797601627}
   - {fileID: 2355181129326132604}
   - {fileID: 2119060880}
@@ -9463,7 +9491,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &767338119
 Transform:
   m_ObjectHideFlags: 0
@@ -9579,7 +9607,6 @@ Transform:
   m_Children:
   - {fileID: 1558457258}
   - {fileID: 1385790228}
-  - {fileID: 309314709}
   - {fileID: 1367425030}
   - {fileID: 1194932561}
   - {fileID: 69768146}
@@ -9620,7 +9647,7 @@ Transform:
   m_Children:
   - {fileID: 1064783327}
   m_Father: {fileID: 575548470}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &797601628
 BoxCollider:
@@ -10359,9 +10386,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.001
+  near clip plane: 2.2
   far clip plane: 1000
-  field of view: 22.5
+  field of view: 55
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -10386,8 +10413,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915678408}
-  m_LocalRotation: {x: 0.09416093, y: 0.1648178, z: -0.015808817, w: 0.98169184}
-  m_LocalPosition: {x: 7.57, y: 2.1400003, z: 27.51}
+  m_LocalRotation: {x: 0.13062328, y: -0.23152, z: 0.031387243, w: 0.96350974}
+  m_LocalPosition: {x: 10.27, y: 2.38, z: 20.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11212,7 +11239,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 510461475}
+    m_TransformParent: {fileID: 575548470}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c260e52a73117ad49865e8121e65d0c1,
         type: 3}
@@ -11222,17 +11249,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c260e52a73117ad49865e8121e65d0c1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.941
+      value: 9.29798
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c260e52a73117ad49865e8121e65d0c1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7497327
+      value: -1.3023062
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c260e52a73117ad49865e8121e65d0c1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.42
+      value: 11.065117
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c260e52a73117ad49865e8121e65d0c1,
         type: 3}
@@ -11663,118 +11690,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 694469595}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1176434458
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1176434459}
-  - component: {fileID: 1176434462}
-  - component: {fileID: 1176434461}
-  - component: {fileID: 1176434464}
-  - component: {fileID: 1176434463}
-  m_Layer: 0
-  m_Name: Couch
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1176434459
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1176434458}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.26619, y: -0.9559848, z: 10.808714}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 318773101}
-  m_Father: {fileID: 326003250}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &1176434461
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1176434458}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1176434462
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1176434458}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1176434463
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1176434458}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.2946796, y: 0.42014313, z: 0.60009766}
-  m_Center: {x: 0.112472534, y: 0.5248703, z: -0.12996864}
---- !u!65 &1176434464
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1176434458}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.2222085, y: 0.65508527, z: 1.1641636}
-  m_Center: {x: 0.09060073, y: -0.007498175, z: -0.41416645}
 --- !u!1 &1178829078
 GameObject:
   m_ObjectHideFlags: 0
@@ -11821,6 +11736,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1194932561}
   - component: {fileID: 1194932562}
+  - component: {fileID: 1194932563}
   m_Layer: 0
   m_Name: PushedSofaState
   m_TagString: Untagged
@@ -11841,7 +11757,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 779709521}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1194932562
 MonoBehaviour:
@@ -11858,7 +11774,55 @@ MonoBehaviour:
   event: {fileID: 11400000, guid: 488fe5c474e9f2b408e1b9cb571061f4, type: 2}
   response:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1194932563}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.EnableDisable, Assembly-CSharp
+        m_MethodName: OnOffObj
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 797601626}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1194932563}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.EnableDisable, Assembly-CSharp
+        m_MethodName: OnOffObj
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 767338118}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1194932563}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.EnableDisable, Assembly-CSharp
+        m_MethodName: OnOffObj
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2020998984}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1194932563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194932560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bba58012a864e94982e937e39e04507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1232054016
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12601,6 +12565,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1367425030}
   - component: {fileID: 1367425031}
+  - component: {fileID: 1367425032}
+  - component: {fileID: 1367425033}
   m_Layer: 0
   m_Name: OpenedBoxState
   m_TagString: Untagged
@@ -12621,7 +12587,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 779709521}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1367425031
 MonoBehaviour:
@@ -12638,7 +12604,104 @@ MonoBehaviour:
   event: {fileID: 11400000, guid: 3fdbcf8e4609f8847bb2af2a58658e30, type: 2}
   response:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1367425032}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.EnableDisable, Assembly-CSharp
+        m_MethodName: OnOffObj
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1964527977}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1367425032}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.EnableDisable, Assembly-CSharp
+        m_MethodName: OnOffObj
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1022649849}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1367425032}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.EnableDisable, Assembly-CSharp
+        m_MethodName: OnOffObj
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1691287246415703556}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2119060881}
+        m_TargetAssemblyTypeName: Puzzle.PuzzleTrigger, Assembly-CSharp
+        m_MethodName: DestroyTrigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1367425033}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.DialogueLine, Assembly-CSharp
+        m_MethodName: QueueDialogue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 234db86fcafb5eb44a085aa796872ecc,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1367425032}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.EnableDisable, Assembly-CSharp
+        m_MethodName: OnOffObj
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 19714354}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1367425032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367425029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bba58012a864e94982e937e39e04507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1367425033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367425029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea817e709e63904c9112836b73b2ee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1377503801
 GameObject:
   m_ObjectHideFlags: 0
@@ -12732,6 +12795,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1385790228}
   - component: {fileID: 1385790229}
+  - component: {fileID: 1385790230}
   m_Layer: 0
   m_Name: DoorOpenedState
   m_TagString: Untagged
@@ -12769,7 +12833,67 @@ MonoBehaviour:
   event: {fileID: 11400000, guid: 65210819e79ce4b459f483c5dca5a4bb, type: 2}
   response:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1385790230}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.EnableDisable, Assembly-CSharp
+        m_MethodName: OnOffObj
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 282606569}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1385790230}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.EnableDisable, Assembly-CSharp
+        m_MethodName: OnOffObj
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1740766139}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1385790230}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.EnableDisable, Assembly-CSharp
+        m_MethodName: OnOffObj
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1460475080}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 680678041}
+        m_TargetAssemblyTypeName: Puzzle.PuzzleTrigger, Assembly-CSharp
+        m_MethodName: DestroyTrigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1385790230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385790227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bba58012a864e94982e937e39e04507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1395665973
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13651,7 +13775,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 575548470}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1459736037
 GameObject:
@@ -14215,6 +14339,7 @@ GameObject:
   - component: {fileID: 1558457258}
   - component: {fileID: 1558457260}
   - component: {fileID: 1558457259}
+  - component: {fileID: 1558457261}
   m_Layer: 0
   m_Name: StartState
   m_TagString: Untagged
@@ -14265,6 +14390,18 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1558457261}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.EnableDisable, Assembly-CSharp
+        m_MethodName: OnOffObj
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1451811646}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1558457259}
         m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.DialogueLine, Assembly-CSharp
         m_MethodName: QueueDialogue
@@ -14291,19 +14428,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1558457259}
-        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.DialogueLine, Assembly-CSharp
-        m_MethodName: QueueDialogue
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 1fcb11c1e3ac6ba4abbd0a1e8a432232,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+--- !u!114 &1558457261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558457257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bba58012a864e94982e937e39e04507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1562754048
 GameObject:
   m_ObjectHideFlags: 0
@@ -15247,6 +15383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameStartEvent: {fileID: 11400000, guid: 02e6b0795dd5af04b984adc06abac574, type: 2}
+  hasStarted: 0
 --- !u!4 &1821264159
 Transform:
   m_ObjectHideFlags: 0
@@ -16647,7 +16784,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2020998985
 Transform:
   m_ObjectHideFlags: 0
@@ -16738,11 +16875,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f25a5a8c879a5e4a8e145c11cf66060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disableObject: {fileID: 1646565196}
-  interactableRef: {fileID: 4785528762298499183}
+  eventToRaise: {fileID: 11400000, guid: 53d232e66473c5142828c38d347e3929, type: 2}
   key: {fileID: 1691287246379517950}
-  interactable: {fileID: 1691287245653245358}
-  cam: {fileID: 852681643}
 --- !u!4 &2042168203 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cbd138e09458e7b41824f0acc6cd6372,
@@ -17107,7 +17241,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 575548470}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2119060881
 MonoBehaviour:
@@ -17650,7 +17784,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &922979043692577605
 GameObject:
   m_ObjectHideFlags: 0
@@ -18341,7 +18475,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 575548470}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2378106909717144379
 Transform:
