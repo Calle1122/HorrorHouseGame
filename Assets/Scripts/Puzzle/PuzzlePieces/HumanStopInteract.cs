@@ -1,12 +1,13 @@
+using Interaction;
 using UnityEngine;
 
 namespace Puzzle.PuzzlePieces
 {
     public class HumanStopInteract : MonoBehaviour
     {
-        public void StopInteract(Interactable interactable)
+        public void StopInteract(PickUpInteractable interactable)
         {
-            interactable.ownerTransform.GetComponent<HumanInteraction>().StopInteract();
+            interactable.ownerTransform.GetComponent<HumanPickupInteraction>().StopInteract();
         }
     }
 }
