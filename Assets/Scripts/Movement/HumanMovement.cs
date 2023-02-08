@@ -41,11 +41,23 @@ namespace Movement
 
         private void OnHumanMovementInput(Vector3 input)
         {
+            if (Game.CharacterHandler.HumanInputMode != InputMode.Free)
+            {
+                MovementInput = Vector3.zero;
+                return;
+            }
+
             MovementInput = input;
         }
 
         private void OnHumanJumpPressed()
         {
+            if (Game.CharacterHandler.HumanInputMode != InputMode.Free)
+            {
+                shouldJump = false;
+                return;
+            }
+
             shouldJump = true;
         }
 

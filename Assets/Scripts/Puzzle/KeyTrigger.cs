@@ -1,6 +1,7 @@
 using System;
 using System.Security.Cryptography;
 using Cinemachine;
+using Interaction;
 using UnityEngine;
 
 namespace Puzzle

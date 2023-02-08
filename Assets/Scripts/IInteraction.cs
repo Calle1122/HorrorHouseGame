@@ -1,7 +1,11 @@
-﻿public interface IPickupInteraction
+﻿using Interaction;
+using UnityEngine;
+
+public interface IInteraction
 {
+    Transform GetTransform();
     void AddPossibleInteractable(Interactable interactable);
     void RemovePossibleInteractable(Interactable interactable);
-    void Interact();
+    void OnInteract();
     void StopInteract();
 }
