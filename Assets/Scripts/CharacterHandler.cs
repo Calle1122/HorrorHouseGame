@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using GameConstants;
 using UnityEngine;
 using UnityEngine.Events;
@@ -23,6 +24,9 @@ public class CharacterHandler : MonoBehaviour
 
     public UnityEvent OnHumanInteract;
     public UnityEvent OnGhostInteract;
+
+    public UnityEvent OnHumanCancel;
+    public UnityEvent OnGhostCancel;
 
     private GameObject ghostPlayer;
     private GameObject humanPlayer;
@@ -75,10 +79,13 @@ public class CharacterHandler : MonoBehaviour
                     action.started -= HumanJumpPressed;
                     action.canceled -= HumanJumpReleased;
                 }
-
                 else if (action.name == Strings.Interact)
                 {
                     action.started -= HumanInteract;
+                }
+                else if (action.name == Strings.Cancel)
+                {
+                    action.started -= HumanCancel;
                 }
             }
         }
@@ -106,6 +113,10 @@ public class CharacterHandler : MonoBehaviour
                 {
                     action.started -= GhostInteract;
                 }
+                else if (action.name == Strings.Cancel)
+                {
+                    action.started -= GhostCancel;
+                }
             }
         }
     }
@@ -123,7 +134,7 @@ public class CharacterHandler : MonoBehaviour
 
     private void GhostMovementInput(InputAction.CallbackContext context)
     {
-        var newMovementInput = new Vector3(context.ReadValue<Vector2>().x, 0 ,context.ReadValue<Vector2>().y);
+        var newMovementInput = new Vector3(context.ReadValue<Vector2>().x, 0, context.ReadValue<Vector2>().y);
         OnGhostMovementInput.Invoke(newMovementInput);
     }
 
@@ -183,6 +194,10 @@ public class CharacterHandler : MonoBehaviour
             {
                 action.started += HumanInteract;
             }
+            else if (action.name == Strings.Cancel)
+            {
+                action.started += HumanCancel;
+            }
         }
 
         if (player2Input == null)
@@ -206,9 +221,23 @@ public class CharacterHandler : MonoBehaviour
             {
                 action.started += GhostInteract;
             }
+            else if (action.name == Strings.Cancel)
+            {
+                action.started += GhostCancel;
+            }
         }
 
         movementInputEnabled = true;
+    }
+
+    private void GhostCancel(InputAction.CallbackContext obj)
+    {
+        OnGhostCancel.Invoke();
+    }
+
+    private void HumanCancel(InputAction.CallbackContext obj)
+    {
+        OnHumanCancel.Invoke();
     }
 
 
