@@ -1025,6 +1025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f24dc879851b134d9e5f3f1bbf6ec9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canInteract: 0
   popupObjects:
   - {fileID: 7520626042890367333}
   - {fileID: 326092804942332695}
@@ -1044,7 +1045,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 06e11a8d7e7e1dd4d8b3f5477bbe2eb6, type: 3}
   - {fileID: 21300000, guid: 9ccef5f21fac73a4999f28e3b14262f0, type: 3}
   largeImage: {fileID: 3889342845535055513}
-  isOpen: 0
+  animationDuration: 0
   popupHasItem: 1
   itemPosition: 5
   substituteSprite: {fileID: 21300000, guid: c6111c44d4593d546b45403757b67c92, type: 3}

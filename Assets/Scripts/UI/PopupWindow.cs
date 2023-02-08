@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using Events;
 using UnityEngine;
@@ -7,6 +9,9 @@ namespace UI
 {
     public class PopupWindow : MonoBehaviour
     {
+        public bool canInteract;
+        private bool _isOpen, _largeItemOpen;
+
         [SerializeField] private List<GameObject> popupObjects;
         [SerializeField] private List<Image> itemSprites;
         [SerializeField] private List<Sprite> itemLargeSprites;
@@ -16,10 +21,10 @@ namespace UI
         private List<Outline> _itemOutlines = new List<Outline>();
         private int _selectIndex = 0;
 
-        [SerializeField] private bool isOpen = false;
-
         private float _targetSize = 0f;
         private float _largeTargetSize = 0f;
+
+        [SerializeField] private float animationDuration;
 
         [SerializeField] [Header("Popup Item")]
         private bool popupHasItem;
@@ -29,6 +34,8 @@ namespace UI
         [SerializeField] private GameObject popupItem;
         [SerializeField] private DefaultEvent eventToTrigger;
         private bool _hasGottenItem = false;
+
+        private Coroutine _popupWindowLerp, _largeItemLerp;
 
         private void Awake()
         {
@@ -42,51 +49,121 @@ namespace UI
             ResetSpriteColor();
         }
 
-        public void OpenClosePopup()
+        private void OnEnable()
         {
-            switch (isOpen)
-            {
-                case true:
-                    _targetSize = 0f;
-                    break;
+            Game.CharacterHandler.OnHumanInteract.AddListener(OnHumanInteract);
+            Game.CharacterHandler.OnHumanCancel.AddListener(OnHumanCancel);
+        }
 
-                case false:
-                    _targetSize = 1f;
-                    ResetSelection();
-                    break;
+        private void OnDisable()
+        {
+            Game.CharacterHandler.OnHumanInteract.RemoveListener(OnHumanInteract);
+            Game.CharacterHandler.OnHumanCancel.AddListener(OnHumanCancel);
+        }
+
+        private void OnHumanCancel()
+        {
+            if (!canInteract || !_isOpen)
+            {
+                return;
             }
 
-            isOpen = !isOpen;
+            if (!_largeItemOpen)
+            {
+                ClosePopup(); 
+            }
+            else
+            {
+                CloseItem();
+            }
+        }
+
+        private void OnHumanInteract()
+        {
+            if (!canInteract)
+            {
+                return;
+            }
+
+            if (_isOpen)
+            {
+                OpenItem();
+            }
+            else
+            {
+                OpenPopup();
+            }
+        }
+
+        private void ClosePopup()
+        {
+            _isOpen = false;
+            _targetSize = 0f;
+
+            if (_popupWindowLerp != null)
+            {
+                StopCoroutine(_popupWindowLerp);
+            }
+            _popupWindowLerp = StartCoroutine(StartLerp(transform, _targetSize));
+        }
+
+        private void OpenPopup()
+        {
+            _isOpen = true;
+            _targetSize = 1f;
+
+            ResetSelection();
+            if (_popupWindowLerp != null)
+            {
+                StopCoroutine(_popupWindowLerp);
+            }
+            _popupWindowLerp = StartCoroutine(StartLerp(transform, _targetSize));
         }
 
         private void Update()
         {
-            transform.localScale = Vector3.Lerp(transform.localScale,
-                new Vector3(_targetSize, _targetSize, _targetSize), Time.deltaTime * 5f);
-            largeImage.transform.localScale = Vector3.Lerp(largeImage.transform.localScale,
-                new Vector3(_largeTargetSize, _largeTargetSize, _largeTargetSize), Time.deltaTime * 12.5f);
-
-            if (Input.GetKeyDown(KeyCode.LeftArrow) && isOpen)
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && _isOpen)
             {
                 SelectPrevious();
             }
 
-            if (Input.GetKeyDown(KeyCode.RightArrow) && isOpen)
+            if (Input.GetKeyDown(KeyCode.RightArrow) && _isOpen)
             {
                 SelectNext();
             }
 
-            if (Input.GetKeyDown(KeyCode.UpArrow) && isOpen)
+            if (Input.GetKeyDown(KeyCode.UpArrow) && _isOpen)
             {
-                OpenBook();
+                OpenItem();
             }
         }
 
-        private void OpenBook()
+        private IEnumerator StartLerp(Transform target, float targetScale)
         {
+            var currentTime = 0f;
+            var currentScale = target.localScale;
+            while (currentTime < animationDuration)
+            {
+                currentTime += Time.deltaTime;
+                var newScale = Vector3.Lerp(currentScale, new Vector3(targetScale, targetScale, targetScale), currentTime/animationDuration);
+                target.localScale = newScale;
+                yield return null;
+            }
+        }
+
+        private void OpenItem()
+        {
+            _largeItemOpen = true;
+            
             _largeTargetSize = 1f;
+
+            if (_largeItemLerp != null)
+            {
+                StopCoroutine(_largeItemLerp);
+            }
+            _largeItemLerp = StartCoroutine(StartLerp(largeImage.transform, _largeTargetSize));
+            
             largeImage.sprite = itemLargeSprites[_selectIndex];
-            largeImage.gameObject.SetActive(true);
 
             if (popupHasItem && !_hasGottenItem && _selectIndex == itemPosition)
             {
@@ -102,9 +179,18 @@ namespace UI
             }
         }
 
-        private void CloseBook()
+        private void CloseItem()
         {
+            _largeItemOpen = false;
+            
             _largeTargetSize = 0f;
+
+            if (_largeItemLerp != null)
+            {
+                StopCoroutine(_largeItemLerp);
+            }
+            _largeItemLerp = StartCoroutine(StartLerp(largeImage.transform, _largeTargetSize));
+            
             if (_hasGottenItem)
             {
                 itemLargeSprites[itemPosition] = substituteSprite;
@@ -113,7 +199,7 @@ namespace UI
 
         public void ResetSelection()
         {
-            CloseBook();
+            CloseItem();
             _selectIndex = 0;
             foreach (Outline outline in _itemOutlines)
             {
@@ -127,7 +213,7 @@ namespace UI
 
         public void SelectNext()
         {
-            CloseBook();
+            CloseItem();
             _itemOutlines[_selectIndex].enabled = false;
             itemSprites[_selectIndex].color = Color.grey;
             _selectIndex++;
@@ -142,7 +228,7 @@ namespace UI
 
         public void SelectPrevious()
         {
-            CloseBook();
+            CloseItem();
             _itemOutlines[_selectIndex].enabled = false;
             itemSprites[_selectIndex].color = Color.grey;
             _selectIndex--;

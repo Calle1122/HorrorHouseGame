@@ -1,3 +1,4 @@
+using GameConstants;
 using UnityEngine;
 
 namespace UI
@@ -8,12 +9,18 @@ namespace UI
 
         private void OnTriggerEnter(Collider other)
         {
-            popup.OpenClosePopup();
+            if (other.CompareTag(Tags.PlayerTag))
+            {
+                popup.canInteract = true;
+            }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            popup.OpenClosePopup();
+            if (other.CompareTag(Tags.PlayerTag))
+            {
+                popup.canInteract = false;
+            }
         }
     }
 }
