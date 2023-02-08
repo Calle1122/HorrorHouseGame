@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 namespace Interaction
 {
-    public class HumanInteraction : MonoBehaviour, IInteraction
+    public class HumanPickupInteraction : MonoBehaviour, IInteraction
     {
         private IInteractable heldInteractable;
 
@@ -26,19 +26,21 @@ namespace Interaction
             return transform;
         }
 
-        public void AddPossibleInteractable(Interactable interactable)
+        public void AddPossibleInteractable(IInteractable pickUpInteractable)
         {
-            if (!possibleInteractables.Contains(interactable))
+            if (!possibleInteractables.Contains(pickUpInteractable))
             {
-                possibleInteractables.Add(interactable);
+                Debug.Log($"Added {pickUpInteractable} to interactables.");
+                possibleInteractables.Add(pickUpInteractable);
             }
         }
 
-        public void RemovePossibleInteractable(Interactable interactable)
+        public void RemovePossibleInteractable(IInteractable pickUpInteractable)
         {
-            if (possibleInteractables.Contains(interactable))
+            if (possibleInteractables.Contains(pickUpInteractable))
             {
-                possibleInteractables.Remove(interactable);
+                Debug.Log($"Removed {pickUpInteractable} from possible interactables.");
+                possibleInteractables.Remove(pickUpInteractable);
             }
         }
 

@@ -4,8 +4,8 @@ using UnityEngine;
 public interface IInteraction
 {
     Transform GetTransform();
-    void AddPossibleInteractable(Interactable interactable);
-    void RemovePossibleInteractable(Interactable interactable);
+    void AddPossibleInteractable(IInteractable pickUpInteractable);
+    void RemovePossibleInteractable(IInteractable pickUpInteractable);
     void OnInteract();
     void StopInteract();
 }

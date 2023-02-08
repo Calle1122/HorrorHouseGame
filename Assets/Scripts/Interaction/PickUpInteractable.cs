@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 namespace Interaction
 {
     [RequireComponent(typeof(Collider))]
-    public class Interactable : MonoBehaviour, IInteractable
+    public class PickUpInteractable : MonoBehaviour, IInteractable
     {
         public UnityEvent OnInteract;
         
@@ -47,7 +47,7 @@ namespace Interaction
                 return;
             }
 
-            if (other.TryGetComponent<HumanInteraction>(out var humanInteraction))
+            if (other.TryGetComponent<HumanPickupInteraction>(out var humanInteraction))
             {
                 // TODO: Show input that interaction possible
                 humanInteraction.AddPossibleInteractable(this);
@@ -61,7 +61,7 @@ namespace Interaction
                 return;
             }
 
-            if (other.TryGetComponent<HumanInteraction>(out var humanInteraction))
+            if (other.TryGetComponent<HumanPickupInteraction>(out var humanInteraction))
             {
                 humanInteraction.RemovePossibleInteractable(this);
             }
