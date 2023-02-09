@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a6764fa3335aa45b72bb21d15f4140, type: 3}
+  m_Name: 2.15
+  m_EditorClassIdentifier: 
+  dialogueSound: {fileID: 11400000, guid: ad16736bd2ff8b446bd0acc22d426f7a, type: 2}
+  dialogueText: Did the fire just magically turn on, or am I seeing more than just
+    the ghost of my dead brother now?
