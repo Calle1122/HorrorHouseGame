@@ -9,6 +9,7 @@ namespace UI
 {
     public class PopupWindow : MonoBehaviour
     {
+        [HideInInspector]
         public bool canInteract;
         private bool _isOpen, _largeItemOpen;
 
