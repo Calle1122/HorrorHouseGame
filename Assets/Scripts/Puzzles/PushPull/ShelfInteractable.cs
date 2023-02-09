@@ -65,11 +65,6 @@ namespace Puzzles.PushPull
             return transform;
         }
 
-        public void EnableInteractable()
-        {
-            isEnabled = true;
-        }
-
         public void Interact(IInteraction interaction)
         {
             if (!isEnabled)
@@ -87,6 +82,11 @@ namespace Puzzles.PushPull
             movedThisFrame = false;
             Game.CharacterHandler.HumanInputMode = InputMode.Free;
             puzzle.CheckSolved();
+        }
+
+        public void EnableInteractable()
+        {
+            isEnabled = true;
         }
 
         private void OnMovementInput(Vector3 input)
@@ -108,7 +108,7 @@ namespace Puzzles.PushPull
                 puzzle.SetNewShelfPosition(this, true);
             }
 
-            if (Math.Abs(input.x - (-1)) < 0.1f && puzzle.CanMoveShelf(this, false))
+            if (Math.Abs(input.x - -1) < 0.1f && puzzle.CanMoveShelf(this, false))
             {
                 puzzle.SetNewShelfPosition(this, false);
             }
