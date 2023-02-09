@@ -15,6 +15,8 @@ namespace Puzzles.PushPull
         private readonly List<ShelfSlot> correctSlots = new List<ShelfSlot>();
         private readonly List<ShelfSlot> shelfSlots = new List<ShelfSlot>();
 
+        private bool _isSolved;
+
         private void Awake()
         {
             // Set Slots Indexes
@@ -123,11 +125,11 @@ namespace Puzzles.PushPull
 
         public void CheckSolved()
         {
-            if (correctSlots.Any(correctSlot => correctSlot.Shelf == null))
+            if (_isSolved || correctSlots.Any(correctSlot => correctSlot.Shelf == null))
             {
                 return;
             }
-
+            _isSolved = true;
             onSolved.Invoke();
             DisablePuzzle();
         }
