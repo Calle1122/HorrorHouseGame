@@ -14,6 +14,16 @@ namespace Audio
         [SerializeField] private int playIndex;
         [SerializeField] private ClipPlayOrder playOrder;
 
+        public SourceType sourceType;
+        
+        public enum SourceType
+        {
+            Music,
+            Sfx,
+            Dialogue,
+            Ambient
+        }
+
         #region PreviewSoundCode
         
         #if UNITY_EDITOR
@@ -90,8 +100,9 @@ namespace Audio
                 var source = audioSource;
                 if (source == null)
                 {
-                    var sourceObj = new GameObject("Sound", typeof(AudioSource));
-                    source = sourceObj.GetComponent<AudioSource>();
+                    var sourceObj = GetSourceObj(sourceType);
+                    GameObject newSource = Instantiate(sourceObj, Vector3.zero, Quaternion.identity);
+                    source = newSource.GetComponent<AudioSource>();
                 }
 
                 source.clip = GetAudioClip();
@@ -122,6 +133,26 @@ namespace Audio
                 return null;
             }
             
+        }
+
+        private GameObject GetSourceObj(SourceType type)
+        {
+            switch (type)
+            {
+                case SourceType.Music:
+                    return SoundManager.Instance.musicSource;
+                case SourceType.Sfx:
+                    return SoundManager.Instance.sfxSource;
+                case SourceType.Dialogue:
+                    return SoundManager.Instance.dialogueSource;
+                case SourceType.Ambient:
+                    return SoundManager.Instance.ambientSource;
+                default:
+                    Debug.LogError("Invalid audio source type", this);
+                    break;
+            }
+
+            return null;
         }
 
         enum ClipPlayOrder

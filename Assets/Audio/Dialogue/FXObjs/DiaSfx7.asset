@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clips:
   - {fileID: 8300000, guid: f5a6e03dbbeef7d489f57c5168424196, type: 3}
-  volume: {x: 0.99999994, y: 0.99999994}
+  volume: {x: 1, y: 1}
   pitch: {x: 0.95, y: 1}
   playIndex: 0
   playOrder: 0
+  sourceType: 2
