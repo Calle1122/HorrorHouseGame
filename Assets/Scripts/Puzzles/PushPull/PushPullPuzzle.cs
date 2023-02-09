@@ -7,7 +7,7 @@ namespace Puzzles.PushPull
 {
     public class PushPullPuzzle : MonoBehaviour
     {
-        public UnityEvent OnSolved;
+        public UnityEvent onSolved;
 
         [SerializeField] private List<GameObject> shelfGameObjects = new List<GameObject>();
         [SerializeField] private List<GameObject> shelfSlotsObjects = new List<GameObject>();
@@ -25,7 +25,6 @@ namespace Puzzles.PushPull
                 shelfSlotObject.GetComponent<ShelfSlot>().slotIndex = currentIndex;
                 currentIndex++;
             }
-
 
             // Assign shelves to their slots
             shelfSlots[2].ShelfInteractable = shelfGameObjects[0].GetComponent<ShelfInteractable>();
@@ -92,8 +91,7 @@ namespace Puzzles.PushPull
                 shelfGameObject.GetComponent<ShelfInteractable>().DisableInteraction();
             }
 
-            Debug.Log("Puzzle solved!");
-            OnSolved.Invoke();
+            onSolved.Invoke();
             LockPuzzle();
         }
 
@@ -109,8 +107,6 @@ namespace Puzzles.PushPull
         {
             if (movingRight)
             {
-                // Move shelf one slot to the right
-                Debug.Log("Moving shelf right");
                 shelfSlots[movingShelfInteractable.currentSlot.slotIndex + 1].ShelfInteractable =
                     movingShelfInteractable;
                 shelfSlots[movingShelfInteractable.currentSlot.slotIndex].ShelfInteractable = null;
@@ -120,8 +116,6 @@ namespace Puzzles.PushPull
             }
             else
             {
-                // Move shelf one slot to the left
-                Debug.Log("Moving shelf left");
                 shelfSlots[movingShelfInteractable.currentSlot.slotIndex - 1].ShelfInteractable =
                     movingShelfInteractable;
                 shelfSlots[movingShelfInteractable.currentSlot.slotIndex].ShelfInteractable = null;

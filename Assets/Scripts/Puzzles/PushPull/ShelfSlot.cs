@@ -5,12 +5,7 @@ namespace Puzzles.PushPull
     public class ShelfSlot : MonoBehaviour
     {
         public int slotIndex;
-        private ShelfInteractable shelfInteractable;
 
-        public ShelfInteractable ShelfInteractable
-        {
-            get => shelfInteractable;
-            set => shelfInteractable = value;
-        }
+        public ShelfInteractable ShelfInteractable { get; set; }
     }
 }

@@ -43,7 +43,6 @@ namespace Puzzles.PushPull
             if (other.TryGetComponent<HumanPickupInteraction>(out var humanInteraction))
             {
                 // TODO: Show input that interaction possible
-                Debug.Log("Adding shelf");
                 humanInteraction.AddPossibleInteractable(this);
             }
         }
@@ -57,7 +56,6 @@ namespace Puzzles.PushPull
 
             if (other.TryGetComponent<HumanPickupInteraction>(out var humanInteraction))
             {
-                Debug.Log("Removing shelf");
                 humanInteraction.RemovePossibleInteractable(this);
             }
         }
@@ -81,7 +79,6 @@ namespace Puzzles.PushPull
 
             isHeld = true;
             Game.CharacterHandler.HumanInputMode = InputMode.InQTE;
-            Debug.Log("Interacted");
         }
 
         public void StopInteract()
@@ -89,7 +86,6 @@ namespace Puzzles.PushPull
             isHeld = false;
             movedThisFrame = false;
             Game.CharacterHandler.HumanInputMode = InputMode.Free;
-            Debug.Log("Stopped Interaction");
             puzzle.CheckSolved();
         }
 
