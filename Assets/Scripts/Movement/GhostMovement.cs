@@ -64,6 +64,12 @@ namespace Movement
 
         private void OnGhostJumpPressed()
         {
+            if (Game.CharacterHandler.GhostInputMode != InputMode.Free)
+            {
+                shouldJump = false;
+                return;
+            }
+
             shouldJump = true;
         }
 
@@ -74,6 +80,12 @@ namespace Movement
 
         private void OnGhostMovementInput(Vector3 input)
         {
+            if (Game.CharacterHandler.GhostInputMode != InputMode.Free)
+            {
+                MovementInput = Vector3.zero;
+                return;
+            }
+
             MovementInput = input;
         }
     }

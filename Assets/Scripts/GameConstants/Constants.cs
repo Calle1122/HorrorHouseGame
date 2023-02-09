@@ -3,6 +3,7 @@
     public static class Tags
     {
         public const string PlayerTag = "Player";
+        public static string GhostTag = "Ghost";
     }
 
     public static class Variables

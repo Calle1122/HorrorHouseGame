@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using GameConstants;
-using Movement;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -39,9 +38,14 @@ public class CharacterHandler : MonoBehaviour
     private PlayerInput player1Input;
     private PlayerInput player2Input;
 
+    public InputMode GhostInputMode { get; set; }
+    public InputMode HumanInputMode { get; set; }
+
     private void Start()
     {
         movementInputEnabled = true;
+        GhostInputMode = InputMode.Free;
+        HumanInputMode = InputMode.Free;
     }
 
     private void Update()
