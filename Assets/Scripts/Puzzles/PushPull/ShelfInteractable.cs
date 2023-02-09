@@ -1,15 +1,15 @@
 ﻿using System;
+using System.Collections;
 using GameConstants;
 using Interaction;
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace Puzzles.PushPull
 {
     public class ShelfInteractable : MonoBehaviour, IInteractable
     {
         [SerializeField] private PushPullPuzzle puzzle;
+        [SerializeField] private float animationDuration;
         public ShelfSlot currentSlot;
 
         private bool isHeld;
@@ -78,7 +78,7 @@ namespace Puzzles.PushPull
             {
                 return;
             }
-            
+
             isHeld = true;
             Game.CharacterHandler.HumanInputMode = InputMode.InQTE;
             Debug.Log("Interacted");
@@ -120,7 +120,21 @@ namespace Puzzles.PushPull
 
         public void UpdatePosition()
         {
-            transform.position = currentSlot.transform.position;
+            StartCoroutine(LerpPosition());
+        }
+
+        private IEnumerator LerpPosition()
+        {
+            var currentTime = 0f;
+            var currentPosition = transform.position;
+            var targetPosition = currentSlot.transform.position;
+            while (currentTime < animationDuration)
+            {
+                currentTime += Time.deltaTime;
+                var newPosition = Vector3.Lerp(currentPosition, targetPosition, currentTime / animationDuration);
+                transform.position = newPosition;
+                yield return null;
+            }
         }
 
         public void DisableInteraction()

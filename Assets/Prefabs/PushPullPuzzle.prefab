@@ -526,6 +526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzle: {fileID: 2073225103509845907}
+  animationDuration: 0
   currentSlot: {fileID: 0}
 --- !u!65 &2073225103215486308
 BoxCollider:
@@ -959,6 +960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzle: {fileID: 2073225103509845907}
+  animationDuration: 1
   currentSlot: {fileID: 0}
 --- !u!65 &2073225103630648729
 BoxCollider:
@@ -1310,6 +1312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzle: {fileID: 2073225103509845907}
+  animationDuration: 0
   currentSlot: {fileID: 0}
 --- !u!65 &2073225103942309865
 BoxCollider:
@@ -1629,6 +1632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzle: {fileID: 2073225103509845907}
+  animationDuration: 0
   currentSlot: {fileID: 0}
 --- !u!65 &2073225104337866304
 BoxCollider:
