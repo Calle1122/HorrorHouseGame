@@ -27,16 +27,16 @@ namespace Puzzles.PushPull
             }
 
             // Assign shelves to their slots
-            shelfSlots[2].ShelfInteractable = shelfGameObjects[0].GetComponent<ShelfInteractable>();
-            shelfSlots[4].ShelfInteractable = shelfGameObjects[1].GetComponent<ShelfInteractable>();
-            shelfSlots[6].ShelfInteractable = shelfGameObjects[2].GetComponent<ShelfInteractable>();
-            shelfSlots[8].ShelfInteractable = shelfGameObjects[3].GetComponent<ShelfInteractable>();
+            shelfSlots[2].Shelf = shelfGameObjects[0].GetComponent<Shelf>();
+            shelfSlots[4].Shelf = shelfGameObjects[1].GetComponent<Shelf>();
+            shelfSlots[6].Shelf = shelfGameObjects[2].GetComponent<Shelf>();
+            shelfSlots[8].Shelf = shelfGameObjects[3].GetComponent<Shelf>();
 
             // Assign shelves current slots references
-            shelfSlots[2].ShelfInteractable.currentSlot = shelfSlots[2];
-            shelfSlots[4].ShelfInteractable.currentSlot = shelfSlots[4];
-            shelfSlots[6].ShelfInteractable.currentSlot = shelfSlots[6];
-            shelfSlots[8].ShelfInteractable.currentSlot = shelfSlots[8];
+            shelfSlots[2].Shelf.currentSlot = shelfSlots[2];
+            shelfSlots[4].Shelf.currentSlot = shelfSlots[4];
+            shelfSlots[6].Shelf.currentSlot = shelfSlots[6];
+            shelfSlots[8].Shelf.currentSlot = shelfSlots[8];
 
             // Set correct slots
             correctSlots.Add(shelfSlots[0]);
@@ -56,71 +56,98 @@ namespace Puzzles.PushPull
 
                 shelfInteractable.EnableInteractable();
             }
+
+            EnablePuzzle();
         }
 
-        public bool CanMoveShelf(ShelfInteractable movingShelfInteractable, bool isDirectionRight)
+        public void EnablePuzzle()
         {
-            switch (isDirectionRight)
+            foreach (var shelfGameObject in shelfGameObjects)
             {
-                case true:
-                    if (movingShelfInteractable.currentSlot.slotIndex + 1 > shelfSlots.Count)
-                    {
-                        return false;
-                    }
-
-                    return shelfSlots[movingShelfInteractable.currentSlot.slotIndex + 1].ShelfInteractable == null;
-                case false:
-                    if (movingShelfInteractable.currentSlot.slotIndex - 1 < 0)
-                    {
-                        return false;
-                    }
-
-                    return shelfSlots[movingShelfInteractable.currentSlot.slotIndex - 1].ShelfInteractable == null;
+                shelfGameObject.GetComponent<Shelf>().EnableInteraction();
+                
             }
+        }
+
+        public void DisablePuzzle()
+        {
+            foreach (var shelfGameObject in shelfGameObjects)
+            {
+                shelfGameObject.GetComponent<Shelf>().DisableInteraction();
+            }
+        }
+
+        public bool CanMoveShelf(ShelfInteractable movingShelfInteractable, bool isPrimaryDirRight,
+            out int directionIndex)
+        {
+            // Direaction index: 0 = can't move at all, 1 = primary direction possible, 2 = secondary direction possible, 
+            if (isPrimaryDirRight)
+            {
+                if (movingShelfInteractable.Shelf.currentSlot.slotIndex + 1 <= shelfSlots.Count &&
+                    shelfSlots[movingShelfInteractable.Shelf.currentSlot.slotIndex + 1].Shelf == null)
+                {
+                    // Can move right if primary direction is right
+                    directionIndex = 1;
+                    return true;
+                }
+
+                if (movingShelfInteractable.Shelf.currentSlot.slotIndex - 1 >= 0 &&
+                    shelfSlots[movingShelfInteractable.Shelf.currentSlot.slotIndex - 1].Shelf == null)
+                {
+                    // Can move left is primary direction is right
+                    directionIndex = 2;
+                    return true;
+                }
+            }
+
+            if (!isPrimaryDirRight)
+            {
+                if (movingShelfInteractable.Shelf.currentSlot.slotIndex - 1 >= 0 &&
+                    shelfSlots[movingShelfInteractable.Shelf.currentSlot.slotIndex - 1].Shelf == null)
+                {
+                    directionIndex = 1;
+                    return true;
+                }
+
+                if (movingShelfInteractable.Shelf.currentSlot.slotIndex + 1 <= shelfSlots.Count &&
+                    shelfSlots[movingShelfInteractable.Shelf.currentSlot.slotIndex + 1].Shelf == null)
+                {
+                    directionIndex = 2;
+                    return true;
+                }
+            }
+
+            directionIndex = 0;
+            return false;
         }
 
         public void CheckSolved()
         {
-            if (correctSlots.Any(correctSlot => correctSlot.ShelfInteractable == null))
+            if (correctSlots.Any(correctSlot => correctSlot.Shelf == null))
             {
                 return;
             }
 
-            foreach (var shelfGameObject in shelfGameObjects)
-            {
-                shelfGameObject.GetComponent<ShelfInteractable>().DisableInteraction();
-            }
-
             onSolved.Invoke();
-            LockPuzzle();
+            DisablePuzzle();
         }
 
-        private void LockPuzzle()
-        {
-            foreach (var shelfSlot in shelfSlots.Where(shelfSlot => shelfSlot.ShelfInteractable != null))
-            {
-                shelfSlot.ShelfInteractable.DisableInteraction();
-            }
-        }
-
-        public void SetNewShelfPosition(ShelfInteractable movingShelfInteractable, bool movingRight)
+        public void SetNewShelfPosition(Shelf shelf, bool movingRight)
         {
             if (movingRight)
             {
-                shelfSlots[movingShelfInteractable.currentSlot.slotIndex + 1].ShelfInteractable =
-                    movingShelfInteractable;
-                shelfSlots[movingShelfInteractable.currentSlot.slotIndex].ShelfInteractable = null;
+                shelfSlots[shelf.currentSlot.slotIndex + 1].Shelf =
+                    shelf;
+                shelfSlots[shelf.currentSlot.slotIndex].Shelf = null;
 
-                movingShelfInteractable.currentSlot = shelfSlots[movingShelfInteractable.currentSlot.slotIndex + 1];
-                movingShelfInteractable.UpdatePosition();
+                shelf.currentSlot = shelfSlots[shelf.currentSlot.slotIndex + 1];
             }
             else
             {
-                shelfSlots[movingShelfInteractable.currentSlot.slotIndex - 1].ShelfInteractable =
-                    movingShelfInteractable;
-                shelfSlots[movingShelfInteractable.currentSlot.slotIndex].ShelfInteractable = null;
-                movingShelfInteractable.currentSlot = shelfSlots[movingShelfInteractable.currentSlot.slotIndex - 1];
-                movingShelfInteractable.UpdatePosition();
+                shelfSlots[shelf.currentSlot.slotIndex - 1].Shelf =
+                    shelf;
+                shelfSlots[shelf.currentSlot.slotIndex].Shelf = null;
+                shelf.currentSlot = shelfSlots[shelf.currentSlot.slotIndex - 1];
             }
         }
     }

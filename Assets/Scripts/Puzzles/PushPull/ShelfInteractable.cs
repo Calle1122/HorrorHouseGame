@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using GameConstants;
+﻿using GameConstants;
 using Interaction;
 using UnityEngine;
 
@@ -9,24 +7,14 @@ namespace Puzzles.PushPull
     public class ShelfInteractable : MonoBehaviour, IInteractable
     {
         [SerializeField] private PushPullPuzzle puzzle;
-        [SerializeField] private float animationDuration;
-        public ShelfSlot currentSlot;
+        [SerializeField] private bool fromRightSide;
+        [SerializeField] private Shelf shelf;
+        private bool isEnabled;
 
         private bool isHeld;
         private bool movedThisFrame;
-        private bool isEnabled;
 
-        private void OnEnable()
-        {
-            Game.CharacterHandler.OnHumanMovementInput.AddListener(OnMovementInput);
-            Game.CharacterHandler.OnHumanNoMovementInput.AddListener(OnMovementInput);
-        }
-
-        private void OnDisable()
-        {
-            Game.CharacterHandler.OnHumanMovementInput.RemoveListener(OnMovementInput);
-            Game.CharacterHandler.OnHumanNoMovementInput.RemoveListener(OnMovementInput);
-        }
+        public Shelf Shelf => shelf;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -40,11 +28,14 @@ namespace Puzzles.PushPull
                 return;
             }
 
-            if (other.TryGetComponent<HumanPickupInteraction>(out var humanInteraction))
+            if (!other.TryGetComponent<HumanPickupInteraction>(out var humanInteraction))
             {
-                // TODO: Show input that interaction possible
-                humanInteraction.AddPossibleInteractable(this);
+                return;
             }
+
+            // TODO: Show input that interaction possible
+            Debug.Log("Adding Player");
+            humanInteraction.AddPossibleInteractable(this);
         }
 
         private void OnTriggerExit(Collider other)
@@ -56,6 +47,7 @@ namespace Puzzles.PushPull
 
             if (other.TryGetComponent<HumanPickupInteraction>(out var humanInteraction))
             {
+                // TODO: Can remove UI to show interaction isn't possible anymore here
                 humanInteraction.RemovePossibleInteractable(this);
             }
         }
@@ -72,16 +64,57 @@ namespace Puzzles.PushPull
                 return;
             }
 
+            switch (fromRightSide)
+            {
+                case true when puzzle.CanMoveShelf(this, false, out var canMoveRightIndex):
+                {
+                    DisableInteractable();
+                    switch (canMoveRightIndex)
+                    {
+                        case 1:
+                            puzzle.SetNewShelfPosition(shelf, false);
+                            break;
+                        case 2:
+                            puzzle.SetNewShelfPosition(shelf, true);
+                            break;
+                    }
+
+                    break;
+                }
+                case false when puzzle.CanMoveShelf(this, true, out var canMoveLeftIndex):
+                {
+                    DisableInteractable();
+                    switch (canMoveLeftIndex)
+                    {
+                        case 1:
+                            puzzle.SetNewShelfPosition(shelf, true);
+                            break;
+                        case 2:
+                            puzzle.SetNewShelfPosition(shelf, false);
+                            break;
+                    }
+
+                    break;
+                }
+            }
+
             isHeld = true;
             Game.CharacterHandler.HumanInputMode = InputMode.InQTE;
+            UpdatePosition();
         }
 
         public void StopInteract()
         {
             isHeld = false;
             movedThisFrame = false;
+            EnableInteractable();
             Game.CharacterHandler.HumanInputMode = InputMode.Free;
             puzzle.CheckSolved();
+        }
+
+        public void UpdatePosition()
+        {
+            Shelf.StartLerpPosition(this);
         }
 
         public void EnableInteractable()
@@ -89,51 +122,8 @@ namespace Puzzles.PushPull
             isEnabled = true;
         }
 
-        private void OnMovementInput(Vector3 input)
-        {
-            if (!isHeld || !isEnabled)
-            {
-                return;
-            }
 
-            if (movedThisFrame && input == Vector3.zero)
-            {
-                movedThisFrame = false;
-            }
-
-
-            movedThisFrame = true;
-            if (Math.Abs(input.x - 1) < 0.1f && puzzle.CanMoveShelf(this, true))
-            {
-                puzzle.SetNewShelfPosition(this, true);
-            }
-
-            if (Math.Abs(input.x - -1) < 0.1f && puzzle.CanMoveShelf(this, false))
-            {
-                puzzle.SetNewShelfPosition(this, false);
-            }
-        }
-
-        public void UpdatePosition()
-        {
-            StartCoroutine(LerpPosition());
-        }
-
-        private IEnumerator LerpPosition()
-        {
-            var currentTime = 0f;
-            var currentPosition = transform.position;
-            var targetPosition = currentSlot.transform.position;
-            while (currentTime < animationDuration)
-            {
-                currentTime += Time.deltaTime;
-                var newPosition = Vector3.Lerp(currentPosition, targetPosition, currentTime / animationDuration);
-                transform.position = newPosition;
-                yield return null;
-            }
-        }
-
-        public void DisableInteraction()
+        public void DisableInteractable()
         {
             isEnabled = false;
         }
