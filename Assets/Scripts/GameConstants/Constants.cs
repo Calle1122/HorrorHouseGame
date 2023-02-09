@@ -20,5 +20,12 @@
         public const string Interact = "Interact";
         public const string Jump = "Jump";
         public const string Cancel = "Cancel";
+        
+        // Music Channels
+        public const string MasterVol = "MasterVolume";
+        public const string MusicVol = "MusicVolume";
+        public const string SfxVol = "SfxVolume";
+        public const string DialogueVol = "DialogueVolume";
+        public const string AmbientVol = "AmbientVolume";
     }
 }

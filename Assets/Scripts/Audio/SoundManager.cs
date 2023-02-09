@@ -4,6 +4,9 @@ namespace Audio
 {
     public class SoundManager : MonoBehaviour
     {
+        
+        public GameObject musicSource, sfxSource, dialogueSource, ambientSource;
+        
         public static SoundManager Instance { get; private set; }
 
         private void Awake()

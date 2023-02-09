@@ -44,3 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfb9fe6105f840442963d588ccee23b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicSource: {fileID: 6826163025354750151, guid: 3d98b2a628a906943912f348132cd66e,
+    type: 3}
+  sfxSource: {fileID: 6826163025354750151, guid: 64cd46486ca4046489314472e0a33d55,
+    type: 3}
+  dialogueSource: {fileID: 6826163025354750151, guid: 8c2cd1e761bd375409342bfa853b7fc8,
+    type: 3}
+  ambientSource: {fileID: 6826163025354750151, guid: 13d76f57ee798b047a3eb463bfa49e64,
+    type: 3}
