@@ -36,7 +36,7 @@ namespace QTESystem
                         input.sprite = inputData.controllerSprite;
                         break;
                     case InputMode.Keyboard:
-                        input.sprite = inputData.keyboardSprite;
+                        input.sprite = inputData.controllerSprite;
                         break;
                     case InputMode.Mobile:
                         input.sprite = inputData.mobileSprite;

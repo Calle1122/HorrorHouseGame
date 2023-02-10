@@ -98,6 +98,8 @@ namespace UI
 
         private void ClosePopup()
         {
+            Game.CharacterHandler.HumanInputMode = InputMode.Free;
+            
             _isOpen = false;
             _targetSize = 0f;
 
@@ -110,6 +112,8 @@ namespace UI
 
         private void OpenPopup()
         {
+            Game.CharacterHandler.HumanInputMode = InputMode.MovementLimited;
+            
             _isOpen = true;
             _targetSize = 1f;
 

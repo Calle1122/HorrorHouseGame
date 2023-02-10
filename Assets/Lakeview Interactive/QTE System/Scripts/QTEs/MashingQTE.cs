@@ -97,7 +97,8 @@ namespace QTESystem
                     break;
                 default:
                     Debug.LogError(
-                        $"[{name}] QTE needs to have a character type! Set in SetCharacterType() when instantiating or enabling!", this);
+                        $"[{name}] QTE needs to have a character type! Set in SetCharacterType() when instantiating or enabling!",
+                        this);
                     throw new ArgumentOutOfRangeException();
             }
         }
@@ -116,7 +117,6 @@ namespace QTESystem
 
         private void OnDisable()
         {
-            // UNSUBSCRIBE INPUTS
             switch (characterType)
             {
                 case CharacterType.Human:
@@ -144,13 +144,15 @@ namespace QTESystem
                             break;
                         default:
                             Debug.LogError(
-                                $"[{name}] QTE needs to have a character type! Set in SetCharacterType() when instantiating or enabling!", this);
+                                $"[{name}] QTE needs to have a character type! Set in SetCharacterType() when instantiating or enabling!",
+                                this);
                             return;
                     }
 
                     // If pressed, increase progress
                     // InputIsDownThisFrame
-                    if (inputData && inputData.IsDown())
+                    // inputData && inputData.IsDown()
+                    if (InputIsDownThisFrame)
                     {
                         progress += (1.0f / timesToHit);
 
@@ -182,7 +184,10 @@ namespace QTESystem
                     break;
                 }
             }
+        }
 
+        private void LateUpdate()
+        {
             InputIsDownThisFrame = false;
         }
 
