@@ -76,9 +76,11 @@ namespace Puzzle
             switch (isHuman)
             {
                 case true:
+                    Game.CharacterHandler.HumanInputMode = InputMode.MovementLimited;
                     qteObject.GetComponentInChildren<MashingQTE>().SetCharType(CharacterType.Human);
                     break;
                 case false:
+                    Game.CharacterHandler.GhostInputMode = InputMode.MovementLimited;
                     qteObject.GetComponentInChildren<MashingQTE>().SetCharType(CharacterType.Ghost);
                     break;
             }
@@ -87,6 +89,20 @@ namespace Puzzle
         public void ResetQteTimer(float secondsToWait)
         {
             StartCoroutine(QteCooldown(secondsToWait));
+            EnableMovementInput();
+        }
+
+        public void EnableMovementInput()
+        {
+            switch (isHuman)
+            {
+                case true:
+                    Game.CharacterHandler.HumanInputMode = InputMode.Free;
+                    break;
+                case false:
+                    Game.CharacterHandler.GhostInputMode = InputMode.Free;
+                    break;
+            }
         }
 
         private IEnumerator QteCooldown(float secondsToWait)
