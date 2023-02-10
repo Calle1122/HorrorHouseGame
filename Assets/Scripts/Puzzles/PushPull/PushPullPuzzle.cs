@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Audio;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,6 +12,8 @@ namespace Puzzles.PushPull
 
         [SerializeField] private List<GameObject> shelfGameObjects = new List<GameObject>();
         [SerializeField] private List<GameObject> shelfSlotsObjects = new List<GameObject>();
+
+        public SfxSO pushSfx;
 
         private readonly List<ShelfSlot> correctSlots = new List<ShelfSlot>();
         private readonly List<ShelfSlot> shelfSlots = new List<ShelfSlot>();

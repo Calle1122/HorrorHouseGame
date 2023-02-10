@@ -1,4 +1,5 @@
-﻿using GameConstants;
+﻿using Audio;
+using GameConstants;
 using Interaction;
 using UnityEngine;
 
@@ -98,6 +99,7 @@ namespace Puzzles.PushPull
                 }
             }
 
+            SoundManager.Instance.PlaySfx(puzzle.pushSfx);
             isHeld = true;
             Game.CharacterHandler.HumanInputMode = InputMode.InQTE;
             UpdatePosition();
