@@ -14,21 +14,30 @@ namespace Puzzle
 
         [SerializeField] private GameObject qteObjectRight;
         [SerializeField] private GameObject qteObjectLeft;
-        [SerializeField] private bool canActivate = true;
+        public bool canActivate = true;
         [SerializeField] private DialogueSo waitingDialogue;
 
         private int _successCounter;
 
         public void GhostInteract()
         {
+            if (!canActivate)
+            {
+                return;
+            }
+            
             StartCoroutine(TimedDialogue());
             CheckToStartQte();
         }
 
         public void HumanInteract()
         {
+            if (!canActivate)
+            {
+                return;
+            }
+            
             StartCoroutine(TimedDialogue());
-
             CheckToStartQte();
         }
 
@@ -59,6 +68,13 @@ namespace Puzzle
         public void ResetQteTimer(float secondsToWait)
         {
             StartCoroutine(QteCooldown(secondsToWait));
+            EnableMovementInput();
+        }
+
+        public void EnableMovementInput()
+        {
+            Game.CharacterHandler.HumanInputMode = InputMode.Free;
+            Game.CharacterHandler.GhostInputMode = InputMode.Free;
         }
 
         private IEnumerator QteCooldown(float secondsToWait)
@@ -67,6 +83,9 @@ namespace Puzzle
             ghostIsInteracting = false;
             _successCounter = 0;
 
+            qteObjectLeft.GetComponent<CoOpTrigger>()._triggerIsInteracting = false;
+            qteObjectRight.GetComponent<CoOpTrigger>()._triggerIsInteracting = false;
+            
             qteObjectRight.SetActive(false);
             qteObjectLeft.SetActive(false);
 
@@ -93,6 +112,10 @@ namespace Puzzle
 
         public void CompleteEvent()
         {
+            EnableMovementInput();
+            
+            Debug.Log("completed CoOp QTE");
+            canActivate = false;
             eventToRaise.RaiseEvent();
             DisableTrigger();
         }

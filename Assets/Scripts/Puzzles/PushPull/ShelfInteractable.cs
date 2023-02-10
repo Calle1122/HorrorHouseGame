@@ -101,7 +101,7 @@ namespace Puzzles.PushPull
 
             SoundManager.Instance.PlaySfx(puzzle.pushSfx);
             isHeld = true;
-            Game.CharacterHandler.HumanInputMode = InputMode.InQTE;
+            Game.CharacterHandler.HumanInputMode = InputMode.MovementLimited;
             UpdatePosition();
         }
 
