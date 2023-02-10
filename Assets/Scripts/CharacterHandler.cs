@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using GameConstants;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -175,8 +176,8 @@ public class CharacterHandler : MonoBehaviour
 
     private void SpawnCharacters()
     {
-        humanPlayer = Instantiate(humanPrefab);
-        ghostPlayer = Instantiate(ghostPrefab);
+        humanPlayer = Instantiate(humanPrefab, new Vector3(0, 1, 15), quaternion.identity);
+        ghostPlayer = Instantiate(ghostPrefab, new Vector3(0, 1, 15), quaternion.identity);
 
         foreach (var action in player1Input.currentActionMap.actions)
         {

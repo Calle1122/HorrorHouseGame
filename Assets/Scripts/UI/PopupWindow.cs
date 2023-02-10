@@ -9,6 +9,7 @@ namespace UI
 {
     public class PopupWindow : MonoBehaviour
     {
+        [HideInInspector]
         public bool canInteract;
         private bool _isOpen, _largeItemOpen;
 
@@ -168,9 +169,7 @@ namespace UI
             if (popupHasItem && !_hasGottenItem && _selectIndex == itemPosition)
             {
                 _hasGottenItem = true;
-                Instantiate(popupItem,
-                    new Vector3(transform.position.x, transform.position.y, transform.position.z - 2.5f),
-                    Quaternion.identity);
+                popupItem.SetActive(true);
 
                 if (eventToTrigger != null)
                 {

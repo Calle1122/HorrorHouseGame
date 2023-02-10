@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Audio;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,8 +13,12 @@ namespace Puzzles.PushPull
         [SerializeField] private List<GameObject> shelfGameObjects = new List<GameObject>();
         [SerializeField] private List<GameObject> shelfSlotsObjects = new List<GameObject>();
 
+        public SfxSO pushSfx;
+
         private readonly List<ShelfSlot> correctSlots = new List<ShelfSlot>();
         private readonly List<ShelfSlot> shelfSlots = new List<ShelfSlot>();
+
+        private bool _isSolved;
 
         private void Awake()
         {
@@ -123,11 +128,11 @@ namespace Puzzles.PushPull
 
         public void CheckSolved()
         {
-            if (correctSlots.Any(correctSlot => correctSlot.Shelf == null))
+            if (_isSolved || correctSlots.Any(correctSlot => correctSlot.Shelf == null))
             {
                 return;
             }
-
+            _isSolved = true;
             onSolved.Invoke();
             DisablePuzzle();
         }
