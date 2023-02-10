@@ -1,132 +1,79 @@
-using System.Collections;
-using Audio;
-using Events;
+﻿using System;
+using GameConstants;
 using UnityEngine;
+using static Puzzle.PuzzleTrigger;
 
 namespace Puzzle
 {
     public class CoOpTrigger : MonoBehaviour
     {
-        public DefaultEvent eventToRaise;
+        [SerializeField] private CoOpTriggerHandler handler;
+        [SerializeField] private bool isRightSide;
+        private bool canInteract;
+        private TriggerProfile triggerProfile;
 
-        [SerializeField] private GameObject qteObjectH, qteObjectG;
+        private void OnEnable()
+        {
+            Game.CharacterHandler.OnHumanInteract.AddListener(OnHumanInteract);
+            Game.CharacterHandler.OnHumanInteract.AddListener(OnGhostInteract);
+        }
 
-        [SerializeField] private bool ghostIsInteracting, humanIsInteracting;
-
-        [SerializeField] private bool canActivate = true;
-
-        [SerializeField] private DialogueSo waitingDialogue;
-
-        private int _successCounter = 0;
+        private void OnDisable()
+        {
+            Game.CharacterHandler.OnHumanInteract.AddListener(OnHumanInteract);
+            Game.CharacterHandler.OnHumanInteract.AddListener(OnGhostInteract);
+        }
 
         private void OnTriggerEnter(Collider other)
         {
-            //Human layer
-            if (other.gameObject.layer == 9)
+            if (other.CompareTag(Tags.PlayerTag))
             {
-                Game.CharacterHandler.OnHumanInteract.AddListener(HumanInteract);
+                triggerProfile = TriggerProfile.HumanTrigger;
+                canInteract = true;
             }
-
-            //Ghost layer
-            if (other.gameObject.layer == 6)
+            else if (other.CompareTag(Tags.GhostTag))
             {
-                Game.CharacterHandler.OnGhostInteract.AddListener(GhostInteract);
+                triggerProfile = TriggerProfile.GhostTrigger;
+                canInteract = true;
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            //Human layer
-            if (other.gameObject.layer == 9)
+            switch (triggerProfile)
             {
-                Game.CharacterHandler.OnHumanInteract.RemoveListener(HumanInteract);
-            }
-
-            //Ghost layer
-            if (other.gameObject.layer == 6)
-            {
-                Game.CharacterHandler.OnGhostInteract.RemoveListener(GhostInteract);
-            }
-        }
-
-        private void GhostInteract()
-        {
-            ghostIsInteracting = true;
-            StartCoroutine(TimedDialogue());
-            CheckToStartQte();
-        }
-
-        private void HumanInteract()
-        {
-            humanIsInteracting = true;
-            StartCoroutine(TimedDialogue());
-            CheckToStartQte();
-        }
-
-        private void CheckToStartQte()
-        {
-            if (ghostIsInteracting && humanIsInteracting && canActivate)
-            {
-                canActivate = false;
-                qteObjectG.SetActive(true);
-                qteObjectH.SetActive(true);
+                case TriggerProfile.HumanTrigger when other.CompareTag(Tags.PlayerTag):
+                case TriggerProfile.GhostTrigger when other.CompareTag(Tags.GhostTag):
+                    canInteract = false;
+                    break;
+                default:
+                    Debug.LogError($"[{this}] Trigger profile has no state!", this);
+                    throw new ArgumentOutOfRangeException();
             }
         }
 
-        public void ResetQteTimer(float secondsToWait)
+        private void OnGhostInteract()
         {
-            StartCoroutine(QteCooldown(secondsToWait));
-        }
-
-        private IEnumerator QteCooldown(float secondsToWait)
-        {
-            humanIsInteracting = false;
-            ghostIsInteracting = false;
-            _successCounter = 0;
-
-            qteObjectH.SetActive(false);
-            qteObjectG.SetActive(false);
-
-            yield return new WaitForSeconds(secondsToWait);
-
-            canActivate = true;
-        }
-
-        private void DestroyTrigger()
-        {
-            Game.CharacterHandler.OnHumanInteract.RemoveListener(HumanInteract);
-            Game.CharacterHandler.OnGhostInteract.RemoveListener(GhostInteract);
-            Destroy(gameObject);
-        }
-
-        public void AddSuccess()
-        {
-            _successCounter++;
-            if (_successCounter == 2)
+            if (!canInteract || triggerProfile != TriggerProfile.GhostTrigger)
             {
-                CompleteEvent();
-            }
-        }
-
-        public void CompleteEvent()
-        {
-            eventToRaise.RaiseEvent();
-            DestroyTrigger();
-        }
-
-        private IEnumerator TimedDialogue()
-        {
-            yield return new WaitForSeconds(5f);
-
-            if (ghostIsInteracting && !humanIsInteracting)
-            {
-                DialogueCanvas.Instance.QueueDialogue(waitingDialogue);
+                return;
             }
 
-            if (humanIsInteracting && !ghostIsInteracting)
+            handler.humanIsRightSide = !isRightSide;
+            handler.ghostIsInteracting = true;
+            handler.GhostInteract();
+        }
+
+        private void OnHumanInteract()
+        {
+            if (!canInteract || triggerProfile != TriggerProfile.HumanTrigger)
             {
-                DialogueCanvas.Instance.QueueDialogue(waitingDialogue);
+                return;
             }
+
+            handler.humanIsRightSide = isRightSide;
+            handler.humanIsInteracting = true;
+            handler.HumanInteract();
         }
     }
 }

@@ -1,15 +1,13 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Interaction
 {
     public class HumanPickupInteraction : MonoBehaviour, IInteraction
     {
-        private IInteractable heldInteractable;
-
         // ReSharper disable once ArrangeObjectCreationWhenTypeEvident
-        private List<IInteractable> possibleInteractables = new List<IInteractable>();
+        private readonly List<IInteractable> possibleInteractables = new List<IInteractable>();
+        private IInteractable heldInteractable;
 
         private void OnEnable()
         {
@@ -28,20 +26,22 @@ namespace Interaction
 
         public void AddPossibleInteractable(IInteractable pickUpInteractable)
         {
-            if (!possibleInteractables.Contains(pickUpInteractable))
+            if (possibleInteractables.Contains(pickUpInteractable))
             {
-                Debug.Log($"Added {pickUpInteractable} to interactables.");
-                possibleInteractables.Add(pickUpInteractable);
+                return;
             }
+
+            possibleInteractables.Add(pickUpInteractable);
         }
 
         public void RemovePossibleInteractable(IInteractable pickUpInteractable)
         {
-            if (possibleInteractables.Contains(pickUpInteractable))
+            if (!possibleInteractables.Contains(pickUpInteractable))
             {
-                Debug.Log($"Removed {pickUpInteractable} from possible interactables.");
-                possibleInteractables.Remove(pickUpInteractable);
+                return;
             }
+
+            possibleInteractables.Remove(pickUpInteractable);
         }
 
         public void OnInteract()
@@ -53,6 +53,12 @@ namespace Interaction
             }
 
             InteractClosestInteractable();
+        }
+
+        public void StopInteract()
+        {
+            heldInteractable.StopInteract();
+            heldInteractable = null;
         }
 
         private void InteractClosestInteractable()
@@ -84,12 +90,6 @@ namespace Interaction
 
             heldInteractable = closestInteractable;
             closestInteractable.Interact(this);
-        }
-
-        public void StopInteract()
-        {
-            heldInteractable.StopInteract();
-            heldInteractable = null;
         }
     }
 }
