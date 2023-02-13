@@ -1,21 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using GameConstants;
-using Movement;
+﻿using GameConstants;
 using UnityEngine;
-using static Puzzle.PuzzleTrigger;
 
 namespace Puzzle
 {
     public class CoOpTrigger : MonoBehaviour
     {
+        [SerializeField] private GameObject interactSprite;
         [SerializeField] private CoOpTriggerHandler handler;
-        [SerializeField] private bool isRightSide;
-        private bool isInTrigger;
-        public bool _triggerIsInteracting;
-        private TriggerProfile triggerProfile;
-        
-        private List<MovementBase> _charactersInTrigger = new List<MovementBase>();
+        private bool _humanInTrigger, _ghostInTrigger;
 
         private void OnEnable()
         {
@@ -31,85 +23,97 @@ namespace Puzzle
 
         private void OnTriggerEnter(Collider other)
         {
+            if (!other.CompareTag(Tags.PlayerTag) && !other.CompareTag(Tags.GhostTag))
+            {
+                return;
+            }
+
             if (other.CompareTag(Tags.PlayerTag))
             {
-                triggerProfile = TriggerProfile.HumanTrigger;
-                isInTrigger = true;
-                
-                var movementBase = other.GetComponent<MovementBase>();
-                if (_charactersInTrigger.Contains(movementBase))
-                {
-                    return;
-                }
-                _charactersInTrigger.Add(movementBase);
+                _humanInTrigger = true;
             }
-            else if (other.CompareTag(Tags.GhostTag))
+            else
             {
-                triggerProfile = TriggerProfile.GhostTrigger;
-                isInTrigger = true;
-                
-                var movementBase = other.GetComponent<MovementBase>();
-                if (_charactersInTrigger.Contains(movementBase))
-                {
-                    return;
-                }
-                _charactersInTrigger.Add(movementBase);
+                _ghostInTrigger = true;
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            if (!handler.canActivate)
+            if (!other.CompareTag(Tags.PlayerTag) && !other.CompareTag(Tags.GhostTag))
             {
                 return;
             }
-
-            var movementBase = other.GetComponent<MovementBase>();
-            if (_charactersInTrigger.Contains(movementBase))
+            
+            if (other.CompareTag(Tags.PlayerTag))
             {
-                _charactersInTrigger.Remove(movementBase);
+                _humanInTrigger = false;
             }
-
-            if (_charactersInTrigger.Count == 0)
+            else
             {
-                isInTrigger = false;
+                _ghostInTrigger = false;
             }
             
-            switch (triggerProfile)
+            ToggleInteractUI(false);
+        }
+
+        private void OnTriggerStay(Collider other)
+        {
+            if (!other.CompareTag(Tags.PlayerTag) && !other.CompareTag(Tags.GhostTag)) return;
+            if (handler.humanIsInteracting && handler.ghostIsInteracting)
             {
-                case TriggerProfile.HumanTrigger when other.CompareTag(Tags.PlayerTag):
-                case TriggerProfile.GhostTrigger when other.CompareTag(Tags.GhostTag):
-                    isInTrigger = false;
-                    break;
+                ToggleInteractUI(false);
+            }
+            else
+            {
+                ToggleInteractUI(true);
+            }
+
+            if (_humanInTrigger && !_ghostInTrigger)
+            {
+                if (handler.humanIsInteracting)
+                {
+                    ToggleInteractUI(false);
+                }
+            }
+
+            if (!_humanInTrigger && _ghostInTrigger)
+            {
+                if (handler.ghostIsInteracting)
+                {
+                    ToggleInteractUI(false);
+                }
+            }
+        }
+
+        private void ToggleInteractUI(bool activeState)
+        {
+            if (interactSprite != null)
+            {
+                interactSprite.SetActive(activeState);
             }
         }
 
         private void OnGhostInteract()
         {
-            if (!isInTrigger || triggerProfile != TriggerProfile.GhostTrigger)
+            if(!_ghostInTrigger)
             {
                 return;
             }
 
-            _triggerIsInteracting = true;
             Game.CharacterHandler.GhostInputMode = InputMode.MovementLimited;
-
-            handler.humanIsRightSide = !isRightSide;
             handler.ghostIsInteracting = true;
             handler.GhostInteract();
         }
 
         private void OnHumanInteract()
         {
-            if (!isInTrigger || triggerProfile != TriggerProfile.HumanTrigger)
+            if(!_humanInTrigger)
             {
                 return;
             }
 
-            _triggerIsInteracting = true;
             Game.CharacterHandler.HumanInputMode = InputMode.MovementLimited;
-
-            handler.humanIsRightSide = isRightSide;
             handler.humanIsInteracting = true;
             handler.HumanInteract();
         }
