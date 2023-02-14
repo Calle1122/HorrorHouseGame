@@ -17,7 +17,16 @@ namespace Puzzle
 
         [SerializeField] private GameObject qteObject;
         [SerializeField] private bool canActivate;
+        [SerializeField] private GameObject interactSprite;
         private bool isHuman;
+
+        private void Start()
+        {
+            if (interactSprite.activeSelf)
+            {
+                interactSprite.SetActive(false);
+            }
+        }
 
         private void OnEnable()
         {
@@ -55,12 +64,22 @@ namespace Puzzle
 
         private void OnTriggerEnter(Collider other)
         {
+            ToggleInteractUI();
             canActivate = true;
         }
 
         private void OnTriggerExit(Collider other)
         {
+            ToggleInteractUI();
             canActivate = false;
+        }
+
+        private void ToggleInteractUI()
+        {
+            if (interactSprite != null)
+            {
+                interactSprite.SetActive(!interactSprite.activeSelf);
+            }
         }
 
         private void EnableQte()

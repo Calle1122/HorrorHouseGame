@@ -10,12 +10,21 @@ namespace Puzzles.PushPull
         [SerializeField] private PushPullPuzzle puzzle;
         [SerializeField] private bool fromRightSide;
         [SerializeField] private Shelf shelf;
+        [SerializeField] private GameObject interactSprite;
         private bool isEnabled;
 
         private bool isHeld;
         private bool movedThisFrame;
 
         public Shelf Shelf => shelf;
+
+        private void Start()
+        {
+            if (interactSprite.activeSelf)
+            {
+                interactSprite.SetActive(false);
+            }
+        }
 
         private void OnTriggerEnter(Collider other)
         {
@@ -50,6 +59,7 @@ namespace Puzzles.PushPull
             {
                 // TODO: Can remove UI to show interaction isn't possible anymore here
                 humanInteraction.RemovePossibleInteractable(this);
+                interactSprite.SetActive(false);
             }
         }
 
@@ -112,6 +122,30 @@ namespace Puzzles.PushPull
             EnableInteractable();
             Game.CharacterHandler.HumanInputMode = InputMode.Free;
             puzzle.CheckSolved();
+        }
+
+        public void ToggleUI()
+        {
+            if (interactSprite != null)
+            {
+                interactSprite.SetActive(!interactSprite.activeSelf);
+            }
+        }
+
+        public void ToggleOnUI()
+        {
+            if (interactSprite != null)
+            {
+                interactSprite.SetActive(true);
+            }
+        }
+
+        public void ToggleOffUI()
+        {
+            if (interactSprite != null)
+            {
+                interactSprite.SetActive(false);
+            }
         }
 
         public void UpdatePosition()
