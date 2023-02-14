@@ -54,7 +54,7 @@ namespace Interaction
 
             if (other.TryGetComponent<HumanPickupInteraction>(out var humanInteraction))
             {
-                // TODO: Show input that interaction possiblen
+                // TODO: Show input that interaction possible
                 humanInteraction.AddPossibleInteractable(this);
             }
         }
