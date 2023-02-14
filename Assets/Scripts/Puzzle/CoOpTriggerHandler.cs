@@ -21,25 +21,35 @@ namespace Puzzle
 
         public void GhostInteract()
         {
-            if (!canActivate) return;
-            if (!ghostIsInteracting) return;
+            if (!canActivate || !ghostIsInteracting)
+            {
+                return;
+            }
+
             StartCoroutine(TimedDialogue());
             CheckToStartQte();
         }
 
         public void HumanInteract()
         {
-            if (!canActivate) return;
-            if (!humanIsInteracting) return;
+            if (!canActivate || !humanIsInteracting)
+            {
+                return;
+            }
+
             StartCoroutine(TimedDialogue());
             CheckToStartQte();
         }
 
         private void CheckToStartQte()
         {
-            if (!ghostIsInteracting || !humanIsInteracting || !canActivate) return;
+            if (!ghostIsInteracting || !humanIsInteracting || !canActivate)
+            {
+                return;
+            }
+
             canActivate = false;
-            
+
             qteObjectLeft.SetActive(true);
             qteObjectRight.SetActive(true);
             qteObjectRight.GetComponentInChildren<MashingQTE>().SetCharType(CharacterType.Human);
