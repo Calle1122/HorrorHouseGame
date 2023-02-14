@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using GameConstants;
 using Unity.Mathematics;
 using UnityEngine;
@@ -121,6 +120,8 @@ public class CharacterHandler : MonoBehaviour
             }
         }
     }
+    
+    // TODO: Create a event handler to add listeners and subscribe to events, separate the logic
 
     private void HumanMovementInput(InputAction.CallbackContext context)
     {
@@ -179,25 +180,29 @@ public class CharacterHandler : MonoBehaviour
         humanPlayer = Instantiate(humanPrefab, new Vector3(0, 1, 15), quaternion.identity);
         ghostPlayer = Instantiate(ghostPrefab, new Vector3(0, 1, 15), quaternion.identity);
 
+        if (player1Input == null)
+        {
+            return;
+        }
+
         foreach (var action in player1Input.currentActionMap.actions)
         {
-            if (action.name == Strings.Move)
+            switch (action.name)
             {
-                action.performed += HumanMovementInput;
-                action.canceled += HumanNoMovementInput;
-            }
-            else if (action.name == Strings.Jump)
-            {
-                action.started += HumanJumpPressed;
-                action.canceled += HumanJumpReleased;
-            }
-            else if (action.name == Strings.Interact)
-            {
-                action.started += HumanInteract;
-            }
-            else if (action.name == Strings.Cancel)
-            {
-                action.started += HumanCancel;
+                case Strings.Move:
+                    action.performed += HumanMovementInput;
+                    action.canceled += HumanNoMovementInput;
+                    break;
+                case Strings.Jump:
+                    action.started += HumanJumpPressed;
+                    action.canceled += HumanJumpReleased;
+                    break;
+                case Strings.Interact:
+                    action.started += HumanInteract;
+                    break;
+                case Strings.Cancel:
+                    action.started += HumanCancel;
+                    break;
             }
         }
 
@@ -208,23 +213,22 @@ public class CharacterHandler : MonoBehaviour
 
         foreach (var action in player2Input.currentActionMap.actions)
         {
-            if (action.name == Strings.Move)
+            switch (action.name)
             {
-                action.performed += GhostMovementInput;
-                action.canceled += GhostNoMovementInput;
-            }
-            else if (action.name == Strings.Jump)
-            {
-                action.started += GhostJumpPressed;
-                action.canceled += GhostJumpReleased;
-            }
-            else if (action.name == Strings.Interact)
-            {
-                action.started += GhostInteract;
-            }
-            else if (action.name == Strings.Cancel)
-            {
-                action.started += GhostCancel;
+                case Strings.Move:
+                    action.performed += GhostMovementInput;
+                    action.canceled += GhostNoMovementInput;
+                    break;
+                case Strings.Jump:
+                    action.started += GhostJumpPressed;
+                    action.canceled += GhostJumpReleased;
+                    break;
+                case Strings.Interact:
+                    action.started += GhostInteract;
+                    break;
+                case Strings.Cancel:
+                    action.started += GhostCancel;
+                    break;
             }
         }
 
