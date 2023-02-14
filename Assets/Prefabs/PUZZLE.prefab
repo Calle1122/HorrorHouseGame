@@ -2319,6 +2319,7 @@ GameObject:
   - component: {fileID: 2180115755903957626}
   - component: {fileID: 2180115755903957627}
   - component: {fileID: 2180115755903957629}
+  - component: {fileID: 2446211134804797972}
   m_Layer: 0
   m_Name: PushedSofaState
   m_TagString: Untagged
@@ -2406,6 +2407,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2446211134804797972}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.SetMainObjective, Assembly-CSharp
+        m_MethodName: SetObjective
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Unlock the Cabinet
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2180115755903957627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2430,6 +2443,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acf1ddaa815d8414a8d3903164c8d87e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2446211134804797972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2180115755903957624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6ebc4410687244997a97099d9dc8f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2180115755977025665
 GameObject:
   m_ObjectHideFlags: 0
@@ -2442,6 +2467,7 @@ GameObject:
   - component: {fileID: 2180115755977025668}
   - component: {fileID: 2180115755977025667}
   - component: {fileID: 2180115755977025669}
+  - component: {fileID: 6370347465779240489}
   m_Layer: 0
   m_Name: StartState
   m_TagString: Untagged
@@ -2518,6 +2544,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6370347465779240489}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.SetMainObjective, Assembly-CSharp
+        m_MethodName: SetObjective
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Unlock the Door
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2180115755977025667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2542,6 +2580,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bba58012a864e94982e937e39e04507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6370347465779240489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2180115755977025665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6ebc4410687244997a97099d9dc8f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2180115756062819117
 GameObject:
   m_ObjectHideFlags: 0
@@ -2555,6 +2605,7 @@ GameObject:
   - component: {fileID: 2180115756062819104}
   - component: {fileID: 2180115756062819105}
   - component: {fileID: 2180115756062819089}
+  - component: {fileID: 2321648444188994814}
   m_Layer: 0
   m_Name: OpenedBoxState
   m_TagString: Untagged
@@ -2679,6 +2730,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2321648444188994814}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.SetMainObjective, Assembly-CSharp
+        m_MethodName: SetObjective
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Push the Sofa
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2180115756062819104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2715,6 +2778,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acf1ddaa815d8414a8d3903164c8d87e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2321648444188994814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2180115756062819117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6ebc4410687244997a97099d9dc8f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2180115756078037051
 GameObject:
   m_ObjectHideFlags: 0
@@ -2727,6 +2802,7 @@ GameObject:
   - component: {fileID: 2180115756078037053}
   - component: {fileID: 2180115756078037054}
   - component: {fileID: 2180115756078037025}
+  - component: {fileID: 8216972943958733403}
   m_Layer: 0
   m_Name: DoorOpenedState
   m_TagString: Untagged
@@ -2826,6 +2902,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8216972943958733403}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.SetMainObjective, Assembly-CSharp
+        m_MethodName: SetObjective
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Enter the Living Room
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2180115756078037054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2848,6 +2936,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acf1ddaa815d8414a8d3903164c8d87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8216972943958733403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2180115756078037051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6ebc4410687244997a97099d9dc8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2180115756107943524
@@ -3589,6 +3689,8 @@ GameObject:
   - component: {fileID: 2180115756928372988}
   - component: {fileID: 2180115756928372961}
   - component: {fileID: 2180115756928372960}
+  - component: {fileID: 3588053756784298062}
+  - component: {fileID: 904309002294080340}
   m_Layer: 0
   m_Name: FinishState
   m_TagString: Untagged
@@ -3825,6 +3927,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3588053756784298062}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.SetMainObjective, Assembly-CSharp
+        m_MethodName: SetObjective
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Enter the Library
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2180115756928372976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3907,6 +4021,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f8f54b0ad13ce142be67b27700a11e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3588053756784298062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2180115756928372985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6ebc4410687244997a97099d9dc8f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &904309002294080340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2180115756928372985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fa4147e7ff1d64479bc0ef760c3b87c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2180115757113948353
@@ -5166,6 +5304,7 @@ GameObject:
   - component: {fileID: 2764523223707824685}
   - component: {fileID: 2764523223707824686}
   - component: {fileID: 2764523223707824687}
+  - component: {fileID: 3190208303429083742}
   m_Layer: 0
   m_Name: TriedOpenDesk
   m_TagString: Untagged
@@ -5278,6 +5417,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3190208303429083742}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.SetMainObjective, Assembly-CSharp
+        m_MethodName: SetObjective
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Help eachother open the Desk
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2764523223707824683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5336,6 +5487,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acf1ddaa815d8414a8d3903164c8d87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3190208303429083742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2764523223707824681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6ebc4410687244997a97099d9dc8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2764523223710182505
@@ -5892,6 +6055,7 @@ GameObject:
   - component: {fileID: 2764523224059792556}
   - component: {fileID: 2764523224059792558}
   - component: {fileID: 2764523224059792559}
+  - component: {fileID: 2761479865315321661}
   m_Layer: 0
   m_Name: HasReadPaper
   m_TagString: Untagged
@@ -5978,6 +6142,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2761479865315321661}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.SetMainObjective, Assembly-CSharp
+        m_MethodName: SetObjective
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Look for the Correct Book
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2764523224059792559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5988,6 +6164,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bba58012a864e94982e937e39e04507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2761479865315321661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2764523224059792557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6ebc4410687244997a97099d9dc8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2764523224145366233
@@ -6074,6 +6262,7 @@ GameObject:
   - component: {fileID: 2764523224180838936}
   - component: {fileID: 2764523224180838938}
   - component: {fileID: 2764523224180838939}
+  - component: {fileID: 5073347290497890020}
   m_Layer: 0
   m_Name: EnteredLibrary
   m_TagString: Untagged
@@ -6177,6 +6366,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5073347290497890020}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.SetMainObjective, Assembly-CSharp
+        m_MethodName: SetObjective
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Puzzle the Bookshelves in place
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2764523224180838939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6187,6 +6388,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ea817e709e63904c9112836b73b2ee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5073347290497890020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2764523224180838937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6ebc4410687244997a97099d9dc8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2764523224182753091
@@ -6748,6 +6961,7 @@ Transform:
   m_Children:
   - {fileID: 2438477391812207049}
   - {fileID: 2764523225216046594}
+  - {fileID: 8781099871414006600}
   m_Father: {fileID: 2764523224176454970}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7365,6 +7579,7 @@ GameObject:
   - component: {fileID: 2764523224531696302}
   - component: {fileID: 2764523224531696303}
   - component: {fileID: 2764523224531696273}
+  - component: {fileID: 270093472996405580}
   m_Layer: 0
   m_Name: GottenTamagotchi
   m_TagString: Untagged
@@ -7530,6 +7745,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 270093472996405580}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.SetMainObjective, Assembly-CSharp
+        m_MethodName: SetObjective
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Find the Attic
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2764523224531696301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7576,6 +7803,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d858c09402d7944448c843ee6feffae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &270093472996405580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2764523224531696299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6ebc4410687244997a97099d9dc8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2764523224535540092
@@ -7899,6 +8138,7 @@ GameObject:
   - component: {fileID: 2764523224682558316}
   - component: {fileID: 2764523224682558319}
   - component: {fileID: 2764523224682558318}
+  - component: {fileID: 952522683033876139}
   m_Layer: 0
   m_Name: FoundKey
   m_TagString: Untagged
@@ -7989,6 +8229,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 952522683033876139}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.SetMainObjective, Assembly-CSharp
+        m_MethodName: SetObjective
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Unlock the Desk
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2764523224682558318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7999,6 +8251,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ea817e709e63904c9112836b73b2ee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &952522683033876139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2764523224682558317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6ebc4410687244997a97099d9dc8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2764523224701095833
@@ -9143,6 +9407,7 @@ GameObject:
   - component: {fileID: 2764523225224098527}
   - component: {fileID: 2764523225224098524}
   - component: {fileID: 2764523225224098526}
+  - component: {fileID: 8725145811963214611}
   m_Layer: 0
   m_Name: OnPreassureSolved
   m_TagString: Untagged
@@ -9334,6 +9599,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8725145811963214611}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.SetMainObjective, Assembly-CSharp
+        m_MethodName: SetObjective
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Listen to the Walkman
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2764523225224098525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9380,6 +9657,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acf1ddaa815d8414a8d3903164c8d87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8725145811963214611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2764523225224098520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6ebc4410687244997a97099d9dc8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2764523225240619615
@@ -11729,6 +12018,117 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3796589918319068243
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8781099871414006600}
+  - component: {fileID: 4164268192047118061}
+  - component: {fileID: 2086266057250099529}
+  - component: {fileID: 1974318342434301901}
+  - component: {fileID: 8001335363326432122}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8781099871414006600
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3796589918319068243}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.38, y: 0.42, z: 18.63}
+  m_LocalScale: {x: 4.1637473, y: 4.1637473, z: 4.1637473}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2764523224361148024}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &4164268192047118061
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3796589918319068243}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &2086266057250099529
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3796589918319068243}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1974318342434301901
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3796589918319068243}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8001335363326432122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3796589918319068243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a92e44f33623a3c4296f73660658e9a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToTrigger: {fileID: 11400000, guid: 12cef921b327299468c400a90d285666, type: 2}
 --- !u!1 &3835638748341571593
 GameObject:
   m_ObjectHideFlags: 0
@@ -13621,6 +14021,7 @@ GameObject:
   - component: {fileID: 4534592079903718996}
   - component: {fileID: 3598912574789594128}
   - component: {fileID: 4109921164572430372}
+  - component: {fileID: 6302884197227709149}
   m_Layer: 0
   m_Name: Dialogue Trigger
   m_TagString: Untagged
@@ -13673,6 +14074,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6112b6c71a22eef429f982c35cad6222, type: 2}
   - {fileID: 11400000, guid: 7a6008b26f3e46b42a4de8a1ebd05b7f, type: 2}
   triggerType: 0
+--- !u!114 &6302884197227709149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6399724060377536532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8abb327d77a58224b8b43818483dac69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newObjective: Get the Box down from the Cabinet
 --- !u!1 &6525477470647932130
 GameObject:
   m_ObjectHideFlags: 0
@@ -15821,6 +16235,136 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &480413051172844423
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1731259352848910929}
+    m_Modifications:
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.291
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 9.802
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.079
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6285703664818405212, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_Name
+      value: InteractUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6285703664818405212, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 031fb3944ab1af145a361fa3249ee8a6, type: 3}
+--- !u!1 &5877632035362786523 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6285703664818405212, guid: 031fb3944ab1af145a361fa3249ee8a6,
+    type: 3}
+  m_PrefabInstance: {fileID: 480413051172844423}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1675992625064082523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15971,6 +16515,136 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6285703664818405212, guid: 031fb3944ab1af145a361fa3249ee8a6,
     type: 3}
   m_PrefabInstance: {fileID: 1675992625064082523}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2451766952480951048
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1731259351250969699}
+    m_Modifications:
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 10.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148507250841514230, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6285703664818405212, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_Name
+      value: InteractUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6285703664818405212, guid: 031fb3944ab1af145a361fa3249ee8a6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 031fb3944ab1af145a361fa3249ee8a6, type: 3}
+--- !u!1 &8447947112375940180 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6285703664818405212, guid: 031fb3944ab1af145a361fa3249ee8a6,
+    type: 3}
+  m_PrefabInstance: {fileID: 2451766952480951048}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2591649061006068108
 PrefabInstance:
@@ -16515,12 +17189,12 @@ PrefabInstance:
     - target: {fileID: 5149259882072928413, guid: fb11a7e5f8a3c9d43ac9092baa7cf075,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.923
+      value: 7.66
       objectReference: {fileID: 0}
     - target: {fileID: 5149259882072928413, guid: fb11a7e5f8a3c9d43ac9092baa7cf075,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.683
+      value: 9.929
       objectReference: {fileID: 0}
     - target: {fileID: 5409593000367810909, guid: fb11a7e5f8a3c9d43ac9092baa7cf075,
         type: 3}
@@ -16554,6 +17228,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 9.84
       objectReference: {fileID: 0}
+    - target: {fileID: 7883351381666639241, guid: fb11a7e5f8a3c9d43ac9092baa7cf075,
+        type: 3}
+      propertyPath: interactSprite
+      value: 
+      objectReference: {fileID: 8447947112375940180}
     - target: {fileID: 8710529376816176618, guid: fb11a7e5f8a3c9d43ac9092baa7cf075,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -16904,6 +17583,16 @@ PrefabInstance:
       propertyPath: onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Puzzle.CoOpTriggerHandler, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 5149259882072928413, guid: fb11a7e5f8a3c9d43ac9092baa7cf075,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 5149259882072928413, guid: fb11a7e5f8a3c9d43ac9092baa7cf075,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.342
+      objectReference: {fileID: 0}
     - target: {fileID: 5409593000367810909, guid: fb11a7e5f8a3c9d43ac9092baa7cf075,
         type: 3}
       propertyPath: m_Name
@@ -16926,6 +17615,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: bc6db6ee1b5a79f4aa495edee51718bc,
         type: 2}
+    - target: {fileID: 7883351381666639241, guid: fb11a7e5f8a3c9d43ac9092baa7cf075,
+        type: 3}
+      propertyPath: interactSprite
+      value: 
+      objectReference: {fileID: 5877632035362786523}
+    - target: {fileID: 8096590921592829996, guid: fb11a7e5f8a3c9d43ac9092baa7cf075,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8710529376816176630, guid: fb11a7e5f8a3c9d43ac9092baa7cf075,
         type: 3}
       propertyPath: m_IsActive
