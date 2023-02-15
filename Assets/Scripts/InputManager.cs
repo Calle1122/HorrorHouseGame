@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using GameConstants;
+using UI;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
@@ -52,11 +54,24 @@ public class InputManager : MonoBehaviour
             SpawnPlayerInput();
             SpawnCharacters();
         }
-
+        
         if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.R))
         {
-            inputDevices = GetAllInputDevices();
+            StartCoroutine(InitializeGame());
         }
+    }
+
+    public IEnumerator InitializeGame()
+    {
+        inputDevices = GetAllInputDevices();
+        yield return new WaitForSeconds(2f);
+        if (inputDevices.Count < 2)
+        {
+            UIManager.ShowPopup();
+            yield break;
+        }
+        SpawnPlayerInput();
+        SpawnCharacters();
     }
 
     private void OnDisable()
