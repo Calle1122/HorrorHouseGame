@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using GameConstants;
+using UI;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class CharacterHandler : MonoBehaviour
+public class InputManager : MonoBehaviour
 {
     [SerializeField] private GameObject humanPrefab;
     [SerializeField] private GameObject ghostPrefab;
@@ -32,9 +34,7 @@ public class CharacterHandler : MonoBehaviour
     private GameObject humanPlayer;
     private InputAction inputActions;
 
-    // ReSharper disable once ArrangeObjectCreationWhenTypeEvident
     private List<InputDevice> inputDevices = new List<InputDevice>();
-    private bool movementInputEnabled;
     private PlayerInput player1Input;
     private PlayerInput player2Input;
 
@@ -43,11 +43,11 @@ public class CharacterHandler : MonoBehaviour
 
     private void Start()
     {
-        movementInputEnabled = true;
         GhostInputMode = InputMode.Free;
         HumanInputMode = InputMode.Free;
     }
 
+#if UNITY_EDITOR
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
@@ -58,9 +58,10 @@ public class CharacterHandler : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.R))
         {
-            inputDevices = GetAllInputDevices();
+            StartCoroutine(InitializeGame());
         }
     }
+#endif
 
     private void OnDisable()
     {
@@ -120,7 +121,21 @@ public class CharacterHandler : MonoBehaviour
             }
         }
     }
-    
+
+    public IEnumerator InitializeGame()
+    {
+        inputDevices = GetAllInputDevices();
+        yield return new WaitForSeconds(2f);
+        if (inputDevices.Count < 2)
+        {
+            UIManager.ShowPopup();
+            yield break;
+        }
+
+        SpawnPlayerInput();
+        SpawnCharacters();
+    }
+
     // TODO: Create a event handler to add listeners and subscribe to events, separate the logic
 
     private void HumanMovementInput(InputAction.CallbackContext context)
@@ -231,8 +246,6 @@ public class CharacterHandler : MonoBehaviour
                     break;
             }
         }
-
-        movementInputEnabled = true;
     }
 
     private void GhostCancel(InputAction.CallbackContext obj)

@@ -90,10 +90,10 @@ namespace QTESystem
             switch (characterType)
             {
                 case CharacterType.Human:
-                    Game.CharacterHandler.OnHumanInteract.AddListener(OnHumanInteract);
+                    Game.Input.OnHumanInteract.AddListener(OnHumanInteract);
                     break;
                 case CharacterType.Ghost:
-                    Game.CharacterHandler.OnGhostInteract.AddListener(OnGhostInteract);
+                    Game.Input.OnGhostInteract.AddListener(OnGhostInteract);
                     break;
                 default:
                     Debug.LogError(
@@ -120,10 +120,10 @@ namespace QTESystem
             switch (characterType)
             {
                 case CharacterType.Human:
-                    Game.CharacterHandler.OnHumanInteract.RemoveListener(OnHumanInteract);
+                    Game.Input.OnHumanInteract.RemoveListener(OnHumanInteract);
                     break;
                 case CharacterType.Ghost:
-                    Game.CharacterHandler.OnGhostInteract.RemoveListener(OnGhostInteract);
+                    Game.Input.OnGhostInteract.RemoveListener(OnGhostInteract);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

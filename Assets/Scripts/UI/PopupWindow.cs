@@ -52,14 +52,14 @@ namespace UI
 
         private void OnEnable()
         {
-            Game.CharacterHandler.OnHumanInteract.AddListener(OnHumanInteract);
-            Game.CharacterHandler.OnHumanCancel.AddListener(OnHumanCancel);
+            Game.Input.OnHumanInteract.AddListener(OnHumanInteract);
+            Game.Input.OnHumanCancel.AddListener(OnHumanCancel);
         }
 
         private void OnDisable()
         {
-            Game.CharacterHandler.OnHumanInteract.RemoveListener(OnHumanInteract);
-            Game.CharacterHandler.OnHumanCancel.AddListener(OnHumanCancel);
+            Game.Input.OnHumanInteract.RemoveListener(OnHumanInteract);
+            Game.Input.OnHumanCancel.AddListener(OnHumanCancel);
         }
 
         private void OnHumanCancel()
@@ -98,7 +98,7 @@ namespace UI
 
         private void ClosePopup()
         {
-            Game.CharacterHandler.HumanInputMode = InputMode.Free;
+            Game.Input.HumanInputMode = InputMode.Free;
             
             _isOpen = false;
             _targetSize = 0f;
@@ -112,7 +112,7 @@ namespace UI
 
         private void OpenPopup()
         {
-            Game.CharacterHandler.HumanInputMode = InputMode.MovementLimited;
+            Game.Input.HumanInputMode = InputMode.MovementLimited;
             
             _isOpen = true;
             _targetSize = 1f;
