@@ -7,11 +7,11 @@ namespace Puzzle
     {
         public DefaultEvent eventToRaise;
 
-        [SerializeField] private GameObject key;
+        [SerializeField] private Collider keyObjectCollider;
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject == key)
+            if (other == keyObjectCollider)
             {
                 eventToRaise.RaiseEvent();
             }

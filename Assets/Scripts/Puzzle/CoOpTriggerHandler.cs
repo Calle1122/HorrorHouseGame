@@ -10,7 +10,7 @@ namespace Puzzle
     public class CoOpTriggerHandler : MonoBehaviour
     {
         public DefaultEvent eventToRaise;
-        [HideInInspector] public bool ghostIsInteracting, humanIsInteracting, humanIsRightSide;
+        [HideInInspector] public bool ghostIsInteracting, humanIsInteracting;
 
         [SerializeField] private GameObject qteObjectRight;
         [SerializeField] private GameObject qteObjectLeft;
@@ -21,22 +21,22 @@ namespace Puzzle
 
         public void GhostInteract()
         {
-            if (!canActivate)
+            if (!canActivate || !ghostIsInteracting)
             {
                 return;
             }
-            
+
             StartCoroutine(TimedDialogue());
             CheckToStartQte();
         }
 
         public void HumanInteract()
         {
-            if (!canActivate)
+            if (!canActivate || !humanIsInteracting)
             {
                 return;
             }
-            
+
             StartCoroutine(TimedDialogue());
             CheckToStartQte();
         }
@@ -49,20 +49,11 @@ namespace Puzzle
             }
 
             canActivate = false;
+
             qteObjectLeft.SetActive(true);
             qteObjectRight.SetActive(true);
-
-            switch (humanIsRightSide)
-            {
-                case true:
-                    qteObjectRight.GetComponentInChildren<MashingQTE>().SetCharType(CharacterType.Human);
-                    qteObjectLeft.GetComponentInChildren<MashingQTE>().SetCharType(CharacterType.Ghost);
-                    break;
-                case false:
-                    qteObjectRight.GetComponentInChildren<MashingQTE>().SetCharType(CharacterType.Ghost);
-                    qteObjectLeft.GetComponentInChildren<MashingQTE>().SetCharType(CharacterType.Human);
-                    break;
-            }
+            qteObjectRight.GetComponentInChildren<MashingQTE>().SetCharType(CharacterType.Human);
+            qteObjectLeft.GetComponentInChildren<MashingQTE>().SetCharType(CharacterType.Ghost);
         }
 
         public void ResetQteTimer(float secondsToWait)
@@ -83,9 +74,6 @@ namespace Puzzle
             ghostIsInteracting = false;
             _successCounter = 0;
 
-            qteObjectLeft.GetComponent<CoOpTrigger>()._triggerIsInteracting = false;
-            qteObjectRight.GetComponent<CoOpTrigger>()._triggerIsInteracting = false;
-            
             qteObjectRight.SetActive(false);
             qteObjectLeft.SetActive(false);
 
@@ -113,8 +101,6 @@ namespace Puzzle
         public void CompleteEvent()
         {
             EnableMovementInput();
-            
-            Debug.Log("completed CoOp QTE");
             canActivate = false;
             eventToRaise.RaiseEvent();
             DisableTrigger();
