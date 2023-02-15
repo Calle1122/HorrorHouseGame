@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Deform_TV
+  m_Name: Deform_Antenna
   m_Shader: {fileID: 4800000, guid: 2f9bbef59fa80bb459682a06e4c2678d, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -41,11 +41,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 69f63e845dc69294ba12a059e22c96da, type: 3}
+        m_Texture: {fileID: 2800000, guid: 849eb07498fc69e4187f97a361eb3b93, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetalTex:
-        m_Texture: {fileID: 2800000, guid: 9ae16c7385051464689f5341c57557a4, type: 3}
+        m_Texture: {fileID: 2800000, guid: cd84410504846dd4ba6ea211a1a6e2a9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -53,7 +53,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalTex:
-        m_Texture: {fileID: 2800000, guid: 75dc079291a499c4b803510b6cb8bc9b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 892ecf054d71db247a2e7ccdcffb9597, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:

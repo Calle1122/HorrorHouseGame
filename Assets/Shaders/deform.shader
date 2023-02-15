@@ -5,7 +5,8 @@ Shader "Custom/deform" {
 		_MainTex ("Texture", 2D) = "white" {}
 		_MetalTex ("Texture", 2D) = "white" {}
 		_NormalTex ("Texture", 2D) = "white" {}
-		_Glossiness ("Smoothness", Range(0.000000,1.000000)) = 0.500000
+		_Metallic ("Metal Factor", Range(0.000000,1.000000)) = 0.500000
+		_GlossMapScale ("Smoothness Scale", Range(0.000000,1.000000)) = 1.000000
 		[Enum(Metallic Alpha,0,Albedo Alpha,1)]  _SmoothnessTextureChannel ("Smoothness texture channel", Float) = 0.000000
 		[HDR] _Emission ("Emission", color) = (0,0,0)
 
@@ -33,8 +34,9 @@ Shader "Custom/deform" {
 		sampler2D _NormalTex;
 		fixed4 _Color;
 
-		half _Glossiness;
+		half _GlossMapScale;
 		half3 _Emission;
+		half _Metallic;
 
 		float _Amplitude;
 		float _Frequency;
@@ -70,11 +72,12 @@ Shader "Custom/deform" {
 		void surf (Input i, inout SurfaceOutputStandard o) {
 			//sample and tint albedo texture
 			fixed4 col = tex2D(_MainTex, i.uv_MainTex);
+			fixed4 metal_col = tex2D(_MetalTex, i.uv_MetalTex);
 			col *= _Color;
 			o.Albedo = col.rgb;
 			//just apply the values for metalness, smoothness and emission
-			o.Metallic = tex2D(_MetalTex, i.uv_MetalTex);
-			o.Smoothness = _Glossiness;
+			o.Metallic = metal_col.r * _Metallic;
+			o.Smoothness = metal_col.a * _GlossMapScale;
 			o.Emission = _Emission;
 			o.Normal = UnpackNormal(tex2D(_NormalTex, i.uv_NormalTex));
 		}

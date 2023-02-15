@@ -83,7 +83,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Position: {r: -8.629307, g: -0.44114408, b: 0.9156461, a: 0}
+    - _Position: {r: -8.213793, g: -0.4411493, b: 0.9156461, a: 0}
     - _Tint: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4591914990284422610
