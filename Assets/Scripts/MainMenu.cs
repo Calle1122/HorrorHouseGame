@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour
     // BUTTON CALLBACK
     public void StartGame()
     {
-        buttonsObject.SetActive(false);
+        ClearUI();
         fetchingDevicesObject.SetActive(true);
         StartCoroutine(TryStartGame());
     }
