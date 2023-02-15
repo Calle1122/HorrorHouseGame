@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using Events;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class MainMenu : MonoBehaviour
 {

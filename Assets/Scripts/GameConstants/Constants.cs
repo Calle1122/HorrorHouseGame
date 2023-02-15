@@ -8,20 +8,19 @@
 
     public static class Variables
     {
-        
     }
 
     public static class Strings
     {
         public const string ControllerControlScheme = "Controller";
         public const string KeyboardControlScheme = "Keyboard";
-        
+
         // Input Actions
         public const string Move = "Move";
         public const string Interact = "Interact";
         public const string Jump = "Jump";
         public const string Cancel = "Cancel";
-        
+
         // Music Channels
         public const string MasterVol = "MasterVolume";
         public const string MusicVol = "MusicVolume";

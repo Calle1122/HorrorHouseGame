@@ -47,6 +47,7 @@ public class InputManager : MonoBehaviour
         HumanInputMode = InputMode.Free;
     }
 
+#if UNITY_EDITOR
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
@@ -54,25 +55,13 @@ public class InputManager : MonoBehaviour
             SpawnPlayerInput();
             SpawnCharacters();
         }
-        
+
         if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.R))
         {
             StartCoroutine(InitializeGame());
         }
     }
-
-    public IEnumerator InitializeGame()
-    {
-        inputDevices = GetAllInputDevices();
-        yield return new WaitForSeconds(2f);
-        if (inputDevices.Count < 2)
-        {
-            UIManager.ShowPopup();
-            yield break;
-        }
-        SpawnPlayerInput();
-        SpawnCharacters();
-    }
+#endif
 
     private void OnDisable()
     {
@@ -132,7 +121,21 @@ public class InputManager : MonoBehaviour
             }
         }
     }
-    
+
+    public IEnumerator InitializeGame()
+    {
+        inputDevices = GetAllInputDevices();
+        yield return new WaitForSeconds(2f);
+        if (inputDevices.Count < 2)
+        {
+            UIManager.ShowPopup();
+            yield break;
+        }
+
+        SpawnPlayerInput();
+        SpawnCharacters();
+    }
+
     // TODO: Create a event handler to add listeners and subscribe to events, separate the logic
 
     private void HumanMovementInput(InputAction.CallbackContext context)
