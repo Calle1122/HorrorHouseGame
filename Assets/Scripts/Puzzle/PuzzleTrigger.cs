@@ -34,11 +34,11 @@ namespace Puzzle
             {
                 case TriggerProfile.GhostTrigger:
                     isHuman = false;
-                    Game.CharacterHandler.OnGhostInteract.AddListener(EnableQte);
+                    Game.Input.OnGhostInteract.AddListener(EnableQte);
                     break;
                 case TriggerProfile.HumanTrigger:
                     isHuman = true;
-                    Game.CharacterHandler.OnHumanInteract.AddListener(EnableQte);
+                    Game.Input.OnHumanInteract.AddListener(EnableQte);
                     break;
                 default:
                     Debug.LogError("Incorrect trigger profile", this);
@@ -51,10 +51,10 @@ namespace Puzzle
             switch (thisTriggerProfile)
             {
                 case TriggerProfile.GhostTrigger:
-                    Game.CharacterHandler.OnGhostInteract.RemoveListener(EnableQte);
+                    Game.Input.OnGhostInteract.RemoveListener(EnableQte);
                     break;
                 case TriggerProfile.HumanTrigger:
-                    Game.CharacterHandler.OnHumanInteract.RemoveListener(EnableQte);
+                    Game.Input.OnHumanInteract.RemoveListener(EnableQte);
                     break;
                 default:
                     Debug.LogError("Incorrect trigger profile", this);
@@ -95,11 +95,11 @@ namespace Puzzle
             switch (isHuman)
             {
                 case true:
-                    Game.CharacterHandler.HumanInputMode = InputMode.MovementLimited;
+                    Game.Input.HumanInputMode = InputMode.MovementLimited;
                     qteObject.GetComponentInChildren<MashingQTE>().SetCharType(CharacterType.Human);
                     break;
                 case false:
-                    Game.CharacterHandler.GhostInputMode = InputMode.MovementLimited;
+                    Game.Input.GhostInputMode = InputMode.MovementLimited;
                     qteObject.GetComponentInChildren<MashingQTE>().SetCharType(CharacterType.Ghost);
                     break;
             }
@@ -116,10 +116,10 @@ namespace Puzzle
             switch (isHuman)
             {
                 case true:
-                    Game.CharacterHandler.HumanInputMode = InputMode.Free;
+                    Game.Input.HumanInputMode = InputMode.Free;
                     break;
                 case false:
-                    Game.CharacterHandler.GhostInputMode = InputMode.Free;
+                    Game.Input.GhostInputMode = InputMode.Free;
                     break;
             }
         }
@@ -135,7 +135,7 @@ namespace Puzzle
 
         public void DestroyTrigger()
         {
-            Game.CharacterHandler.OnGhostInteract.RemoveListener(EnableQte);
+            Game.Input.OnGhostInteract.RemoveListener(EnableQte);
             Destroy(gameObject);
         }
     }

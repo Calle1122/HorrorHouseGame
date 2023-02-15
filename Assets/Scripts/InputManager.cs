@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class CharacterHandler : MonoBehaviour
+public class InputManager : MonoBehaviour
 {
     [SerializeField] private GameObject humanPrefab;
     [SerializeField] private GameObject ghostPrefab;
@@ -32,9 +32,7 @@ public class CharacterHandler : MonoBehaviour
     private GameObject humanPlayer;
     private InputAction inputActions;
 
-    // ReSharper disable once ArrangeObjectCreationWhenTypeEvident
     private List<InputDevice> inputDevices = new List<InputDevice>();
-    private bool movementInputEnabled;
     private PlayerInput player1Input;
     private PlayerInput player2Input;
 
@@ -43,7 +41,6 @@ public class CharacterHandler : MonoBehaviour
 
     private void Start()
     {
-        movementInputEnabled = true;
         GhostInputMode = InputMode.Free;
         HumanInputMode = InputMode.Free;
     }
@@ -231,8 +228,6 @@ public class CharacterHandler : MonoBehaviour
                     break;
             }
         }
-
-        movementInputEnabled = true;
     }
 
     private void GhostCancel(InputAction.CallbackContext obj)

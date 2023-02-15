@@ -11,12 +11,12 @@ public class HumanInteraction : MonoBehaviour, IPickupInteraction
 
     private void OnEnable()
     {
-        Game.CharacterHandler.OnHumanInteract.AddListener(OnInteract());
+        Game.Input.OnHumanInteract.AddListener(OnInteract());
     }
 
     private void OnDisable()
     {
-        Game.CharacterHandler.OnHumanInteract.RemoveListener(OnInteract());
+        Game.Input.OnHumanInteract.RemoveListener(OnInteract());
     }
 
     public void AddPossibleInteractable(Interactable interactable)

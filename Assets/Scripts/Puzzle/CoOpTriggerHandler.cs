@@ -64,8 +64,8 @@ namespace Puzzle
 
         public void EnableMovementInput()
         {
-            Game.CharacterHandler.HumanInputMode = InputMode.Free;
-            Game.CharacterHandler.GhostInputMode = InputMode.Free;
+            Game.Input.HumanInputMode = InputMode.Free;
+            Game.Input.GhostInputMode = InputMode.Free;
         }
 
         private IEnumerator QteCooldown(float secondsToWait)
@@ -84,8 +84,8 @@ namespace Puzzle
 
         private void DisableTrigger()
         {
-            Game.CharacterHandler.OnHumanInteract.RemoveListener(HumanInteract);
-            Game.CharacterHandler.OnGhostInteract.RemoveListener(GhostInteract);
+            Game.Input.OnHumanInteract.RemoveListener(HumanInteract);
+            Game.Input.OnGhostInteract.RemoveListener(GhostInteract);
             gameObject.SetActive(false);
         }
 

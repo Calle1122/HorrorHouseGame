@@ -111,7 +111,7 @@ namespace Puzzles.PushPull
 
             SoundManager.Instance.PlaySfx(puzzle.pushSfx);
             isHeld = true;
-            Game.CharacterHandler.HumanInputMode = InputMode.MovementLimited;
+            Game.Input.HumanInputMode = InputMode.MovementLimited;
             UpdatePosition();
         }
 
@@ -120,7 +120,7 @@ namespace Puzzles.PushPull
             isHeld = false;
             movedThisFrame = false;
             EnableInteractable();
-            Game.CharacterHandler.HumanInputMode = InputMode.Free;
+            Game.Input.HumanInputMode = InputMode.Free;
             puzzle.CheckSolved();
         }
 
