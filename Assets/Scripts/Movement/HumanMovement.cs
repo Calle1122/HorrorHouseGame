@@ -25,23 +25,23 @@ namespace Movement
 
         private void OnEnable()
         {
-            Game.CharacterHandler.OnHumanMovementInput.AddListener(OnHumanMovementInput);
-            Game.CharacterHandler.OnHumanNoMovementInput.AddListener(OnHumanMovementInput);
-            Game.CharacterHandler.OnHumanJumpPressed.AddListener(OnHumanJumpPressed);
-            Game.CharacterHandler.OnHumanJumpReleased.AddListener(OnHumanJumpReleased);
+            Game.Input.OnHumanMovementInput.AddListener(OnHumanMovementInput);
+            Game.Input.OnHumanNoMovementInput.AddListener(OnHumanMovementInput);
+            Game.Input.OnHumanJumpPressed.AddListener(OnHumanJumpPressed);
+            Game.Input.OnHumanJumpReleased.AddListener(OnHumanJumpReleased);
         }
 
         private void OnDisable()
         {
-            Game.CharacterHandler.OnHumanMovementInput.RemoveListener(OnHumanMovementInput);
-            Game.CharacterHandler.OnHumanNoMovementInput.RemoveListener(OnHumanMovementInput);
-            Game.CharacterHandler.OnHumanJumpPressed.RemoveListener(OnHumanJumpPressed);
-            Game.CharacterHandler.OnHumanJumpReleased.RemoveListener(OnHumanJumpReleased);
+            Game.Input.OnHumanMovementInput.RemoveListener(OnHumanMovementInput);
+            Game.Input.OnHumanNoMovementInput.RemoveListener(OnHumanMovementInput);
+            Game.Input.OnHumanJumpPressed.RemoveListener(OnHumanJumpPressed);
+            Game.Input.OnHumanJumpReleased.RemoveListener(OnHumanJumpReleased);
         }
 
         private void OnHumanMovementInput(Vector3 input)
         {
-            if (Game.CharacterHandler.HumanInputMode != InputMode.Free)
+            if (Game.Input.HumanInputMode != InputMode.Free)
             {
                 MovementInput = Vector3.zero;
                 return;
@@ -52,7 +52,7 @@ namespace Movement
 
         private void OnHumanJumpPressed()
         {
-            if (Game.CharacterHandler.HumanInputMode != InputMode.Free)
+            if (Game.Input.HumanInputMode != InputMode.Free)
             {
                 shouldJump = false;
                 return;
