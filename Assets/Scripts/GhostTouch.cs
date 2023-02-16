@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using GameConstants;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -36,6 +37,11 @@ public class GhostTouch : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(!other.CompareTag(Tags.GhostTag))
+        {
+            return;
+        }
+    
         if (_currentLerp != null)
         {
             StopCoroutine(_currentLerp);
@@ -49,6 +55,11 @@ public class GhostTouch : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if(!other.CompareTag(Tags.GhostTag))
+        {
+            return;
+        }
+        
         StartCoroutine(DelayToggleWobble(.5f));
     }
 
