@@ -4,7 +4,7 @@ namespace Movement
 {
     public class GhostMovement : MovementBase
     {
-        [SerializeField] private Vector2 floatRange;
+        public Vector2 floatRange;
 
         [SerializeField] private float floatSpeed;
 

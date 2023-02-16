@@ -47,7 +47,7 @@ public class GhostTouch : MonoBehaviour
             StopCoroutine(_currentLerp);
         }
 
-        _desiredAmp = 1;
+        _desiredAmp = .025f;
         _desiredFre = 8;
         _desiredSpe = 5;
         _currentLerp = StartCoroutine(ToggleWobble());

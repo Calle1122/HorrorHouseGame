@@ -43,7 +43,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 105.9, y: 103.8, z: 107.19}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8469980783100207512
 GameObject:
@@ -70,9 +70,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8469980783100207512}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.41195, y: 0.26133886, z: 26.100443}
-  m_LocalScale: {x: 0.005227168, y: 0.005227168, z: 0.005227168}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4084271350349196309}
@@ -108,7 +108,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7482458864665612751, guid: 328432071718c0749bdfb3df5a684388, type: 3}
+  - {fileID: 2100000, guid: 156f2d0da2fd3ff4db1e48b9158c8742, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -142,20 +142,35 @@ PrefabInstance:
       propertyPath: m_Name
       value: GhostWobbleTrigger
       objectReference: {fileID: 0}
+    - target: {fileID: 2437985555354451168, guid: a97827a82bdf9f140b4655cd3f428e91,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2437985555354451171, guid: a97827a82bdf9f140b4655cd3f428e91,
         type: 3}
       propertyPath: m_Size.x
-      value: 270
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2437985555354451171, guid: a97827a82bdf9f140b4655cd3f428e91,
         type: 3}
       propertyPath: m_Size.y
-      value: 223.8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2437985555354451171, guid: a97827a82bdf9f140b4655cd3f428e91,
         type: 3}
       propertyPath: m_Size.z
-      value: 236
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437985555354451171, guid: a97827a82bdf9f140b4655cd3f428e91,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -2.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437985555354451171, guid: a97827a82bdf9f140b4655cd3f428e91,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 5.22
       objectReference: {fileID: 0}
     - target: {fileID: 2437985555354451172, guid: a97827a82bdf9f140b4655cd3f428e91,
         type: 3}
