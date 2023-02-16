@@ -1,4 +1,5 @@
-﻿using GameConstants;
+﻿using Events;
+using GameConstants;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -8,7 +9,7 @@ namespace Interaction
     [RequireComponent(typeof(Collider))]
     public class PickUpInteractable : MonoBehaviour, IInteractable
     {
-        public UnityEvent OnInteract;
+        public PhantomTetherEvent OnInteract;
 
         [Header("Offset From Owner Transform When Held/Picked Up")] [SerializeField]
         private Vector3 followOffset;
@@ -87,6 +88,7 @@ namespace Interaction
             }
 
             interactableState = InteractableState.Interacted;
+            OnInteract.RaiseEvent();
         }
 
         public void ToggleUI()

@@ -33,7 +33,7 @@ namespace UI
         [SerializeField] private int itemPosition;
         [SerializeField] private Sprite substituteSprite;
         [SerializeField] private GameObject popupItem;
-        [SerializeField] private DefaultEvent eventToTrigger;
+        [SerializeField] private PhantomTetherEvent eventToTrigger;
         private bool _hasGottenItem = false;
 
         private Coroutine _popupWindowLerp, _largeItemLerp;

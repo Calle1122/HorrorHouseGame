@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Events
 {
     [CreateAssetMenu(fileName = "DefaultEvent", menuName = "EventBase/DefaultEvent")]
-    public class DefaultEvent : ScriptableObject, IEventBase
+    public class PhantomTetherEvent : ScriptableObject, IEventBase
     {
         private List<EventListener> listeners = new();
 

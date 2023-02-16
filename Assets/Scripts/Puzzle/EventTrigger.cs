@@ -6,7 +6,7 @@ namespace Puzzle
 {
     public class EventTrigger : MonoBehaviour
     {
-        [SerializeField] private DefaultEvent eventToTrigger;
+        [SerializeField] private PhantomTetherEvent eventToTrigger;
 
         private bool _hasTriggered;
 

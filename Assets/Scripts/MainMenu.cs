@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private DefaultEvent gameStartEvent;
+    [SerializeField] private PhantomTetherEvent gameStartEvent;
     [SerializeField] private GameObject menuRoot;
     [SerializeField] private GameObject buttonsObject;
     [SerializeField] private GameObject popupObject;
@@ -28,6 +28,7 @@ public class MainMenu : MonoBehaviour
     {
         yield return StartCoroutine(Game.Input.InitializeGame());
         menuRoot.SetActive(false);
+        gameStartEvent.RaiseEvent();
     }
 
     public void PopUp()
