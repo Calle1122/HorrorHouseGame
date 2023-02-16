@@ -60,7 +60,7 @@ public class GhostTouch : MonoBehaviour
             return;
         }
         
-        StartCoroutine(DelayToggleWobble(.5f));
+        StartCoroutine(DelayToggleWobble(.15f));
     }
 
     private IEnumerator DelayToggleWobble(float delay)
