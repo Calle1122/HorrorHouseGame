@@ -13,30 +13,38 @@ namespace Audio
         private void Awake()
         {
             masterSlider.onValueChanged.AddListener(SetMasterVolume);
+            masterSlider.value = 0.5f;
             musicSlider.onValueChanged.AddListener(SetMusicVolume);
+            musicSlider.value = 0.5f;
             sfxSlider.onValueChanged.AddListener(SetSfxVolume);
+            sfxSlider.value = 0.5f;
             dialogueSlider.onValueChanged.AddListener(SetDialogueVolume);
+            dialogueSlider.value = 0.5f;
             ambientSlider.onValueChanged.AddListener(SetAmbientVolume);
+            ambientSlider.value = 0.5f;
         }
 
         public void SetMasterVolume(float value)
         {
             masterMixer.SetFloat(Strings.MasterVol, Mathf.Log10(value) * 20);
-            Debug.Log("Settings master vol = " + value);
         }
-        public void SetMusicVolume(float value)
+
+        private void SetMusicVolume(float value)
         {
             masterMixer.SetFloat(Strings.MusicVol, Mathf.Log10(value) * 20);
         }
-        public void SetSfxVolume(float value)
+
+        private void SetSfxVolume(float value)
         {
             masterMixer.SetFloat(Strings.SfxVol, Mathf.Log10(value) * 20);
         }
-        public void SetDialogueVolume(float value)
+
+        private void SetDialogueVolume(float value)
         {
             masterMixer.SetFloat(Strings.DialogueVol, Mathf.Log10(value) * 20);
         }
-        public void SetAmbientVolume(float value)
+
+        private void SetAmbientVolume(float value)
         {
             masterMixer.SetFloat(Strings.AmbientVol, Mathf.Log10(value) * 20);
         }
