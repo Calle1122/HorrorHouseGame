@@ -614,21 +614,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 664838882404433542, guid: b58575ae29bd2dd4b9d62fa5f3b21b37,
-        type: 3}
-      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 664838882404433542, guid: b58575ae29bd2dd4b9d62fa5f3b21b37,
-        type: 3}
-      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 664838882404433542, guid: b58575ae29bd2dd4b9d62fa5f3b21b37,
-        type: 3}
-      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2180115756928372987, guid: b58575ae29bd2dd4b9d62fa5f3b21b37,
         type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgument
@@ -653,11 +638,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PUZZLE (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2180115757225338509, guid: b58575ae29bd2dd4b9d62fa5f3b21b37,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2180115757225338510, guid: b58575ae29bd2dd4b9d62fa5f3b21b37,
         type: 3}

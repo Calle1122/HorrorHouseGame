@@ -4232,6 +4232,7 @@ Transform:
   m_Children:
   - {fileID: 2180115755275970058}
   - {fileID: 2180115755173169719}
+  - {fileID: 3794116208325353768}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4692,6 +4693,146 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2635967489361146718
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3794116208325353768}
+  - component: {fileID: 3143841743476726726}
+  - component: {fileID: 5952288995487341436}
+  - component: {fileID: 7803856752363729362}
+  - component: {fileID: 8813872794666860232}
+  m_Layer: 0
+  m_Name: ItemInventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3794116208325353768
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2635967489361146718}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2180115757225338510}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3143841743476726726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2635967489361146718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3af3f57b374ea44a746a021cc54d80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemList: 000000
+--- !u!114 &5952288995487341436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2635967489361146718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc261ad22ddc9d64da02ae6e19214b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: 7bf0af84086463f42b85f2a5f4db2259, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8813872794666860232}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.EnableDisable, Assembly-CSharp
+        m_MethodName: OnOffObj
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 3316141600593307399}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3143841743476726726}
+        m_TargetAssemblyTypeName: Puzzle.RitualInventory, Assembly-CSharp
+        m_MethodName: UnlockItem
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7803856752363729362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2635967489361146718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc261ad22ddc9d64da02ae6e19214b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: 1f4e8a154a4c96848bedd890465fbc3a, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8813872794666860232}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.EnableDisable, Assembly-CSharp
+        m_MethodName: OnOffObj
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 126271869795678469}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3143841743476726726}
+        m_TargetAssemblyTypeName: Puzzle.RitualInventory, Assembly-CSharp
+        m_MethodName: UnlockItem
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8813872794666860232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2635967489361146718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bba58012a864e94982e937e39e04507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2678133153206405851
 GameObject:
   m_ObjectHideFlags: 0
@@ -18387,6 +18528,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5668919539020825967, guid: b55c1e51dadef7d4998fc3f5c9eb41a3,
+        type: 3}
+      propertyPath: OnInteract
+      value: 
+      objectReference: {fileID: 11400000, guid: 1f4e8a154a4c96848bedd890465fbc3a,
+        type: 2}
     - target: {fileID: 5668919539599234756, guid: b55c1e51dadef7d4998fc3f5c9eb41a3,
         type: 3}
       propertyPath: m_RootOrder
@@ -18467,8 +18614,29 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5668919539020825967, guid: b55c1e51dadef7d4998fc3f5c9eb41a3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b55c1e51dadef7d4998fc3f5c9eb41a3, type: 3}
+--- !u!1 &126271869216451233 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5668919539020825953, guid: b55c1e51dadef7d4998fc3f5c9eb41a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 5723116152572276672}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8034348793175068456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126271869216451233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05e1ba0d9d4e6dd41be35c9860cea56c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onPickupEvent: {fileID: 11400000, guid: 1f4e8a154a4c96848bedd890465fbc3a, type: 2}
+  interactableUI: {fileID: 6013565102960498333}
 --- !u!4 &126271869795678468 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5668919539599234756, guid: b55c1e51dadef7d4998fc3f5c9eb41a3,
@@ -18484,6 +18652,12 @@ GameObject:
 --- !u!4 &126271869825552635 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5668919539569360699, guid: b55c1e51dadef7d4998fc3f5c9eb41a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 5723116152572276672}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6013565102960498333 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2024630025809803613, guid: b55c1e51dadef7d4998fc3f5c9eb41a3,
     type: 3}
   m_PrefabInstance: {fileID: 5723116152572276672}
   m_PrefabAsset: {fileID: 0}
@@ -18669,6 +18843,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5668919539020825967, guid: b55c1e51dadef7d4998fc3f5c9eb41a3,
+        type: 3}
+      propertyPath: OnInteract
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf0af84086463f42b85f2a5f4db2259,
+        type: 2}
     - target: {fileID: 5668919539599234756, guid: b55c1e51dadef7d4998fc3f5c9eb41a3,
         type: 3}
       propertyPath: m_RootOrder
@@ -18744,11 +18924,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: WalkieTalkieInteractable
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5668919539020825967, guid: b55c1e51dadef7d4998fc3f5c9eb41a3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b55c1e51dadef7d4998fc3f5c9eb41a3, type: 3}
 --- !u!4 &3316141600593307398 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5668919539599234756, guid: b55c1e51dadef7d4998fc3f5c9eb41a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 6965170309910966722}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3316141600593307399 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5668919539599234757, guid: b55c1e51dadef7d4998fc3f5c9eb41a3,
     type: 3}
   m_PrefabInstance: {fileID: 6965170309910966722}
   m_PrefabAsset: {fileID: 0}
@@ -18761,6 +18948,26 @@ Transform:
 --- !u!1 &3316141601357345955 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5668919539020825953, guid: b55c1e51dadef7d4998fc3f5c9eb41a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 6965170309910966722}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4077765701811864545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3316141601357345955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05e1ba0d9d4e6dd41be35c9860cea56c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onPickupEvent: {fileID: 11400000, guid: 7bf0af84086463f42b85f2a5f4db2259, type: 2}
+  interactableUI: {fileID: 8985155380118849695}
+--- !u!1 &8985155380118849695 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2024630025809803613, guid: b55c1e51dadef7d4998fc3f5c9eb41a3,
     type: 3}
   m_PrefabInstance: {fileID: 6965170309910966722}
   m_PrefabAsset: {fileID: 0}

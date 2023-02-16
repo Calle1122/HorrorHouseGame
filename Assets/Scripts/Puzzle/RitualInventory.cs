@@ -1,19 +1,30 @@
+using System.Collections.Generic;
+using Audio;
 using UnityEngine;
 
 namespace Puzzle
 {
     public class RitualInventory : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
+        public List<bool> itemList;
 
-        // Update is called once per frame
-        void Update()
+        public void UnlockItem(int itemIndex)
         {
+            itemList[itemIndex - 1] = true;
+            DialogueCanvas.Instance.UnlockRitualItem(itemIndex);
+        }
         
+        public bool CheckForAllItems()
+        {
+            foreach (bool itemStatus in itemList)
+            {
+                if (!itemStatus)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }

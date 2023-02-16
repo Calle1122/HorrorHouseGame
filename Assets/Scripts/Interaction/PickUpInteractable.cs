@@ -1,7 +1,6 @@
 ﻿using Events;
 using GameConstants;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.Serialization;
 
 namespace Interaction
@@ -88,7 +87,10 @@ namespace Interaction
             }
 
             interactableState = InteractableState.Interacted;
-            OnInteract.RaiseEvent();
+            if (OnInteract != null)
+            {
+                OnInteract.RaiseEvent();
+            }
         }
 
         public void ToggleUI()
