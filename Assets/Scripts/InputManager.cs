@@ -195,6 +195,11 @@ public class InputManager : MonoBehaviour
         humanPlayer = Instantiate(humanPrefab, new Vector3(0, 1, 15), quaternion.identity);
         ghostPlayer = Instantiate(ghostPrefab, new Vector3(0, 1, 15), quaternion.identity);
 
+        SubscribeInputs();
+    }
+
+    private void SubscribeInputs()
+    {
         if (player1Input == null)
         {
             return;
