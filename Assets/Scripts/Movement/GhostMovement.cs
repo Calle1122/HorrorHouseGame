@@ -1,7 +1,10 @@
+using Animation;
+using GameConstants;
 using UnityEngine;
 
 namespace Movement
 {
+    [RequireComponent(typeof(AnimationsHandler))]
     public class GhostMovement : MovementBase
     {
         public Vector2 floatRange;
@@ -10,6 +13,13 @@ namespace Movement
 
         private float _desiredHeight;
         private Oscillator _osc;
+        private AnimationsHandler animationsHandler;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            animationsHandler = GetComponent<AnimationsHandler>();
+        }
 
         private void Start()
         {
@@ -24,8 +34,9 @@ namespace Movement
 
             //FLOATING:
 
-            if (shouldJump)
+            if (pressingJump)
             {
+                animationsHandler.SetBool(Strings.JumpParam, true);
                 _desiredHeight = floatRange.y;
                 _osc._localEquilibriumPosition.y = Mathf.Lerp(_osc._localEquilibriumPosition.y, _desiredHeight,
                     Time.deltaTime * floatSpeed);
@@ -33,6 +44,7 @@ namespace Movement
 
             else
             {
+                animationsHandler.SetBool(Strings.JumpParam, false);
                 _desiredHeight = floatRange.x;
                 _osc._localEquilibriumPosition.y = Mathf.Lerp(_osc._localEquilibriumPosition.y, _desiredHeight,
                     Time.deltaTime * floatSpeed);
@@ -44,6 +56,14 @@ namespace Movement
         private void FixedUpdate()
         {
             MovePlayer();
+            if (MovementInput == Vector3.zero)
+            {
+                animationsHandler.SetBool(Strings.WalkParam, false);
+            }
+            else if (MovementInput != Vector3.zero)
+            {
+                animationsHandler.SetBool(Strings.WalkParam, true);
+            }
         }
 
         private void OnEnable()
@@ -66,16 +86,16 @@ namespace Movement
         {
             if (Game.Input.GhostInputMode != InputMode.Free)
             {
-                shouldJump = false;
+                pressingJump = false;
                 return;
             }
 
-            shouldJump = true;
+            pressingJump = true;
         }
 
         private void OnGhostJumpReleased()
         {
-            shouldJump = false;
+            pressingJump = false;
         }
 
         private void OnGhostMovementInput(Vector3 input)

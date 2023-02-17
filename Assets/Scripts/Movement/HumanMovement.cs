@@ -1,16 +1,25 @@
 using System.Collections;
+using Animation;
+using GameConstants;
 using UnityEngine;
 
 namespace Movement
 {
+    [RequireComponent(typeof(AnimationsHandler))]
     public class HumanMovement : MovementBase
     {
         [SerializeField] protected Transform feetTransform;
         [SerializeField] protected LayerMask floorMask;
-
         [SerializeField] protected float jumpForce;
 
-        private bool _canJump = true;
+        private AnimationsHandler animationsHandler;
+        private bool isOnCooldown;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            animationsHandler = GetComponent<AnimationsHandler>();
+        }
 
         private void Update()
         {
@@ -48,38 +57,61 @@ namespace Movement
             }
 
             MovementInput = input;
+            if (input == Vector3.zero)
+            {
+                animationsHandler.SetBool(Strings.WalkParam, false);
+            }
+            else if (input != Vector3.zero)
+            {
+                animationsHandler.SetBool(Strings.WalkParam, true);
+            }
         }
 
         private void OnHumanJumpPressed()
         {
             if (Game.Input.HumanInputMode != InputMode.Free)
             {
-                shouldJump = false;
+                pressingJump = false;
                 return;
             }
 
-            shouldJump = true;
+            pressingJump = true;
         }
 
         private void OnHumanJumpReleased()
         {
-            shouldJump = false;
+            pressingJump = false;
         }
 
         private void JumpCheck()
         {
-            if (shouldJump && Physics.CheckSphere(feetTransform.position, .25f, floorMask) && _canJump)
+            if (!CanJumpPhysicsCheck())
             {
-                Rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-                StartCoroutine(ResetJumpCooldown());
+                return;
             }
+
+            if (!pressingJump || isOnCooldown)
+            {
+                return;
+            }
+
+            animationsHandler.TriggerJump();
+            var rbVelocity = Rb.velocity;
+            Rb.velocity = new Vector3(rbVelocity.x, 0, rbVelocity.z);
+            Rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            StartCoroutine(ResetJumpCooldown());
+        }
+
+        private bool CanJumpPhysicsCheck()
+        {
+            return Physics.CheckSphere(feetTransform.position, .25f, floorMask);
         }
 
         private IEnumerator ResetJumpCooldown()
         {
-            _canJump = false;
-            yield return new WaitForSeconds(.2f);
-            _canJump = true;
+            isOnCooldown = true;
+            yield return new WaitForSeconds(0.5f);
+            isOnCooldown = false;
         }
     }
 }
