@@ -27,5 +27,16 @@
         public const string SfxVol = "SfxVolume";
         public const string DialogueVol = "DialogueVolume";
         public const string AmbientVol = "AmbientVolume";
+        
+        // Animation Parameters
+        // Human
+        public const string JumpTriggerParam = "PlayJump";
+        public const string WalkParam = "IsWalking";
+        public const string PushingParam = "IsPushing";
+        
+        // Ghost
+        public const string JumpParam = "IsInAir";
+        public const string PossessingParam = "IsPossessing";
+
     }
 }
