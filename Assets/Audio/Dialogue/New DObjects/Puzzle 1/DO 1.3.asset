@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a6764fa3335aa45b72bb21d15f4140, type: 3}
+  m_Name: DO 1.3
+  m_EditorClassIdentifier: 
+  dialogueSound: {fileID: 11400000, guid: 63ab9b6f482cf324cbb829fc9675349d, type: 2}
+  dialogueText: ' Harriet: ''Yup, and we''ve got a lot of work to do... I think I
+    can bring you back to life!...            But you need to let me in... The door''s
+    locked. You''re a ghost... Can''t you open it with your ghost powers for me?'' '
