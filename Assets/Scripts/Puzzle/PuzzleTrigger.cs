@@ -1,4 +1,5 @@
 using System.Collections;
+using GameConstants;
 using Lakeview_Interactive.QTE_System.Scripts.QTEs;
 using QTESystem;
 using UnityEngine;
@@ -18,7 +19,7 @@ namespace Puzzle
         [SerializeField] private GameObject qteObject;
         [SerializeField] private bool canActivate;
         [SerializeField] private GameObject interactSprite;
-        private bool isHuman;
+        private bool _isHuman;
 
         private void Start()
         {
@@ -33,11 +34,11 @@ namespace Puzzle
             switch (thisTriggerProfile)
             {
                 case TriggerProfile.GhostTrigger:
-                    isHuman = false;
+                    _isHuman = false;
                     Game.Input.OnGhostInteract.AddListener(EnableQte);
                     break;
                 case TriggerProfile.HumanTrigger:
-                    isHuman = true;
+                    _isHuman = true;
                     Game.Input.OnHumanInteract.AddListener(EnableQte);
                     break;
                 default:
@@ -64,12 +65,40 @@ namespace Puzzle
 
         private void OnTriggerEnter(Collider other)
         {
+            if (!other.CompareTag(Tags.GhostTag) && !other.CompareTag(Tags.PlayerTag))
+            {
+                return;
+            }
+            if (_isHuman && !other.CompareTag(Tags.PlayerTag))
+            {
+                return;
+            }
+
+            if (!_isHuman && other.CompareTag(Tags.PlayerTag))
+            {
+                return;
+            }
+            
             ToggleInteractUI();
             canActivate = true;
         }
 
         private void OnTriggerExit(Collider other)
         {
+            if (!other.CompareTag(Tags.GhostTag) && !other.CompareTag(Tags.PlayerTag))
+            {
+                return;
+            }
+            if (_isHuman && !other.CompareTag(Tags.PlayerTag))
+            {
+                return;
+            }
+
+            if (!_isHuman && other.CompareTag(Tags.PlayerTag))
+            {
+                return;
+            }
+            
             ToggleInteractUI();
             canActivate = false;
         }
@@ -91,8 +120,9 @@ namespace Puzzle
 
             canActivate = false;
             qteObject.SetActive(true);
+            ToggleInteractUI();
 
-            switch (isHuman)
+            switch (_isHuman)
             {
                 case true:
                     Game.Input.HumanInputMode = InputMode.MovementLimited;
@@ -113,7 +143,7 @@ namespace Puzzle
 
         public void EnableMovementInput()
         {
-            switch (isHuman)
+            switch (_isHuman)
             {
                 case true:
                     Game.Input.HumanInputMode = InputMode.Free;
@@ -126,6 +156,7 @@ namespace Puzzle
 
         private IEnumerator QteCooldown(float secondsToWait)
         {
+            ToggleInteractUI();
             qteObject.SetActive(false);
 
             yield return new WaitForSeconds(secondsToWait);

@@ -14,17 +14,9 @@ namespace Puzzle
             DialogueCanvas.Instance.UnlockRitualItem(itemIndex);
         }
         
-        public bool CheckForAllItems()
+        public bool CheckForItem(int itemIndex)
         {
-            foreach (bool itemStatus in itemList)
-            {
-                if (!itemStatus)
-                {
-                    return false;
-                }
-            }
-
-            return true;
+            return itemList[itemIndex - 1];
         }
     }
 }

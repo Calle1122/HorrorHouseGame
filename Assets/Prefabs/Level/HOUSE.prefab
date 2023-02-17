@@ -8326,7 +8326,7 @@ GameObject:
   - component: {fileID: 4029813233675174018}
   - component: {fileID: 4029813233675174017}
   - component: {fileID: 4029813233675174016}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8409,7 +8409,7 @@ GameObject:
   - component: {fileID: 4029813233678982549}
   - component: {fileID: 4029813233678982544}
   - component: {fileID: 4029813233678982547}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8492,7 +8492,7 @@ GameObject:
   - component: {fileID: 4029813233694313265}
   - component: {fileID: 4029813233694313276}
   - component: {fileID: 4029813233694313279}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8575,7 +8575,7 @@ GameObject:
   - component: {fileID: 4029813233700325123}
   - component: {fileID: 4029813233700325134}
   - component: {fileID: 4029813233700325121}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8658,7 +8658,7 @@ GameObject:
   - component: {fileID: 4029813233725714131}
   - component: {fileID: 4029813233725714142}
   - component: {fileID: 4029813233725714129}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8741,7 +8741,7 @@ GameObject:
   - component: {fileID: 4029813233747752580}
   - component: {fileID: 4029813233747752579}
   - component: {fileID: 4029813233747752578}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9157,7 +9157,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1202
+  m_VersionIndex: 1244
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -9237,7 +9237,7 @@ GameObject:
   - component: {fileID: 4029813233778772013}
   - component: {fileID: 4029813233778772008}
   - component: {fileID: 4029813233778772011}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9684,7 +9684,7 @@ GameObject:
   - component: {fileID: 4029813233847001482}
   - component: {fileID: 4029813233847001481}
   - component: {fileID: 4029813233847001480}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9962,7 +9962,7 @@ GameObject:
   - component: {fileID: 4029813233898505477}
   - component: {fileID: 4029813233898505472}
   - component: {fileID: 4029813233898505475}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10240,7 +10240,7 @@ GameObject:
   - component: {fileID: 4029813233924220962}
   - component: {fileID: 4029813233924220961}
   - component: {fileID: 4029813233924220960}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10549,7 +10549,7 @@ GameObject:
   - component: {fileID: 4029813233970870215}
   - component: {fileID: 4029813233970870214}
   - component: {fileID: 4029813233970870073}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10748,7 +10748,7 @@ GameObject:
   - component: {fileID: 4029813234037872419}
   - component: {fileID: 4029813234037872430}
   - component: {fileID: 4029813234037872417}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11415,7 +11415,7 @@ GameObject:
   - component: {fileID: 4029813234144046166}
   - component: {fileID: 4029813234144046165}
   - component: {fileID: 4029813234144046164}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11692,7 +11692,7 @@ GameObject:
   - component: {fileID: 4029813234200403436}
   - component: {fileID: 4029813234200403435}
   - component: {fileID: 4029813234200403434}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11775,7 +11775,7 @@ GameObject:
   - component: {fileID: 4029813234203609646}
   - component: {fileID: 4029813234203609645}
   - component: {fileID: 4029813234203609644}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11856,7 +11856,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4029813234206239936}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12038,7 +12038,7 @@ GameObject:
   - component: {fileID: 4029813234240746548}
   - component: {fileID: 4029813234240746547}
   - component: {fileID: 4029813234240746546}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12121,7 +12121,7 @@ GameObject:
   - component: {fileID: 4029813234246221762}
   - component: {fileID: 4029813234246221761}
   - component: {fileID: 4029813234246221760}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12204,7 +12204,7 @@ GameObject:
   - component: {fileID: 4029813234250577472}
   - component: {fileID: 4029813234250577487}
   - component: {fileID: 4029813234250577486}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12870,7 +12870,7 @@ GameObject:
   - component: {fileID: 4029813234333978585}
   - component: {fileID: 4029813234333978596}
   - component: {fileID: 4029813234333978599}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13050,7 +13050,7 @@ GameObject:
   - component: {fileID: 4029813234362195646}
   - component: {fileID: 4029813234362195645}
   - component: {fileID: 4029813234362195644}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13327,7 +13327,7 @@ GameObject:
   - component: {fileID: 4029813234397514550}
   - component: {fileID: 4029813234397514549}
   - component: {fileID: 4029813234397514548}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13569,7 +13569,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4029813234418727948}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14383,7 +14383,7 @@ GameObject:
   - component: {fileID: 4029813234587876978}
   - component: {fileID: 4029813234587876981}
   - component: {fileID: 4029813234587876980}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stairs (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17549,7 +17549,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 7203
+  m_VersionIndex: 7245
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -17650,7 +17650,7 @@ GameObject:
   - component: {fileID: 4029813234589318968}
   - component: {fileID: 4029813234589319111}
   - component: {fileID: 4029813234589319110}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17733,7 +17733,7 @@ GameObject:
   - component: {fileID: 4029813234606540554}
   - component: {fileID: 4029813234606540553}
   - component: {fileID: 4029813234606540552}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18109,7 +18109,7 @@ GameObject:
   - component: {fileID: 4029813234752990316}
   - component: {fileID: 4029813234752990315}
   - component: {fileID: 4029813234752990314}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18439,7 +18439,7 @@ GameObject:
   - component: {fileID: 4029813234834894054}
   - component: {fileID: 4029813234834894053}
   - component: {fileID: 4029813234834894052}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18686,7 +18686,7 @@ GameObject:
   - component: {fileID: 4029813234865127899}
   - component: {fileID: 4029813234865127910}
   - component: {fileID: 4029813234865127897}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18964,7 +18964,7 @@ GameObject:
   - component: {fileID: 4029813234883000039}
   - component: {fileID: 4029813234883000034}
   - component: {fileID: 4029813234883000037}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19144,7 +19144,7 @@ GameObject:
   - component: {fileID: 4029813234927256963}
   - component: {fileID: 4029813234927256974}
   - component: {fileID: 4029813234927256961}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19227,7 +19227,7 @@ GameObject:
   - component: {fileID: 4029813234982373984}
   - component: {fileID: 4029813234982373999}
   - component: {fileID: 4029813234982373998}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19310,7 +19310,7 @@ GameObject:
   - component: {fileID: 4029813235009629939}
   - component: {fileID: 4029813235009629950}
   - component: {fileID: 4029813235009629937}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19393,7 +19393,7 @@ GameObject:
   - component: {fileID: 4029813235039889456}
   - component: {fileID: 4029813235039889471}
   - component: {fileID: 4029813235039889470}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19513,7 +19513,7 @@ GameObject:
   - component: {fileID: 4029813235077862912}
   - component: {fileID: 4029813235077862927}
   - component: {fileID: 4029813235077862926}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19887,7 +19887,7 @@ GameObject:
   - component: {fileID: 4029813235197889737}
   - component: {fileID: 4029813235197889748}
   - component: {fileID: 4029813235197889751}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19970,7 +19970,7 @@ GameObject:
   - component: {fileID: 4029813235210759296}
   - component: {fileID: 4029813235210759311}
   - component: {fileID: 4029813235210759310}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20053,7 +20053,7 @@ GameObject:
   - component: {fileID: 4029813235222322473}
   - component: {fileID: 4029813235222322484}
   - component: {fileID: 4029813235222322487}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20566,7 +20566,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1205
+  m_VersionIndex: 1247
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -20907,7 +20907,7 @@ GameObject:
   - component: {fileID: 4029813235297915392}
   - component: {fileID: 4029813235297915407}
   - component: {fileID: 4029813235297915406}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21764,7 +21764,7 @@ GameObject:
   - component: {fileID: 4029813235567335829}
   - component: {fileID: 4029813235567335828}
   - component: {fileID: 4029813235567335831}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22025,7 +22025,7 @@ GameObject:
   - component: {fileID: 4029813235719130437}
   - component: {fileID: 4029813235719130432}
   - component: {fileID: 4029813235719130435}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22108,7 +22108,7 @@ GameObject:
   - component: {fileID: 4029813235765584942}
   - component: {fileID: 4029813235765584941}
   - component: {fileID: 4029813235765584940}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22289,7 +22289,7 @@ GameObject:
   - component: {fileID: 4029813235794470468}
   - component: {fileID: 4029813235794470467}
   - component: {fileID: 4029813235794470466}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railings for Stairs (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27414,7 +27414,7 @@ GameObject:
   - component: {fileID: 6019928771599560550}
   - component: {fileID: 765143041077388106}
   - component: {fileID: 3921808602971073233}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27897,7 +27897,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1429815322830119375}
   - component: {fileID: 2032513160661599772}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StairCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36684,7 +36684,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 330, y: 355, z: 25}
+  m_Size: {x: 330, y: 330, z: 25}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &4029813233868457625
 PrefabInstance:
@@ -37101,7 +37101,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 330, y: 355, z: 25}
+  m_Size: {x: 330, y: 330, z: 25}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &4029813233949918112
 PrefabInstance:
@@ -38181,25 +38181,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4029813234191283756}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4264253645483051901 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2ea95334b92fa0144ae20908f1757538,
-    type: 3}
-  m_PrefabInstance: {fileID: 4029813234191283756}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &4029813234191283755
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4264253645483051901}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 330, y: 355, z: 25}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &4029813234241064418
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41844,7 +41825,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 330, y: 355, z: 25}
+  m_Size: {x: 330, y: 330, z: 25}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &4029813234838891209
 PrefabInstance:
