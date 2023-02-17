@@ -5,6 +5,7 @@ namespace Puzzle
     public class RitualManager : MonoBehaviour
     {
         public bool item1Placed, item2Placed, item3Placed;
+        [SerializeField] private GameObject gameOverScreen;
 
         public void PlaceItem(int itemIndex)
         {
@@ -31,7 +32,7 @@ namespace Puzzle
                 return;
             }
             
-            //TODO: Add ritual code here...
+            gameOverScreen.SetActive(true);
         }
     }
 }

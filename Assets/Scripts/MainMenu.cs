@@ -58,8 +58,10 @@ public class MainMenu : MonoBehaviour
     {
         yield return StartCoroutine(Game.Input.InitializeGame());
         menuRoot.SetActive(false);
-        CutsceneController.Instance.PlayIntroCutscene();
-        StartCoroutine(DelayGameStart());
+        //TODO: have the cutscene code play instead of gameStartEvent.RaiseEvent();
+        //CutsceneController.Instance.PlayIntroCutscene();
+        //StartCoroutine(DelayGameStart());
+        gameStartEvent.RaiseEvent();
         ShowMenu();
     }
 

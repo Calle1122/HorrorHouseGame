@@ -67,7 +67,7 @@ namespace Puzzle
                 return;
             }
             
-            //DialogueCanvas.Instance.LockRitualItem(itemIndex);
+            DialogueCanvas.Instance.LockRitualItem(itemIndex);
             ritualItemInWorld.SetActive(true);
             ritMan.PlaceItem(itemIndex);
             Destroy(gameObject);
