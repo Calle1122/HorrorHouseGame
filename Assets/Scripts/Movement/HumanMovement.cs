@@ -11,9 +11,9 @@ namespace Movement
         [SerializeField] protected Transform feetTransform;
         [SerializeField] protected LayerMask floorMask;
         [SerializeField] protected float jumpForce;
-        private bool isOnCooldown;
 
         private AnimationsHandler animationsHandler;
+        private bool isOnCooldown;
 
         protected override void Awake()
         {

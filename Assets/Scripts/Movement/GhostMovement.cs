@@ -36,7 +36,6 @@ namespace Movement
 
             if (pressingJump)
             {
-                Debug.Log("If");
                 animationsHandler.SetBool(Strings.JumpParam, true);
                 _desiredHeight = floatRange.y;
                 _osc._localEquilibriumPosition.y = Mathf.Lerp(_osc._localEquilibriumPosition.y, _desiredHeight,
@@ -45,7 +44,6 @@ namespace Movement
 
             else
             {
-                Debug.Log("Else");
                 animationsHandler.SetBool(Strings.JumpParam, false);
                 _desiredHeight = floatRange.x;
                 _osc._localEquilibriumPosition.y = Mathf.Lerp(_osc._localEquilibriumPosition.y, _desiredHeight,

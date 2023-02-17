@@ -1,14 +1,13 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Movement
 {
     public abstract class MovementBase : MonoBehaviour
     {
-        protected Vector3 MovementInput;
-        [FormerlySerializedAs("shouldJump")] public bool pressingJump;
+        public bool pressingJump;
 
         [SerializeField] protected float moveSpeed;
+        protected Vector3 MovementInput;
         protected Rigidbody Rb;
 
         protected virtual void Awake()
