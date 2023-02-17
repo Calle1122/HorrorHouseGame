@@ -7,16 +7,18 @@ namespace Interaction
     {
         // ReSharper disable once ArrangeObjectCreationWhenTypeEvident
         private readonly List<IInteractable> possibleInteractables = new List<IInteractable>();
+        private IInteractable indicatedInteractable;
+        private IInteractable closestInteractable;
         private IInteractable heldInteractable;
 
         private void OnEnable()
         {
-            Game.CharacterHandler.OnHumanInteract.AddListener(OnInteract);
+            Game.Input.OnHumanInteract.AddListener(OnInteract);
         }
 
         private void OnDisable()
         {
-            Game.CharacterHandler.OnHumanInteract.RemoveListener(OnInteract);
+            Game.Input.OnHumanInteract.RemoveListener(OnInteract);
         }
 
         public Transform GetTransform()
@@ -32,6 +34,7 @@ namespace Interaction
             }
 
             possibleInteractables.Add(pickUpInteractable);
+            UpdateClosestInteractable();
         }
 
         public void RemovePossibleInteractable(IInteractable pickUpInteractable)
@@ -42,6 +45,7 @@ namespace Interaction
             }
 
             possibleInteractables.Remove(pickUpInteractable);
+            UpdateClosestInteractable();
         }
 
         public void OnInteract()
@@ -68,14 +72,16 @@ namespace Interaction
                 return;
             }
 
-            var closestInteractable = possibleInteractables[0];
+            heldInteractable = closestInteractable;
+            closestInteractable.Interact(this);
+        }
+
+        private void UpdateClosestInteractable()
+        {
             var closestDistance = float.MaxValue;
             foreach (var interactable in possibleInteractables)
             {
-                if (closestInteractable == null)
-                {
-                    closestInteractable = interactable;
-                }
+                closestInteractable ??= interactable;
 
                 var currentDistance = Vector3.Distance(transform.position, interactable.GetTransform().position);
 
@@ -88,8 +94,13 @@ namespace Interaction
                 closestDistance = currentDistance;
             }
 
-            heldInteractable = closestInteractable;
-            closestInteractable.Interact(this);
+            closestInteractable.ToggleOnUI();
+            if (indicatedInteractable != closestInteractable)
+            {
+                indicatedInteractable?.ToggleOffUI();
+            }
+
+            indicatedInteractable = closestInteractable;
         }
     }
 }

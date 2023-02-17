@@ -48,23 +48,23 @@ namespace Movement
 
         private void OnEnable()
         {
-            Game.CharacterHandler.OnGhostMovementInput.AddListener(OnGhostMovementInput);
-            Game.CharacterHandler.OnGhostNoMovementInput.AddListener(OnGhostMovementInput);
-            Game.CharacterHandler.OnGhostJumpPressed.AddListener(OnGhostJumpPressed);
-            Game.CharacterHandler.OnGhostJumpReleased.AddListener(OnGhostJumpReleased);
+            Game.Input.OnGhostMovementInput.AddListener(OnGhostMovementInput);
+            Game.Input.OnGhostNoMovementInput.AddListener(OnGhostMovementInput);
+            Game.Input.OnGhostJumpPressed.AddListener(OnGhostJumpPressed);
+            Game.Input.OnGhostJumpReleased.AddListener(OnGhostJumpReleased);
         }
 
         private void OnDisable()
         {
-            Game.CharacterHandler.OnGhostMovementInput.RemoveListener(OnGhostMovementInput);
-            Game.CharacterHandler.OnGhostNoMovementInput.RemoveListener(OnGhostMovementInput);
-            Game.CharacterHandler.OnGhostJumpPressed.RemoveListener(OnGhostJumpPressed);
-            Game.CharacterHandler.OnGhostJumpReleased.RemoveListener(OnGhostJumpReleased);
+            Game.Input.OnGhostMovementInput.RemoveListener(OnGhostMovementInput);
+            Game.Input.OnGhostNoMovementInput.RemoveListener(OnGhostMovementInput);
+            Game.Input.OnGhostJumpPressed.RemoveListener(OnGhostJumpPressed);
+            Game.Input.OnGhostJumpReleased.RemoveListener(OnGhostJumpReleased);
         }
 
         private void OnGhostJumpPressed()
         {
-            if (Game.CharacterHandler.GhostInputMode != InputMode.Free)
+            if (Game.Input.GhostInputMode != InputMode.Free)
             {
                 shouldJump = false;
                 return;
@@ -80,7 +80,7 @@ namespace Movement
 
         private void OnGhostMovementInput(Vector3 input)
         {
-            if (Game.CharacterHandler.GhostInputMode != InputMode.Free)
+            if (Game.Input.GhostInputMode != InputMode.Free)
             {
                 MovementInput = Vector3.zero;
                 return;

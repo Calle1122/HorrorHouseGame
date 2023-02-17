@@ -9,12 +9,13 @@ namespace Interaction
     public class PickUpInteractable : MonoBehaviour, IInteractable
     {
         public UnityEvent OnInteract;
-        
+
         [Header("Offset From Owner Transform When Held/Picked Up")] [SerializeField]
         private Vector3 followOffset;
 
         [SerializeField] private Transform parentTransform;
         [SerializeField] private Collider physicsCollider;
+        [SerializeField] private GameObject interactSprite;
 
         [FormerlySerializedAs("pickUpState")] public InteractableState interactableState;
         public Transform ownerTransform;
@@ -25,6 +26,10 @@ namespace Interaction
         private void Start()
         {
             MakeTrigger();
+            if (interactSprite.activeSelf)
+            {
+                interactSprite.SetActive(false);
+            }
         }
 
         private void Update()
@@ -64,6 +69,7 @@ namespace Interaction
             if (other.TryGetComponent<HumanPickupInteraction>(out var humanInteraction))
             {
                 humanInteraction.RemovePossibleInteractable(this);
+                interactSprite.SetActive(false);
             }
         }
 
@@ -81,6 +87,30 @@ namespace Interaction
             }
 
             interactableState = InteractableState.Interacted;
+        }
+
+        public void ToggleUI()
+        {
+            if (interactSprite != null)
+            {
+                interactSprite.SetActive(!interactSprite.activeSelf);
+            }
+        }
+
+        public void ToggleOnUI()
+        {
+            if (interactSprite != null)
+            {
+                interactSprite.SetActive(true);
+            }
+        }
+
+        public void ToggleOffUI()
+        {
+            if (interactSprite != null)
+            {
+                interactSprite.SetActive(false);
+            }
         }
 
         public void StopInteract()
@@ -110,15 +140,11 @@ namespace Interaction
         {
             isEnabled = !isEnabled;
             interactableTrigger.enabled = !interactableTrigger.enabled;
-            physicsCollider.enabled = !physicsCollider.enabled;
+            if (physicsCollider != null)
+            {
+                physicsCollider.enabled = !physicsCollider.enabled;
+            }
         }
-    }
-
-    public interface IInteractable
-    {
-        Transform GetTransform();
-        void Interact(IInteraction interaction);
-        void StopInteract();
     }
 
     public enum InteractableState

@@ -11,14 +11,14 @@ namespace Puzzle
 
         private void OnEnable()
         {
-            Game.CharacterHandler.OnHumanInteract.AddListener(OnHumanInteract);
-            Game.CharacterHandler.OnGhostInteract.AddListener(OnGhostInteract);
+            Game.Input.OnHumanInteract.AddListener(OnHumanInteract);
+            Game.Input.OnGhostInteract.AddListener(OnGhostInteract);
         }
 
         private void OnDisable()
         {
-            Game.CharacterHandler.OnHumanInteract.RemoveListener(OnHumanInteract);
-            Game.CharacterHandler.OnGhostInteract.RemoveListener(OnGhostInteract);
+            Game.Input.OnHumanInteract.RemoveListener(OnHumanInteract);
+            Game.Input.OnGhostInteract.RemoveListener(OnGhostInteract);
         }
 
         private void OnTriggerEnter(Collider other)
@@ -101,7 +101,7 @@ namespace Puzzle
                 return;
             }
 
-            Game.CharacterHandler.GhostInputMode = InputMode.MovementLimited;
+            Game.Input.GhostInputMode = InputMode.MovementLimited;
             handler.ghostIsInteracting = true;
             handler.GhostInteract();
         }
@@ -113,7 +113,7 @@ namespace Puzzle
                 return;
             }
 
-            Game.CharacterHandler.HumanInputMode = InputMode.MovementLimited;
+            Game.Input.HumanInputMode = InputMode.MovementLimited;
             handler.humanIsInteracting = true;
             handler.HumanInteract();
         }
