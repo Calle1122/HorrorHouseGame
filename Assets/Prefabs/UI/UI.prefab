@@ -690,6 +690,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4166307209389489439, guid: 3f745bd05707dc54aadbdbab85bc306d,
+        type: 3}
+      propertyPath: ritualItem1Locked
+      value: 
+      objectReference: {fileID: 21300000, guid: eabaca351894d0a4dadf88e264f1d0a7,
+        type: 3}
+    - target: {fileID: 4166307209389489439, guid: 3f745bd05707dc54aadbdbab85bc306d,
+        type: 3}
+      propertyPath: ritualItem2Locked
+      value: 
+      objectReference: {fileID: 21300000, guid: 376dbdd43ccaeec4bbb5cec50c42fb78,
+        type: 3}
+    - target: {fileID: 4166307209389489439, guid: 3f745bd05707dc54aadbdbab85bc306d,
+        type: 3}
+      propertyPath: ritualItem3Locked
+      value: 
+      objectReference: {fileID: 21300000, guid: 185cdd66c7d287545a821d39ad90bcb2,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f745bd05707dc54aadbdbab85bc306d, type: 3}
 --- !u!224 &5095657583611518091 stripped
