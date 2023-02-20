@@ -19,7 +19,7 @@ namespace Puzzle
         [SerializeField] private GameObject qteObject;
         [SerializeField] private bool canActivate;
         [SerializeField] private GameObject interactSprite;
-        private bool _isHuman;
+        private bool isHuman;
 
         private void Start()
         {
@@ -34,11 +34,11 @@ namespace Puzzle
             switch (thisTriggerProfile)
             {
                 case TriggerProfile.GhostTrigger:
-                    _isHuman = false;
+                    isHuman = false;
                     Game.Input.OnGhostInteract.AddListener(EnableQte);
                     break;
                 case TriggerProfile.HumanTrigger:
-                    _isHuman = true;
+                    isHuman = true;
                     Game.Input.OnHumanInteract.AddListener(EnableQte);
                     break;
                 default:
@@ -69,12 +69,12 @@ namespace Puzzle
             {
                 return;
             }
-            if (_isHuman && !other.CompareTag(Tags.PlayerTag))
+            if (isHuman && !other.CompareTag(Tags.PlayerTag))
             {
                 return;
             }
 
-            if (!_isHuman && other.CompareTag(Tags.PlayerTag))
+            if (!isHuman && other.CompareTag(Tags.PlayerTag))
             {
                 return;
             }
@@ -89,12 +89,12 @@ namespace Puzzle
             {
                 return;
             }
-            if (_isHuman && !other.CompareTag(Tags.PlayerTag))
+            if (isHuman && !other.CompareTag(Tags.PlayerTag))
             {
                 return;
             }
 
-            if (!_isHuman && other.CompareTag(Tags.PlayerTag))
+            if (!isHuman && other.CompareTag(Tags.PlayerTag))
             {
                 return;
             }
@@ -122,7 +122,7 @@ namespace Puzzle
             qteObject.SetActive(true);
             ToggleInteractUI();
 
-            switch (_isHuman)
+            switch (isHuman)
             {
                 case true:
                     Game.Input.HumanInputMode = InputMode.MovementLimited;
@@ -143,7 +143,7 @@ namespace Puzzle
 
         public void EnableMovementInput()
         {
-            switch (_isHuman)
+            switch (isHuman)
             {
                 case true:
                     Game.Input.HumanInputMode = InputMode.Free;

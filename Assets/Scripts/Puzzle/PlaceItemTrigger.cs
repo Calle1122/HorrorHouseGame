@@ -8,13 +8,12 @@ namespace Puzzle
     {
         [SerializeField] private RitualManager ritMan;
         [SerializeField] private RitualInventory ritInv;
-        
         [SerializeField] private int itemIndex;
         [SerializeField] private GameObject ritualItemInWorld;
-        
         [SerializeField] private GameObject interactSprite;
-        private bool _canActivate;
-        
+
+        private bool canActivate;
+
         private void Start()
         {
             if (interactSprite.activeSelf)
@@ -40,7 +39,7 @@ namespace Puzzle
                 return;
             }
 
-            _canActivate = true;
+            canActivate = true;
             ToggleInteractableUI();
         }
 
@@ -51,13 +50,13 @@ namespace Puzzle
                 return;
             }
 
-            _canActivate = false;
+            canActivate = false;
             ToggleInteractableUI();
         }
 
         private void PlaceItem()
         {
-            if (!_canActivate)
+            if (!canActivate)
             {
                 return;
             }
@@ -66,7 +65,7 @@ namespace Puzzle
             {
                 return;
             }
-            
+
             DialogueCanvas.Instance.LockRitualItem(itemIndex);
             ritualItemInWorld.SetActive(true);
             ritMan.PlaceItem(itemIndex);

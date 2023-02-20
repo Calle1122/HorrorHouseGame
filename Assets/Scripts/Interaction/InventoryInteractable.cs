@@ -9,6 +9,17 @@ namespace Interaction
     {
         [SerializeField] private PhantomTetherEvent onPickupEvent;
         [SerializeField] private GameObject interactableUI;
+        private bool isInTrigger;
+
+        private void OnEnable()
+        {
+            Game.Input.OnHumanInteract.AddListener(OnInteract);
+        }
+
+        private void OnDisable()
+        {
+            Game.Input.OnHumanInteract.RemoveListener(OnInteract);
+        }
 
         private void OnTriggerEnter(Collider other)
         {
@@ -17,8 +28,8 @@ namespace Interaction
                 return;
             }
 
+            isInTrigger = true;
             interactableUI.SetActive(true);
-            Game.Input.OnHumanInteract.AddListener(OnInteract);
         }
 
         private void OnTriggerExit(Collider other)
@@ -27,16 +38,20 @@ namespace Interaction
             {
                 return;
             }
-            
+
+            isInTrigger = false;
             interactableUI.SetActive(false);
-            Game.Input.OnHumanInteract.RemoveListener(OnInteract);
         }
 
         private void OnInteract()
         {
+            if (!isInTrigger)
+            {
+                return;
+            }
+
             interactableUI.SetActive(false);
             Game.Input.OnHumanInteract.RemoveListener(OnInteract);
-            
             onPickupEvent.RaiseEvent();
         }
     }

@@ -57,11 +57,16 @@ namespace Movement
             }
 
             MovementInput = input;
-            if (input == Vector3.zero)
+            UpdateAnimationParameters();
+        }
+
+        private void UpdateAnimationParameters()
+        {
+            if (MovementInput == Vector3.zero)
             {
                 animationsHandler.SetBool(Strings.WalkParam, false);
             }
-            else if (input != Vector3.zero)
+            else if (MovementInput != Vector3.zero)
             {
                 animationsHandler.SetBool(Strings.WalkParam, true);
             }
