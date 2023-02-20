@@ -83,7 +83,7 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _GlowSpread: 1
-    - _InteriorSpread: 0.5
+    - _InteriorSpread: 0.24
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -96,7 +96,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Fresnel_Color: {r: 1, g: 0.97964144, b: 0.8160377, a: 1}
-    - _InteriorColor: {r: 8, g: 0, b: 0.306942, a: 1}
+    - _Fresnel_Color: {r: 0, g: 1, b: 0.9489832, a: 1}
+    - _InteriorColor: {r: 441.7255, g: 44.17255, b: 40.156864, a: 1}
     - _InteriorPosition: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
