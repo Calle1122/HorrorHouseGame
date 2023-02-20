@@ -8,7 +8,7 @@ namespace UI
     public class ShowPopupTrigger : MonoBehaviour
     {
         [SerializeField] private NoFunctionPopupTrigger targetPopup;
-        [SerializeField] private DefaultEvent eventToTrigger;
+        [SerializeField] private PhantomTetherEvent eventToTrigger;
 
         private bool _hasTriggeredEvent;
         

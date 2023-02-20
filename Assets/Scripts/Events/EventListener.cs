@@ -5,7 +5,7 @@ namespace Events
 {
     public class EventListener : MonoBehaviour
     {
-        public DefaultEvent @event;
+        public PhantomTetherEvent @event;
         [SerializeField] private UnityEvent response;
 
         private void OnEnable()

@@ -5,7 +5,7 @@ namespace Puzzle
 {
     public class ProgressionTracker : MonoBehaviour
     {
-        [SerializeField] private DefaultEvent gameStartEvent;
+        [SerializeField] private PhantomTetherEvent gameStartEvent;
 
         [SerializeField] private bool hasStarted = false;
 

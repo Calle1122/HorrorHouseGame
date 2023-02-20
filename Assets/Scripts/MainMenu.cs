@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private DefaultEvent gameStartEvent;
+    [SerializeField] private PhantomTetherEvent gameStartEvent;
     [SerializeField] private GameObject menuRoot;
     [SerializeField] private GameObject titleTextObject;
     [SerializeField] private GameObject buttonsObject;
@@ -58,9 +58,17 @@ public class MainMenu : MonoBehaviour
     {
         yield return StartCoroutine(Game.Input.InitializeGame());
         menuRoot.SetActive(false);
+        //TODO: have the cutscene code play instead of gameStartEvent.RaiseEvent();
+        gameStartEvent.RaiseEvent();
         ShowMenu();
     }
 
+    private IEnumerator DelayGameStart()
+    {
+        yield return new WaitForSeconds(88f);
+        gameStartEvent.RaiseEvent();
+    }
+    
     public void PopUp()
     {
         StopAllCoroutines();

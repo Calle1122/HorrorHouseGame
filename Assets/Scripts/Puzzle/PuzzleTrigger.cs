@@ -1,4 +1,5 @@
 using System.Collections;
+using GameConstants;
 using Lakeview_Interactive.QTE_System.Scripts.QTEs;
 using QTESystem;
 using UnityEngine;
@@ -64,12 +65,40 @@ namespace Puzzle
 
         private void OnTriggerEnter(Collider other)
         {
+            if (!other.CompareTag(Tags.GhostTag) && !other.CompareTag(Tags.PlayerTag))
+            {
+                return;
+            }
+            if (isHuman && !other.CompareTag(Tags.PlayerTag))
+            {
+                return;
+            }
+
+            if (!isHuman && other.CompareTag(Tags.PlayerTag))
+            {
+                return;
+            }
+            
             ToggleInteractUI();
             canActivate = true;
         }
 
         private void OnTriggerExit(Collider other)
         {
+            if (!other.CompareTag(Tags.GhostTag) && !other.CompareTag(Tags.PlayerTag))
+            {
+                return;
+            }
+            if (isHuman && !other.CompareTag(Tags.PlayerTag))
+            {
+                return;
+            }
+
+            if (!isHuman && other.CompareTag(Tags.PlayerTag))
+            {
+                return;
+            }
+            
             ToggleInteractUI();
             canActivate = false;
         }
@@ -91,6 +120,7 @@ namespace Puzzle
 
             canActivate = false;
             qteObject.SetActive(true);
+            ToggleInteractUI();
 
             switch (isHuman)
             {
@@ -126,6 +156,7 @@ namespace Puzzle
 
         private IEnumerator QteCooldown(float secondsToWait)
         {
+            ToggleInteractUI();
             qteObject.SetActive(false);
 
             yield return new WaitForSeconds(secondsToWait);
