@@ -9,7 +9,7 @@ namespace Puzzle
 {
     public class CoOpTriggerHandler : MonoBehaviour
     {
-        public DefaultEvent eventToRaise;
+        public PhantomTetherEvent eventToRaise;
         [HideInInspector] public bool ghostIsInteracting, humanIsInteracting;
 
         [SerializeField] private GameObject qteObjectRight;

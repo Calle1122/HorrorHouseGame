@@ -5,7 +5,7 @@ namespace Puzzle
 {
     public class KeyTrigger : MonoBehaviour
     {
-        public DefaultEvent eventToRaise;
+        public PhantomTetherEvent eventToRaise;
 
         [SerializeField] private Collider keyObjectCollider;
 

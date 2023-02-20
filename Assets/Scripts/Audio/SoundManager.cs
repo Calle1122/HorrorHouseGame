@@ -23,6 +23,10 @@ namespace Audio
 
         public void PlaySfx(SfxSO soundEffect)
         {
+            if (soundEffect == null)
+            {
+                return;
+            }
             soundEffect.Play();
         }
     }

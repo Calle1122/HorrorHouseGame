@@ -4,13 +4,13 @@ namespace Movement
 {
     public abstract class MovementBase : MonoBehaviour
     {
-        protected Vector3 MovementInput;
-        public bool shouldJump;
+        public bool pressingJump;
 
         [SerializeField] protected float moveSpeed;
+        protected Vector3 MovementInput;
         protected Rigidbody Rb;
 
-        protected void Awake()
+        protected virtual void Awake()
         {
             Rb = GetComponent<Rigidbody>();
         }
