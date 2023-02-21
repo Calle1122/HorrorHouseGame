@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GhostBody
-  m_Shader: {fileID: -6465566751694194690, guid: 32a574519f503a94c9223292e97de49f,
+  m_Name: GhostEyes
+  m_Shader: {fileID: -6465566751694194690, guid: 80b98618c2eef9c498c0a1a2a3347c92,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
@@ -75,9 +75,9 @@ Material:
     m_Ints: []
     m_Floats:
     - _BUILTIN_AlphaClip: 0
-    - _BUILTIN_Blend: 2
+    - _BUILTIN_Blend: 0
     - _BUILTIN_CullMode: 2
-    - _BUILTIN_DstBlend: 1
+    - _BUILTIN_DstBlend: 10
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
     - _BUILTIN_SrcBlend: 5
@@ -87,20 +87,20 @@ Material:
     - _BUILTIN_ZWriteControl: 0
     - _BumpScale: 1
     - _Cutoff: 0.5
-    - _Cutoff_Range: 0.15
+    - _Cutoff_Range: -0.48
     - _Cutoff_Value: 0
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Fresnel_Power: 1
+    - _Fresnel_Power: 0.75
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _GlowSpread: 1
-    - _InteriorSpread: 1.25
+    - _InteriorSpread: 2
     - _Metallic: 0
     - _Mode: 0
-    - _NoiseScale: 10
-    - _NoiseStrength: 0.2
+    - _NoiseScale: 50
+    - _NoiseStrength: 0.1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
@@ -111,7 +111,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Fresnel_Color: {r: 0.68545735, g: 0.25, b: 1, a: 1}
-    - _InteriorColor: {r: 0, g: 6.1490197, b: 23.968628, a: 1}
-    - _InteriorPosition: {r: -0.75, g: 0, b: 0, a: 0}
+    - _Fresnel_Color: {r: 0.4198113, g: 0.52447283, b: 1, a: 1}
+    - _InteriorColor: {r: 32.125492, g: 20.078432, b: 766.9961, a: 1}
+    - _InteriorPosition: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
