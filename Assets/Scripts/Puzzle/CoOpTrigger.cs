@@ -7,7 +7,7 @@ namespace Puzzle
     {
         [SerializeField] private GameObject interactSprite;
         [SerializeField] private CoOpTriggerHandler handler;
-        private bool _humanInTrigger, _ghostInTrigger;
+        private bool humanInTrigger, ghostInTrigger;
 
         private void OnEnable()
         {
@@ -30,11 +30,11 @@ namespace Puzzle
 
             if (other.CompareTag(Tags.PlayerTag))
             {
-                _humanInTrigger = true;
+                humanInTrigger = true;
             }
             else
             {
-                _ghostInTrigger = true;
+                ghostInTrigger = true;
             }
         }
 
@@ -47,11 +47,11 @@ namespace Puzzle
             
             if (other.CompareTag(Tags.PlayerTag))
             {
-                _humanInTrigger = false;
+                humanInTrigger = false;
             }
             else
             {
-                _ghostInTrigger = false;
+                ghostInTrigger = false;
             }
             
             ToggleInteractUI(false);
@@ -69,7 +69,7 @@ namespace Puzzle
                 ToggleInteractUI(true);
             }
 
-            if (_humanInTrigger && !_ghostInTrigger)
+            if (humanInTrigger && !ghostInTrigger)
             {
                 if (handler.humanIsInteracting)
                 {
@@ -77,7 +77,7 @@ namespace Puzzle
                 }
             }
 
-            if (!_humanInTrigger && _ghostInTrigger)
+            if (!humanInTrigger && ghostInTrigger)
             {
                 if (handler.ghostIsInteracting)
                 {
@@ -96,7 +96,7 @@ namespace Puzzle
 
         private void OnGhostInteract()
         {
-            if(!_ghostInTrigger)
+            if(!ghostInTrigger)
             {
                 return;
             }
@@ -108,7 +108,7 @@ namespace Puzzle
 
         private void OnHumanInteract()
         {
-            if(!_humanInTrigger)
+            if(!humanInTrigger)
             {
                 return;
             }

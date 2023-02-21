@@ -12,12 +12,13 @@ namespace Puzzle
         public PhantomTetherEvent eventToRaise;
         [HideInInspector] public bool ghostIsInteracting, humanIsInteracting;
 
-        [SerializeField] private GameObject qteObjectRight;
-        [SerializeField] private GameObject qteObjectLeft;
+        [SerializeField] private QTEHandler qteHandlerRight;
+        [SerializeField] private QTEHandler qteHandlerLeft;
+        [SerializeField] private QTEHandler qteHandlerAlternating;
         public bool canActivate = true;
         [SerializeField] private DialogueSo waitingDialogue;
 
-        private int _successCounter;
+        private int successCounter;
 
         public void GhostInteract()
         {
@@ -50,10 +51,18 @@ namespace Puzzle
 
             canActivate = false;
 
-            qteObjectLeft.SetActive(true);
-            qteObjectRight.SetActive(true);
-            qteObjectRight.GetComponentInChildren<MashingQTE>().SetCharType(CharacterType.Human);
-            qteObjectLeft.GetComponentInChildren<MashingQTE>().SetCharType(CharacterType.Ghost);
+            if (qteHandlerAlternating != null)
+            {
+                qteHandlerAlternating.gameObject.SetActive(true);
+                qteHandlerAlternating.QTEComponent.Reset();
+            }
+            else
+            {
+                qteHandlerLeft.gameObject.SetActive(true);
+                qteHandlerRight.gameObject.SetActive(true);
+                qteHandlerRight.GetComponentInChildren<MashingQTE>().SetCharType(CharacterType.Human);
+                qteHandlerLeft.GetComponentInChildren<MashingQTE>().SetCharType(CharacterType.Ghost);
+            }
         }
 
         public void ResetQteTimer(float secondsToWait)
@@ -72,10 +81,10 @@ namespace Puzzle
         {
             humanIsInteracting = false;
             ghostIsInteracting = false;
-            _successCounter = 0;
+            successCounter = 0;
 
-            qteObjectRight.SetActive(false);
-            qteObjectLeft.SetActive(false);
+            qteHandlerRight.gameObject.SetActive(false);
+            qteHandlerLeft.gameObject.SetActive(false);
 
             yield return new WaitForSeconds(secondsToWait);
 
@@ -91,8 +100,8 @@ namespace Puzzle
 
         public void AddSuccess()
         {
-            _successCounter++;
-            if (_successCounter == 2)
+            successCounter++;
+            if (successCounter == 2)
             {
                 CompleteEvent();
             }

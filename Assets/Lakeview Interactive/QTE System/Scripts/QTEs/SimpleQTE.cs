@@ -7,20 +7,45 @@
 //              keyboard input.
 //
 *****************************************************************************/
+
+using System;
+using Lakeview_Interactive.QTE_System.Scripts.QTEs;
 using UnityEngine;
 
 namespace QTESystem
 {
     public class SimpleQTE : QTE
     {
-        
         [Header("Simple QTE Settings")]
-
-        [Tooltip("The information used by the QTE in order to determine what input sprite to show and what button/key to press in order to succeed")]
+        [Tooltip(
+            "The information used by the QTE in order to determine what input sprite to show and what button/key to press in order to succeed")]
         public InputData inputData;
 
         [Tooltip("Should the player fail the QTE if they hit any other key")]
-        public bool failIfIncorrect = false;
+        public bool failIfIncorrect;
+
+        protected virtual void Update()
+        {
+            switch (state)
+            {
+                case QTEState.Active:
+                {
+                    if (inputData != null)
+                    {
+                        if (inputData.IsDown())
+                        {
+                            QTESuccess();
+                        }
+                        else if (failIfIncorrect && inputData.AnotherInputDown())
+                        {
+                            QTEFailure();
+                        }
+                    }
+
+                    break;
+                }
+            }
+        }
 
         protected override void OnEnable()
         {
@@ -43,31 +68,6 @@ namespace QTESystem
                         break;
                 }
             }
-            
-        }
-
-        protected virtual void Update()
-        {
-            switch (state)
-            {
-                case QTEState.Active:
-                    {
-                        if (inputData != null)
-                        {
-                            if(inputData.IsDown())
-                            {
-                                QTESuccess();
-                            }
-                            else if(failIfIncorrect && inputData.AnotherInputDown())
-                            {
-                                QTEFailure();
-                            } 
-                        }
-
-                        break;
-                    }
-            }
         }
     }
-
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Lakeview_Interactive.QTE_System.Scripts.QTEs;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -97,22 +98,9 @@ namespace QTESystem
 
             input2 = transform.Find("Input 2").GetComponent<Image>();
 
-            switch (inputMode)
-            {
-                case InputMode.Controller:
-                    input.sprite = inputData1.controllerSprite;
-                    input2.sprite = inputData2.controllerSprite;
-                    break;
-                case InputMode.Keyboard:
-                    input.sprite = inputData1.keyboardSprite;
-                    input2.sprite = inputData2.keyboardSprite;
-                    break;
-                case InputMode.Mobile:
-                    input.sprite = inputData1.mobileSprite;
-                    input2.sprite = inputData2.mobileSprite;
-                    break;
-            }
-
+            Game.Input.OnHumanInteract.AddListener(OnHumanInteract);
+            Game.Input.OnGhostInteract.AddListener(OnGhostInteract);
+            
             overlay = transform.Find("Overlay").GetComponent<Image>();
 
             // Set up the progress object
@@ -149,9 +137,12 @@ namespace QTESystem
 
                             if (progress >= 1)
                             {
+                                ghostInputDown = false;
+                                humanInputDown = false;
+                                hasStarted = false;
+                                lastInputWasHuman = false;
                                 QTESuccess();
                             }
-
                         }
                         // If not, lose progress
                         else if (loseProgress)
@@ -171,43 +162,86 @@ namespace QTESystem
         }
 
         InputData previousInput;
+        private bool lastInputWasHuman;
+        private bool hasStarted;
+        private bool humanInputDown;
+        private bool ghostInputDown;
 
+        public override void SetCharType(CharacterType charType)
+        {
+        }
+        
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            Game.Input.OnHumanInteract.RemoveListener(OnHumanInteract);
+            Game.Input.OnGhostInteract.RemoveListener(OnGhostInteract);
+        }
+
+        protected override void OnGhostInteract()
+        {
+            ghostInputDown = true;
+        }
+
+        protected override void OnHumanInteract()
+        {
+            humanInputDown = true;
+        }
+
+        private protected override void LateUpdate()
+        {
+            ghostInputDown = false;
+            humanInputDown = false;
+        }
+        
         private bool GetDown()
         {
-            if(previousInput == null)
+            if (!hasStarted)
             {
-                if (inputData1.IsDown())
+                if (humanInputDown)
                 {
-                    previousInput = inputData1;
+                    lastInputWasHuman = true;
+                    hasStarted = true;
                     return true;
                 }
-                else if (inputData2.IsDown())
+
+                if (ghostInputDown)
                 {
-                    previousInput = inputData2;
+                    lastInputWasHuman = false;
+                    hasStarted = true;
                     return true;
                 }
             }
             else
             {
-                if(previousInput == inputData1)
+                if (lastInputWasHuman)
                 {
-                    if (inputData2.IsDown())
+                    if (ghostInputDown)
                     {
-                        previousInput = inputData2;
+                        lastInputWasHuman = false;
                         return true;
                     }
+
                 }
                 else
                 {
-                    if (inputData1.IsDown())
+                    if (humanInputDown)
                     {
-                        previousInput = inputData1;
+                        lastInputWasHuman = true;
                         return true;
                     }
+
                 }
             }
 
             return false;
+
+        }
+
+        public override void Reset()
+        {
+            base.Reset();
+            input2 = transform.Find("Input 2").GetComponent<Image>();
         }
 
         public override void QTESuccess()
@@ -216,14 +250,6 @@ namespace QTESystem
 
             input2.sprite = successSprite;
         }
-
-        public override void QTEFailure()
-        {
-            base.QTEFailure();
-
-            input2.sprite = failureSprite;
-        }
-
 
         public override void UpdateInputAlpha(float val)
         {
@@ -236,8 +262,6 @@ namespace QTESystem
                 input2.color = newColor;
             }
         }
-    
     }
-
 }
 
