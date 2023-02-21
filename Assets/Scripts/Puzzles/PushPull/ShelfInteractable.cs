@@ -1,20 +1,22 @@
 ﻿using Audio;
 using GameConstants;
-using Interaction;
 using UnityEngine;
 
 namespace Puzzles.PushPull
 {
-    public class ShelfInteractable : MonoBehaviour, IInteractable
+    public class ShelfInteractable : MonoBehaviour
     {
         [SerializeField] private PushPullPuzzle puzzle;
         [SerializeField] private bool fromRightSide;
         [SerializeField] private Shelf shelf;
         [SerializeField] private GameObject interactSprite;
-        private bool isEnabled;
+        private bool isInteractable;
 
-        private bool isHeld;
+        private bool isInteracting;
+        private bool isInsideTrigger;
         private bool movedThisFrame;
+        private bool humanIsInside;
+        private bool ghostIsInside;
 
         public Shelf Shelf => shelf;
 
@@ -28,49 +30,63 @@ namespace Puzzles.PushPull
 
         private void OnTriggerEnter(Collider other)
         {
-            if (!isEnabled)
+            if (!isInteractable)
             {
                 return;
             }
 
-            if (!other.CompareTag(Tags.PlayerTag))
+            if (!other.CompareTag(Tags.PlayerTag) && !other.CompareTag(Tags.GhostTag))
             {
                 return;
             }
 
-            if (!other.TryGetComponent<HumanPickupInteraction>(out var humanInteraction))
+            interactSprite.SetActive(true);
+
+            if (other.CompareTag(Tags.PlayerTag))
+            {
+                Game.Input.OnHumanInteract.AddListener(Interact);
+                humanIsInside = true;
+            }
+
+            if (!other.CompareTag(Tags.GhostTag))
             {
                 return;
             }
 
-            // TODO: Show input that interaction possible
-            Debug.Log("Adding Player");
-            humanInteraction.AddPossibleInteractable(this);
+            Game.Input.OnGhostInteract.AddListener(Interact);
+            ghostIsInside = true;
         }
 
         private void OnTriggerExit(Collider other)
         {
-            if (!other.CompareTag(Tags.PlayerTag))
+            if (!other.CompareTag(Tags.PlayerTag) && !other.CompareTag(Tags.GhostTag))
             {
                 return;
             }
 
-            if (other.TryGetComponent<HumanPickupInteraction>(out var humanInteraction))
+            if (other.CompareTag(Tags.PlayerTag))
             {
-                // TODO: Can remove UI to show interaction isn't possible anymore here
-                humanInteraction.RemovePossibleInteractable(this);
-                interactSprite.SetActive(false);
+                Game.Input.OnHumanInteract.RemoveListener(Interact);
+                humanIsInside = false;
             }
+
+            if (other.CompareTag(Tags.GhostTag))
+            {
+                Game.Input.OnGhostInteract.RemoveListener(Interact);
+                ghostIsInside = false;
+            }
+
+            interactSprite.SetActive(false);
         }
 
-        public Transform GetTransform()
+        private void Interact()
         {
-            return transform;
-        }
+            if (!isInteractable || isInteracting)
+            {
+                return;
+            }
 
-        public void Interact(IInteraction interaction)
-        {
-            if (!isEnabled)
+            if (!humanIsInside && !ghostIsInside)
             {
                 return;
             }
@@ -79,7 +95,6 @@ namespace Puzzles.PushPull
             {
                 case true when puzzle.CanMoveShelf(this, false, out var canMoveRightIndex):
                 {
-                    DisableInteractable();
                     switch (canMoveRightIndex)
                     {
                         case 1:
@@ -94,7 +109,6 @@ namespace Puzzles.PushPull
                 }
                 case false when puzzle.CanMoveShelf(this, true, out var canMoveLeftIndex):
                 {
-                    DisableInteractable();
                     switch (canMoveLeftIndex)
                     {
                         case 1:
@@ -109,18 +123,29 @@ namespace Puzzles.PushPull
                 }
             }
 
+            if (humanIsInside)
+            {
+                Game.Input.HumanInputMode = InputMode.MovementLimited;
+            }
+
+            if (ghostIsInside)
+            {
+                Game.Input.GhostInputMode = InputMode.MovementLimited;
+            }
+
             SoundManager.Instance.PlaySfx(puzzle.pushSfx);
-            isHeld = true;
-            Game.Input.HumanInputMode = InputMode.MovementLimited;
+            isInteracting = true;
+            DisableInteractable();
             UpdatePosition();
         }
 
         public void StopInteract()
         {
-            isHeld = false;
+            isInteracting = false;
             movedThisFrame = false;
             EnableInteractable();
             Game.Input.HumanInputMode = InputMode.Free;
+            Game.Input.GhostInputMode = InputMode.Free;
             puzzle.CheckSolved();
         }
 
@@ -155,13 +180,13 @@ namespace Puzzles.PushPull
 
         public void EnableInteractable()
         {
-            isEnabled = true;
+            isInteractable = true;
         }
 
 
         public void DisableInteractable()
         {
-            isEnabled = false;
+            isInteractable = false;
         }
     }
 }

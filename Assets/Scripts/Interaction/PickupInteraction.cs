@@ -3,9 +3,8 @@ using UnityEngine;
 
 namespace Interaction
 {
-    public class HumanPickupInteraction : MonoBehaviour, IInteraction
+    public class PickupInteraction : MonoBehaviour, IInteraction
     {
-        // ReSharper disable once ArrangeObjectCreationWhenTypeEvident
         private readonly List<IInteractable> possibleInteractables = new List<IInteractable>();
         private IInteractable indicatedInteractable;
         private IInteractable closestInteractable;

@@ -52,7 +52,7 @@ namespace Interaction
                 return;
             }
 
-            if (other.TryGetComponent<HumanPickupInteraction>(out var humanInteraction))
+            if (other.TryGetComponent<PickupInteraction>(out var humanInteraction))
             {
                 // TODO: Show input that interaction possible
                 humanInteraction.AddPossibleInteractable(this);
@@ -66,7 +66,7 @@ namespace Interaction
                 return;
             }
 
-            if (other.TryGetComponent<HumanPickupInteraction>(out var humanInteraction))
+            if (other.TryGetComponent<PickupInteraction>(out var humanInteraction))
             {
                 humanInteraction.RemovePossibleInteractable(this);
                 interactSprite.SetActive(false);
@@ -75,7 +75,7 @@ namespace Interaction
 
         public Transform GetTransform()
         {
-            return transform;
+            return transform != null ? transform : null;
         }
 
         public void Interact(IInteraction interaction)

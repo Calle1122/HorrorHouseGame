@@ -7,7 +7,7 @@ namespace Puzzle.PuzzlePieces
     {
         public void StopInteract(PickUpInteractable interactable)
         {
-            interactable.ownerTransform.GetComponent<HumanPickupInteraction>().StopInteract();
+            interactable.ownerTransform.GetComponent<PickupInteraction>().StopInteract();
         }
     }
 }
