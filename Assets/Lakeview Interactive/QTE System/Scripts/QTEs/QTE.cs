@@ -7,7 +7,10 @@
 //              inherited in order to be used.
 //
 *****************************************************************************/
+
+using System;
 using System.Collections;
+using Lakeview_Interactive.QTE_System.Scripts.QTEs;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
@@ -18,6 +21,7 @@ namespace QTESystem
 {
     // declare delegates
     public delegate void QTEActionEvent(float time);
+
     public delegate void QTEEvent();
 
     public abstract class QTE : MonoBehaviour
@@ -45,8 +49,7 @@ namespace QTESystem
         public event QTEEvent cleanupEvent;
         public event QTEEvent resetEvent;
 
-        [Header("Base QTE Settings")]
-        [Tooltip("How long to wait until the QTE starts")]
+        [Header("Base QTE Settings")] [Tooltip("How long to wait until the QTE starts")]
         public float delay = 1f;
 
         [Tooltip("After starting, how long should the QTE last")]
@@ -60,8 +63,7 @@ namespace QTESystem
         /// </summary>
         protected Image input;
 
-        [HideInInspector]
-        [Tooltip("The current state of the QTE")]
+        [HideInInspector] [Tooltip("The current state of the QTE")]
         public QTEState state = QTEState.Inactive;
 
         [Header("Success")]
@@ -78,22 +80,24 @@ namespace QTESystem
         [Tooltip("A list of callbacks which will be called upon the player failing to complete the QTE")]
         public UnityEvent onFailure;
 
+        protected bool InputIsDownThisFrame { get; set; }
+
+        protected CharacterType CharacterType;
+
+
         public static InputMode inputMode
         {
             get
             {
-                if(Application.platform == RuntimePlatform.Android || 
+                if (Application.platform == RuntimePlatform.Android ||
                     Application.platform == RuntimePlatform.IPhonePlayer)
                 {
                     return InputMode.Mobile;
                 }
 
-                return (InputMode) PlayerPrefs.GetInt("InputMode");
+                return (InputMode)PlayerPrefs.GetInt("InputMode");
             }
-            set
-            {
-                PlayerPrefs.SetInt("InputMode", (int) value);
-            }
+            set { PlayerPrefs.SetInt("InputMode", (int)value); }
         }
 
         /// <summary>
@@ -103,7 +107,7 @@ namespace QTESystem
         {
             var inputGO = transform.Find("Input");
 
-            if(inputGO)
+            if (inputGO)
             {
                 input = inputGO.GetComponent<Image>();
             }
@@ -121,7 +125,6 @@ namespace QTESystem
             {
                 BeginQTE();
             }
-
         }
 
         /// <summary>
@@ -143,7 +146,6 @@ namespace QTESystem
 
                 QTEFailure();
             }
-
         }
 
         protected virtual void OnStartEvent()
@@ -161,13 +163,13 @@ namespace QTESystem
         {
             state = QTEState.Failed;
 
-            if(input)
+            if (input)
             {
-                input.sprite = failureSprite;
+                // input.sprite = failureSprite;
             }
-            
-            CleanUp();
 
+            CleanUp();
+            Debug.Log("QTE FAILURE");
             onFailure.Invoke();
         }
 
@@ -178,11 +180,11 @@ namespace QTESystem
         {
             state = QTEState.Success;
 
-            if(input)
+            if (input)
             {
                 input.sprite = successSprite;
             }
-            
+
             CleanUp();
 
             onSuccess.Invoke();
@@ -196,25 +198,26 @@ namespace QTESystem
             StopAllCoroutines();
 
             OnCleanUpEvent();
+            input = transform.Find("Input").GetComponent<Image>();
 
             iTween.Stop(gameObject);
 
-            if(input != null)
+            if (input != null)
             {
-                iTween.ValueTo(this.gameObject, iTween.Hash("from", input.color.a, "to", 0, "delay", 0.5f, "time", 0.25f, "onupdate", "UpdateInputAlpha"));
+                iTween.ValueTo(this.gameObject,
+                    iTween.Hash("from", input.color.a, "to", 0, "delay", 0.5f, "time", 0.25f, "onupdate",
+                        "UpdateInputAlpha"));
             }
-            
         }
 
         public virtual void UpdateInputAlpha(float val)
         {
-            if(input != null)
+            if (input != null)
             {
                 var newColor = input.color;
                 newColor.a = val;
                 input.color = newColor;
             }
-           
         }
 
         protected void OnCleanUpEvent()
@@ -269,7 +272,7 @@ namespace QTESystem
         public virtual void BeginQTE()
         {
             gameObject.SetActive(true);
-
+            InputIsDownThisFrame = false;
             StartCoroutine(QTEAction());
         }
 
@@ -300,7 +303,56 @@ namespace QTESystem
             inputMode = newMode;
         }
 
+        private protected virtual void LateUpdate()
+        {
+            InputIsDownThisFrame = false;
+        }
 
+        protected virtual void OnDisable()
+        {
+            switch (CharacterType)
+            {
+                case CharacterType.Human:
+                    Game.Input.OnHumanInteract.RemoveListener(OnHumanInteract);
+                    break;
+                case CharacterType.Ghost:
+                    Game.Input.OnGhostInteract.RemoveListener(OnGhostInteract);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        // Call on frame the QTE was instantiated or enabled
+        public virtual void SetCharType(CharacterType charType)
+        {
+            CharacterType = charType;
+            switch (CharacterType)
+            {
+                case CharacterType.Human:
+                    Game.Input.OnHumanInteract.AddListener(OnHumanInteract);
+                    break;
+                case CharacterType.Ghost:
+                    Game.Input.OnGhostInteract.AddListener(OnGhostInteract);
+                    break;
+                default:
+                    Debug.LogError(
+                        $"[{name}] QTE needs to have a character type! Set in SetCharacterType() when instantiating or enabling!",
+                        this);
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        protected virtual void OnGhostInteract()
+        {
+            InputIsDownThisFrame = true;
+        }
+
+        protected virtual void OnHumanInteract()
+        {
+            InputIsDownThisFrame = true;
+        }
+        
+        
     }
-
 }

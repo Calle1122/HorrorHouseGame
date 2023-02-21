@@ -49,19 +49,6 @@ namespace QTESystem
 
             input = transform.Find("Input").GetComponent<Image>();
 
-            switch (inputMode)
-            {
-                case InputMode.Controller:
-                    input.sprite = inputData.controllerSprite;
-                    break;
-                case InputMode.Keyboard:
-                    input.sprite = inputData.keyboardSprite;
-                    break;
-                case InputMode.Mobile:
-                    input.sprite = inputData.mobileSprite;
-                    break;
-            }
-
             //Update the input to be at the start of the failure object
             failure = transform.Find("Failure").GetComponent<RectTransform>();
             input.GetComponent<RectTransform>().localPosition = failure.localPosition - new Vector3(failure.rect.width * failure.localScale.x / 2.0f, 0, 0);
@@ -88,7 +75,6 @@ namespace QTESystem
             if (state == QTEState.Active)
             {
                 var origin = input.rectTransform.anchoredPosition;
-
                 var destination = failure.anchoredPosition;
                 destination.x += (failure.rect.width/2);
 
@@ -189,8 +175,9 @@ namespace QTESystem
                         {
                             input.color = Color.white;
                         }
-
-                        if (inputData.IsDown())
+                        
+                        // inputData.IsDown()
+                        if (InputIsDownThisFrame)
                         {
                             // Check if inside of the success field
                             if (InsideSuccess(xPos))

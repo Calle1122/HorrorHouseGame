@@ -53,8 +53,6 @@ namespace QTESystem
         /// </summary>
         Vector2 originalScale;
 
-        private CharacterType characterType;
-
         private void Awake()
         {
             input = transform.Find("Input").GetComponent<Image>();
@@ -82,73 +80,12 @@ namespace QTESystem
             }
         }
 
-
-        // Call on frame the QTE was instantiated or enabled
-        public void SetCharType(CharacterType charType)
-        {
-            characterType = charType;
-            switch (characterType)
-            {
-                case CharacterType.Human:
-                    Game.Input.OnHumanInteract.AddListener(OnHumanInteract);
-                    break;
-                case CharacterType.Ghost:
-                    Game.Input.OnGhostInteract.AddListener(OnGhostInteract);
-                    break;
-                default:
-                    Debug.LogError(
-                        $"[{name}] QTE needs to have a character type! Set in SetCharacterType() when instantiating or enabling!",
-                        this);
-                    throw new ArgumentOutOfRangeException();
-            }
-        }
-
-        private void OnGhostInteract()
-        {
-            InputIsDownThisFrame = true;
-        }
-
-        private void OnHumanInteract()
-        {
-            InputIsDownThisFrame = true;
-        }
-
-        private bool InputIsDownThisFrame { get; set; }
-
-        private void OnDisable()
-        {
-            switch (characterType)
-            {
-                case CharacterType.Human:
-                    Game.Input.OnHumanInteract.RemoveListener(OnHumanInteract);
-                    break;
-                case CharacterType.Ghost:
-                    Game.Input.OnGhostInteract.RemoveListener(OnGhostInteract);
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-        }
-
         protected override void Update()
         {
             switch (state)
             {
                 case QTEState.Active:
                 {
-                    switch (characterType)
-                    {
-                        case CharacterType.Human:
-                            break;
-                        case CharacterType.Ghost:
-                            break;
-                        default:
-                            Debug.LogError(
-                                $"[{name}] QTE needs to have a character type! Set in SetCharacterType() when instantiating or enabling!",
-                                this);
-                            return;
-                    }
-
                     // If pressed, increase progress
                     // InputIsDownThisFrame
                     // inputData && inputData.IsDown()
@@ -184,11 +121,6 @@ namespace QTESystem
                     break;
                 }
             }
-        }
-
-        private void LateUpdate()
-        {
-            InputIsDownThisFrame = false;
         }
 
         protected override void CleanUp()
