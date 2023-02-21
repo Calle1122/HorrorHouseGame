@@ -76,7 +76,10 @@ namespace Puzzles.PushPull
                 ghostIsInside = false;
             }
 
-            interactSprite.SetActive(false);
+            if (!humanIsInside && !ghostIsInside)
+            {
+                interactSprite.SetActive(false);
+            }
         }
 
         private void Interact()
@@ -135,6 +138,7 @@ namespace Puzzles.PushPull
 
             SoundManager.Instance.PlaySfx(puzzle.pushSfx);
             isInteracting = true;
+            interactSprite.SetActive(false);
             DisableInteractable();
             UpdatePosition();
         }
