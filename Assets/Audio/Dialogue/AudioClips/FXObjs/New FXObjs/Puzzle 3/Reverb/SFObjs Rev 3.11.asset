@@ -9,8 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5a6764fa3335aa45b72bb21d15f4140, type: 3}
-  m_Name: DO 1.13
+  m_Script: {fileID: 11500000, guid: bb572a59e96bae848b89231f0a1d1bf5, type: 3}
+  m_Name: SFObjs Rev 3.11
   m_EditorClassIdentifier: 
-  dialogueSound: {fileID: 11400000, guid: 8292803c708e7cd4bb1ef4da022cdfa4, type: 2}
-  dialogueText: 'Harriet: ''I think we need the other Walkie-Talkie.'''
+  clips:
+  - {fileID: 8300000, guid: cfab90aae523c9d4ca0fcc62aa5f3f75, type: 3}
+  volume: {x: 1, y: 1}
+  pitch: {x: 0.95, y: 1}
+  playIndex: 0
+  playOrder: 0
+  sourceType: 2
