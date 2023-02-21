@@ -10,8 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a5a6764fa3335aa45b72bb21d15f4140, type: 3}
-  m_Name: DO 3.1-1
+  m_Name: DO Rev 3.13
   m_EditorClassIdentifier: 
-  dialogueSound: {fileID: 11400000, guid: 78fef67cf9a8a084b9d68a87a260597d, type: 2}
-  dialogueText: 'Harriet: ''So we only need 1 more item. We have a link to the past
-    and each other. The Walkie-Talkie.'
+  dialogueSound: {fileID: 11400000, guid: 57422dcc829a7bd47a9a980833e92298, type: 2}
+  dialogueText: 'Harriet: ''I hope this doesn''t get destroyed during the ritual.'''
