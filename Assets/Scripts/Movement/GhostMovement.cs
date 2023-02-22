@@ -1,3 +1,4 @@
+using System;
 using Animation;
 using GameConstants;
 using UnityEngine;
@@ -51,6 +52,19 @@ namespace Movement
             }
 
             RotatePlayer();
+        }
+
+        private void LateUpdate()
+        {
+            Ray floorSeekingRay = new Ray(transform.position, -transform.up);
+            if (Physics.Raycast(floorSeekingRay, out RaycastHit hitInfo, 10f))
+            {
+                if (hitInfo.transform.gameObject.layer == 8)
+                {
+                    floatRange.x = hitInfo.transform.position.y + 1.75f;
+                    floatRange.y = hitInfo.transform.position.y + 4f;
+                }
+            }
         }
 
         private void FixedUpdate()
