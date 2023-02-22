@@ -1,5 +1,88 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5585079269278183387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7295197781619764675}
+  - component: {fileID: 5726280261841501197}
+  - component: {fileID: 1381506389208676590}
+  m_Layer: 0
+  m_Name: HarrietHair
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7295197781619764675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5585079269278183387}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: -0.00131, z: 0.00061}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3269249983210518685}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &5726280261841501197
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5585079269278183387}
+  m_Mesh: {fileID: -7686368673303707107, guid: 1902c763b7d485c4c953760cbd86a271, type: 3}
+--- !u!23 &1381506389208676590
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5585079269278183387}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 1b0df3a3666c279499a944d51530e9b9, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &7507159916689635361
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,6 +128,7 @@ GameObject:
   - component: {fileID: 9073571112400978969}
   - component: {fileID: 4957197508378181835}
   - component: {fileID: 3935794671171986920}
+  - component: {fileID: 6587351915784004322}
   m_Layer: 9
   m_Name: Human
   m_TagString: Player
@@ -143,6 +227,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 2613787191571308156}
+--- !u!114 &6587351915784004322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7507159916934331804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6902a83fd586efb4aab743af8922f8ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisProfile: 0
 --- !u!1001 &8443295147689665517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -220,6 +317,12 @@ PrefabInstance:
 --- !u!95 &2613787191571308156 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 6f029f526db3bf24990b8a3c85b59459,
+    type: 3}
+  m_PrefabInstance: {fileID: 8443295147689665517}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3269249983210518685 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6373202301806746480, guid: 6f029f526db3bf24990b8a3c85b59459,
     type: 3}
   m_PrefabInstance: {fileID: 8443295147689665517}
   m_PrefabAsset: {fileID: 0}

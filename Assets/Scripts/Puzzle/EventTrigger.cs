@@ -10,18 +10,34 @@ namespace Puzzle
 
         private bool _hasTriggered;
 
+        private bool _humanHasEntered, _ghostHasEntered;
+
         private void OnTriggerEnter(Collider other)
         {
-            if (!other.CompareTag(Tags.PlayerTag) && !other.CompareTag(Tags.GhostTag))
-            {
-                return;
-            }
-
             if (_hasTriggered)
             {
                 return;
             }
 
+            if (other.CompareTag(Tags.PlayerTag))
+            {
+                _humanHasEntered = true;
+            }
+            if (other.CompareTag(Tags.GhostTag))
+            {
+                _ghostHasEntered = true;
+            }
+
+            TryRaiseEvent();
+        }
+
+        private void TryRaiseEvent()
+        {
+            if (!_humanHasEntered || !_ghostHasEntered)
+            {
+                return;
+            }
+            
             eventToTrigger.RaiseEvent();
             _hasTriggered = true;
         }
