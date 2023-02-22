@@ -3,9 +3,8 @@ using UnityEngine;
 
 namespace Interaction
 {
-    public class HumanPickupInteraction : MonoBehaviour, IInteraction
+    public class PickupInteraction : MonoBehaviour, IInteraction
     {
-        // ReSharper disable once ArrangeObjectCreationWhenTypeEvident
         private readonly List<IInteractable> possibleInteractables = new List<IInteractable>();
         private IInteractable indicatedInteractable;
         private IInteractable closestInteractable;
@@ -26,25 +25,25 @@ namespace Interaction
             return transform;
         }
 
-        public void AddPossibleInteractable(IInteractable pickUpInteractable)
+        public void AddPossibleInteractable(IInteractable interactable)
         {
-            if (possibleInteractables.Contains(pickUpInteractable))
+            if (possibleInteractables.Contains(interactable))
             {
                 return;
             }
 
-            possibleInteractables.Add(pickUpInteractable);
+            possibleInteractables.Add(interactable);
             UpdateClosestInteractable();
         }
 
-        public void RemovePossibleInteractable(IInteractable pickUpInteractable)
+        public void RemovePossibleInteractable(IInteractable interactable)
         {
-            if (!possibleInteractables.Contains(pickUpInteractable))
+            if (!possibleInteractables.Contains(interactable))
             {
                 return;
             }
 
-            possibleInteractables.Remove(pickUpInteractable);
+            possibleInteractables.Remove(interactable);
             UpdateClosestInteractable();
         }
 
