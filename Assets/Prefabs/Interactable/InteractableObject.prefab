@@ -58,10 +58,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 536c4c66e194428282c657437f7e1ae9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnInteract:
-    m_PersistentCalls:
-      m_Calls: []
-  followOffset: {x: 0, y: 0, z: 1}
+  OnInteract: {fileID: 0}
+  followOffset: {x: 0, y: 0, z: 0.25}
   parentTransform: {fileID: 5668919539599234756}
   physicsCollider: {fileID: 5668919539569360702}
   interactSprite: {fileID: 2024630025809803613}
