@@ -20,11 +20,11 @@ public class MainMenu : MonoBehaviour
     }
 
     // BUTTON CALLBACK
-    public void StartGame()
+    public void StartGame(bool allowKeyboard)
     {
         ClearUI(false);
         fetchingDevicesObject.SetActive(true);
-        StartCoroutine(TryStartGame());
+        StartCoroutine(TryStartGame(allowKeyboard));
     }
 
     // BUTTON CALLBACK
@@ -54,9 +54,9 @@ public class MainMenu : MonoBehaviour
         buttonsObject.SetActive(true);
     }
 
-    private IEnumerator TryStartGame()
+    private IEnumerator TryStartGame(bool allowKeyboard)
     {
-        yield return StartCoroutine(Game.Input.InitializeGame());
+        yield return StartCoroutine(Game.Input.InitializeGame(allowKeyboard));
         menuRoot.SetActive(false);
         //TODO: have the cutscene code play instead of gameStartEvent.RaiseEvent();
         gameStartEvent.RaiseEvent();

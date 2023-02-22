@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using GameConstants;
 using UI;
 using Unity.Mathematics;
@@ -30,11 +31,10 @@ public class InputManager : MonoBehaviour
     public UnityEvent OnHumanCancel;
     public UnityEvent OnGhostCancel;
 
+    private List<InputDevice> controllers = new List<InputDevice>();
     private GameObject ghostPlayer;
     private GameObject humanPlayer;
     private InputAction inputActions;
-
-    private List<InputDevice> inputDevices = new List<InputDevice>();
     private PlayerInput player1Input;
     private PlayerInput player2Input;
 
@@ -47,52 +47,44 @@ public class InputManager : MonoBehaviour
         HumanInputMode = InputMode.Free;
     }
 
-#if UNITY_EDITOR
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            SpawnPlayerInput();
-            SpawnCharacters();
-        }
-
-        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.R))
-        {
-            StartCoroutine(InitializeGame());
-        }
-    }
-#endif
-
     private void OnDisable()
     {
-        if (player1Input != null)
+        UnsubscribeInputActions();
+    }
+
+    private void UnsubscribeInputActions()
+    {
+        if (player1Input == null)
         {
-            foreach (var action in player1Input.currentActionMap.actions)
+            Debug.LogWarning($"[{this}] Player1 Input was null, unable to unsubscribe InputActions");
+            return;
+        }
+
+        foreach (var action in player1Input.currentActionMap.actions)
+        {
+            Debug.Log($"Unsubscribed {action}.");
+            switch (action.name)
             {
-                Debug.Log($"Unsubscribed {action}.");
-                if (action.name == Strings.Move)
-                {
+                case Strings.Move:
                     action.performed -= HumanMovementInput;
                     action.canceled -= HumanNoMovementInput;
-                }
-                else if (action.name == Strings.Jump)
-                {
+                    break;
+                case Strings.Jump:
                     action.started -= HumanJumpPressed;
                     action.canceled -= HumanJumpReleased;
-                }
-                else if (action.name == Strings.Interact)
-                {
+                    break;
+                case Strings.Interact:
                     action.started -= HumanInteract;
-                }
-                else if (action.name == Strings.Cancel)
-                {
+                    break;
+                case Strings.Cancel:
                     action.started -= HumanCancel;
-                }
+                    break;
             }
         }
 
         if (player2Input == null)
         {
+            Debug.LogWarning($"[{this}] Player2 Input was null, unable to unsubscribe InputActions");
             return;
         }
 
@@ -100,39 +92,48 @@ public class InputManager : MonoBehaviour
             foreach (var action in player2Input.currentActionMap.actions)
             {
                 Debug.Log($"Unsubscribed {action}.");
-                if (action.name == Strings.Move)
+                switch (action.name)
                 {
-                    action.performed -= GhostMovementInput;
-                    action.canceled -= GhostNoMovementInput;
-                }
-                else if (action.name == Strings.Jump)
-                {
-                    action.started -= GhostJumpPressed;
-                    action.canceled -= GhostJumpReleased;
-                }
-                else if (action.name == Strings.Interact)
-                {
-                    action.started -= GhostInteract;
-                }
-                else if (action.name == Strings.Cancel)
-                {
-                    action.started -= GhostCancel;
+                    case Strings.Move:
+                        action.performed -= GhostMovementInput;
+                        action.canceled -= GhostNoMovementInput;
+                        break;
+                    case Strings.Jump:
+                        action.started -= GhostJumpPressed;
+                        action.canceled -= GhostJumpReleased;
+                        break;
+                    case Strings.Interact:
+                        action.started -= GhostInteract;
+                        break;
+                    case Strings.Cancel:
+                        action.started -= GhostCancel;
+                        break;
                 }
             }
         }
     }
 
-    public IEnumerator InitializeGame()
+    public IEnumerator InitializeGame(bool allowKeyboard)
     {
-        inputDevices = GetAllInputDevices();
+        controllers = FetchAllGamepads();
+
         yield return new WaitForSeconds(2f);
-        if (inputDevices.Count < 2)
+
+        if (allowKeyboard)
+        {
+            if (controllers.Count < 1)
+            {
+                UIManager.ShowPopup();
+                yield break;
+            }
+        }
+        else if (controllers.Count < 2)
         {
             UIManager.ShowPopup();
             yield break;
         }
 
-        SpawnPlayerInput();
+        SpawnPlayerInput(allowKeyboard);
         SpawnCharacters();
     }
 
@@ -259,24 +260,42 @@ public class InputManager : MonoBehaviour
     }
 
 
-    private void SpawnPlayerInput()
+    private void SpawnPlayerInput(bool allowKeyboard)
     {
-        foreach (var inputDevice in inputDevices)
+        if (allowKeyboard)
         {
+            // Play with 1 keyboard
             if (player1Input == null)
             {
-                player1Input = Game.PlayerInputManager.JoinPlayer(0, -1, null, inputDevice);
+                player1Input = Game.PlayerInputManager.JoinPlayer(0, -1, null, Keyboard.current);
             }
-            else if (player2Input == null)
+
+            if (player2Input == null)
             {
-                player2Input = Game.PlayerInputManager.JoinPlayer(1, -1, null, inputDevice);
+                player2Input = Game.PlayerInputManager.JoinPlayer(1, -1, null, controllers.First());
+            }
+        }
+
+        else
+        {
+            // Play with 2 controllers
+            foreach (var inputDevice in controllers)
+            {
+                if (player1Input == null)
+                {
+                    player1Input = Game.PlayerInputManager.JoinPlayer(0, -1, null, inputDevice);
+                }
+                else if (player2Input == null)
+                {
+                    player2Input = Game.PlayerInputManager.JoinPlayer(1, -1, null, inputDevice);
+                }
             }
         }
     }
 
-    private static List<InputDevice> GetAllInputDevices()
+    private static List<InputDevice> FetchAllGamepads()
     {
-        var devices = new List<InputDevice> { Keyboard.current };
+        var devices = new List<InputDevice>();
         devices.AddRange(Gamepad.all);
         Debug.Log($"Fetched {devices.Count} device(s)");
         foreach (var inputDevice in devices)
