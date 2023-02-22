@@ -60,9 +60,9 @@ Material:
     m_Floats:
     - _BlobDepth: 2
     - _BlobMoveSpeed: 2
-    - _BlobSaturation: 0.5
-    - _BlobScale: 2.75
-    - _BlobValue: 0.75
+    - _BlobSaturation: 1
+    - _BlobScale: 8
+    - _BlobValue: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
