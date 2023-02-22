@@ -76,10 +76,10 @@ Material:
     - _BUILTIN_QueueOffset: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
-    - _Cutoff_Range: 1
+    - _Cutoff_Range: -1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Fresnel_Power: 1.25
+    - _Fresnel_Power: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -98,7 +98,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Fresnel_Color: {r: 0.2801565, g: 1, b: 0, a: 1}
-    - _InteriorColor: {r: 0.25, g: 0.25, b: 0.25, a: 1}
+    - _Fresnel_Color: {r: 0, g: 0.24774218, b: 1, a: 1}
+    - _InteriorColor: {r: 0.61798626, g: 0.61798626, b: 0.61798626, a: 1}
     - _InteriorPosition: {r: 0, g: -1, b: 0, a: 0}
   m_BuildTextureStacks: []

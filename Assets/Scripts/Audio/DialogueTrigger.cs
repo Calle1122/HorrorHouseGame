@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using GameConstants;
 using UnityEngine;
 
 namespace Audio
@@ -10,9 +11,30 @@ namespace Audio
         public TriggerType triggerType;
         
         private bool _hasPlayed = false;
+
+        private bool _humanHasEntered, _ghostHasEntered;
         
         private void OnTriggerEnter(Collider other)
         {
+            if (other.CompareTag(Tags.GhostTag))
+            {
+                _ghostHasEntered = true;
+            }
+            if (other.CompareTag(Tags.PlayerTag))
+            {
+                _humanHasEntered = true;
+            }
+            
+            TryPlay();
+        }
+
+        private void TryPlay()
+        {
+            if (!_ghostHasEntered || !_humanHasEntered)
+            {
+                return;
+            }
+            
             if (!_hasPlayed)
             {
                 foreach (DialogueSo dia in dialogue)
