@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Interaction
@@ -78,6 +79,11 @@ namespace Interaction
         private void UpdateClosestInteractable()
         {
             var closestDistance = float.MaxValue;
+            foreach (var interactable in possibleInteractables.Where(interactable => interactable == null))
+            {
+                possibleInteractables.Remove(interactable);
+            }
+
             foreach (var interactable in possibleInteractables)
             {
                 closestInteractable ??= interactable;

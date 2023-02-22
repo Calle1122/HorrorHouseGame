@@ -58,10 +58,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 536c4c66e194428282c657437f7e1ae9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnInteract:
-    m_PersistentCalls:
-      m_Calls: []
-  followOffset: {x: 0, y: 0, z: 1}
+  OnInteract: {fileID: 0}
+  followOffset: {x: 0, y: 0, z: 0.34}
   parentTransform: {fileID: 5668919539599234756}
   physicsCollider: {fileID: 5668919539569360702}
   interactSprite: {fileID: 2024630025809803613}
@@ -127,8 +125,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.000000059604645, z: 0.0000076293945}
+  m_Size: {x: 0.1, y: 0.1, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5668919539599234757
 GameObject:
   m_ObjectHideFlags: 0
