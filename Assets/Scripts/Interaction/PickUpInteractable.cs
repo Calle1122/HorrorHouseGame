@@ -81,7 +81,11 @@ namespace Interaction
         public void Interact(IInteraction interaction)
         {
             ownerTransform = interaction.GetTransform();
-            ToggleCollider();
+            if (followOffset == Vector3.zero)
+            {
+                ToggleCollider();
+            }
+
             interactableState = InteractableState.Interacted;
             if (OnInteract != null)
             {
@@ -116,7 +120,11 @@ namespace Interaction
         public void StopInteract()
         {
             ownerTransform = null;
-            ToggleCollider();
+            if (followOffset == Vector3.zero)
+            {
+                ToggleCollider();
+            }
+
             interactableState = InteractableState.Free;
         }
 
