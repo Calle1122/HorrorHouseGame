@@ -7,13 +7,14 @@ public class CameraTriggerScript : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera triggerCamera;
 
     private bool _ghostEntered, _humanEntered;
-    
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(Tags.PlayerTag))
         {
             _humanEntered = true;
         }
+
         if (other.CompareTag(Tags.GhostTag))
         {
             _ghostEntered = true;
@@ -22,6 +23,19 @@ public class CameraTriggerScript : MonoBehaviour
         if (_humanEntered && _ghostEntered)
         {
             SetActiveCamera();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag(Tags.PlayerTag))
+        {
+            _humanEntered = false;
+        }
+
+        if (other.CompareTag(Tags.GhostTag))
+        {
+            _ghostEntered = false;
         }
     }
 
