@@ -220,6 +220,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: GhostWobbleTrigger
       objectReference: {fileID: 0}
+    - target: {fileID: 2437985555354451171, guid: a97827a82bdf9f140b4655cd3f428e91,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 244.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437985555354451171, guid: a97827a82bdf9f140b4655cd3f428e91,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 128.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437985555354451171, guid: a97827a82bdf9f140b4655cd3f428e91,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 122.42166
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437985555354451171, guid: a97827a82bdf9f140b4655cd3f428e91,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -2.0899423e-13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437985555354451171, guid: a97827a82bdf9f140b4655cd3f428e91,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -31.020828
+      objectReference: {fileID: 0}
     - target: {fileID: 2437985555354451172, guid: a97827a82bdf9f140b4655cd3f428e91,
         type: 3}
       propertyPath: m_RootOrder
