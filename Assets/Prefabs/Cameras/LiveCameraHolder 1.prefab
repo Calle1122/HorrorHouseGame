@@ -963,7 +963,7 @@ MonoBehaviour:
   m_UpdateMethod: 2
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
-    m_Style: 1
+    m_Style: 0
     m_Time: 2
     m_CustomCurve:
       serializedVersion: 2
@@ -1363,7 +1363,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 1
+  m_Priority: 0
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
@@ -2956,15 +2956,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6982729368190197227}
-  m_LocalRotation: {x: 0.13178846, y: -0.232943, z: 0.033577375, w: 0.962934}
-  m_LocalPosition: {x: 11.45, y: 2.41, z: 20}
+  m_LocalRotation: {x: 0.11846755, y: -0.22590424, z: 0.029380996, w: 0.9664727}
+  m_LocalPosition: {x: 11.425, y: 2.617, z: 20.047}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6982729367878881391}
   m_Father: {fileID: 6982729368212532645}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 15.632, y: -27.172, z: 0.194}
+  m_LocalEulerAnglesHint: {x: 14.02, y: -26.289, z: 0.193}
 --- !u!114 &6982729368190197225
 MonoBehaviour:
   m_ObjectHideFlags: 0
