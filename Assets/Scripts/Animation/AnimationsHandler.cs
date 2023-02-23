@@ -1,5 +1,4 @@
-﻿using GameConstants;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Animation
 {
@@ -7,14 +6,14 @@ namespace Animation
     {
         [SerializeField] private Animator animator;
 
-        public void SetBool(string name, bool state)
+        public void SetBoolParameter(string boolName, bool state)
         {
-            animator.SetBool(name, state);
+            animator.SetBool(boolName, state);
         }
 
-        public void TriggerJump()
+        public void TriggerParameter(string triggerName)
         {
-            animator.SetTrigger(Strings.JumpTriggerParam);
+            animator.SetTrigger(triggerName);
         }
     }
 }

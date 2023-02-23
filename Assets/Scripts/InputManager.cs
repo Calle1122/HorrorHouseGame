@@ -41,6 +41,9 @@ public class InputManager : MonoBehaviour
     public InputMode GhostInputMode { get; set; }
     public InputMode HumanInputMode { get; set; }
 
+    public GameObject GhostPlayer => ghostPlayer;
+    public GameObject HumanPlayer => humanPlayer;
+
     private void Start()
     {
         GhostInputMode = InputMode.Free;

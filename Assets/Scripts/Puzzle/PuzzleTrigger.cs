@@ -1,8 +1,8 @@
 using System.Collections;
+using Animation;
 using GameConstants;
 using Lakeview_Interactive.QTE_System.Scripts.QTEs;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Puzzle
 {
@@ -16,10 +16,8 @@ namespace Puzzle
 
         public TriggerProfile thisTriggerProfile;
 
-        [FormerlySerializedAs("qteObject")] [SerializeField]
-        private QTEHandler qteHandler;
-
-        [FormerlySerializedAs("canActivate")] [SerializeField] private bool isInTrigger, onCooldown;
+        [SerializeField] private QteHandler qteHandler;
+        [SerializeField] private bool isInTrigger, onCooldown;
         [SerializeField] private GameObject interactSprite;
         private bool isHuman;
 
@@ -125,19 +123,9 @@ namespace Puzzle
             isInTrigger = false;
             qteHandler.gameObject.SetActive(true);
             ToggleInteractUI();
-            switch (isHuman)
-            {
-                case true:
-                    Game.Input.HumanInputMode = InputMode.MovementLimited;
-                    qteHandler.QTEComponent.SetCharType(CharacterType.Human);
-                    break;
-                case false:
-                    Game.Input.GhostInputMode = InputMode.MovementLimited;
-                    qteHandler.QTEComponent.SetCharType(CharacterType.Ghost);
-                    break;
-            }
-            qteHandler.QTEComponent.BeginQTE();
+            StartCoroutine(qteHandler.StartSingleQteAnimation(isHuman));
         }
+        
 
         public void ResetQteTimer(float secondsToWait)
         {
@@ -162,7 +150,7 @@ namespace Puzzle
         {
             onCooldown = true;
             ToggleInteractUI();
-            qteHandler.QTEComponent.Reset();
+            qteHandler.QteComponent.Reset();
             qteHandler.gameObject.SetActive(false);
 
             yield return new WaitForSeconds(secondsToWait);
@@ -175,5 +163,11 @@ namespace Puzzle
             Game.Input.OnGhostInteract.RemoveListener(EnableQte);
             Destroy(gameObject);
         }
+    }
+
+    internal enum PlayAnimation
+    {
+        PickUp,
+        Possess
     }
 }

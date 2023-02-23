@@ -1,4 +1,6 @@
-﻿using Events;
+﻿using System.Collections;
+using Animation;
+using Events;
 using GameConstants;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -78,7 +80,12 @@ namespace Interaction
             return transform != null ? transform : null;
         }
 
-        public void Interact(IInteraction interaction)
+        public void StartInteract(IInteraction interaction)
+        {
+            StartCoroutine(StartPickupAnimation(interaction));
+        }
+
+        private void FinishInteract(IInteraction interaction)
         {
             ownerTransform = interaction.GetTransform();
             if (followOffset == Vector3.zero)
@@ -91,6 +98,20 @@ namespace Interaction
             {
                 OnInteract.RaiseEvent();
             }
+        }
+
+        private IEnumerator StartPickupAnimation(IInteraction interaction)
+        {
+            if (!interaction.GetTransform().TryGetComponent<AnimationsHandler>(out var animationsHandler))
+            {
+                yield break;
+            }
+
+            Game.Input.HumanInputMode = InputMode.MovementLimited;
+            animationsHandler.TriggerParameter(Strings.PlacePickUpFloor);
+            yield return new WaitForSeconds(2.4f);
+            Game.Input.HumanInputMode = InputMode.Free;
+            FinishInteract(interaction);
         }
 
         public void ToggleUI()

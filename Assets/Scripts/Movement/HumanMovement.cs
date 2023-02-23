@@ -64,11 +64,11 @@ namespace Movement
         {
             if (MovementInput == Vector3.zero)
             {
-                animationsHandler.SetBool(Strings.WalkParam, false);
+                animationsHandler.SetBoolParameter(Strings.WalkParam, false);
             }
             else if (MovementInput != Vector3.zero)
             {
-                animationsHandler.SetBool(Strings.WalkParam, true);
+                animationsHandler.SetBoolParameter(Strings.WalkParam, true);
             }
         }
 
@@ -100,7 +100,7 @@ namespace Movement
                 return;
             }
 
-            animationsHandler.TriggerJump();
+            animationsHandler.TriggerParameter(Strings.JumpTriggerParameter);
             var rbVelocity = Rb.velocity;
             Rb.velocity = new Vector3(rbVelocity.x, 0, rbVelocity.z);
             Rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);

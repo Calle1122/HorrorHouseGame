@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using Animation;
 using Events;
 using GameConstants;
 using UnityEngine;
@@ -50,9 +52,22 @@ namespace Interaction
                 return;
             }
 
+            StartCoroutine(StartPickUpAnimations());
+        }
+
+        private IEnumerator StartPickUpAnimations()
+        {
+            if (Game.Input.HumanPlayer.TryGetComponent<AnimationsHandler>(out var animationsHandler))
+            {
+                animationsHandler.TriggerParameter(Strings.PlacePickUpFloor);
+            }
+
+            Game.Input.HumanInputMode = InputMode.MovementLimited;
+            yield return new WaitForSeconds(2.4f);
             interactableUI.SetActive(false);
             Game.Input.OnHumanInteract.RemoveListener(OnInteract);
             onPickupEvent.RaiseEvent();
+            Game.Input.HumanInputMode = InputMode.Free;
         }
     }
 }
