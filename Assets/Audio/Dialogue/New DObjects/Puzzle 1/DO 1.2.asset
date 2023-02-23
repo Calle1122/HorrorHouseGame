@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: DO 1.2
   m_EditorClassIdentifier: 
   dialogueSound: {fileID: 11400000, guid: de303cb979a68104a85494c160d0d1ac, type: 2}
-  dialogueText: 'Gary: ''Did you get me DM, Dream Message?'''
+  dialogueText: 'Gary: ''Did you get my DM, Dream Message?'''

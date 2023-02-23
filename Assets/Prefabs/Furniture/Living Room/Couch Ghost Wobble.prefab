@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 3669920545419783632}
   - component: {fileID: 378855285502534261}
   - component: {fileID: 2496403312534394559}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Couch Ghost Wobble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,6 +220,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GhostWobbleTrigger
       objectReference: {fileID: 0}
+    - target: {fileID: 2437985555354451168, guid: a97827a82bdf9f140b4655cd3f428e91,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 2437985555354451171, guid: a97827a82bdf9f140b4655cd3f428e91,
         type: 3}
       propertyPath: m_Size.x
@@ -305,6 +310,11 @@ PrefabInstance:
       propertyPath: targetObject
       value: 
       objectReference: {fileID: 4154005396225734506}
+    - target: {fileID: 2437985555354451175, guid: a97827a82bdf9f140b4655cd3f428e91,
+        type: 3}
+      propertyPath: animationDuration
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a97827a82bdf9f140b4655cd3f428e91, type: 3}
 --- !u!4 &1063539886272176602 stripped

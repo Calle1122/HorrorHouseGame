@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SFObjs 1.15
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: e90d143b7cd06574c9b0f7a0f6b3abb1, type: 3}
+  - {fileID: 8300000, guid: 8c62aba0f3b05124ea7e2411d726a00e, type: 3}
   volume: {x: 1, y: 1}
   pitch: {x: 0.95, y: 1}
   playIndex: 0

@@ -30,13 +30,24 @@
         
         // Animation Parameters
         // Human
-        public const string JumpTriggerParam = "PlayJump";
+        
+        // Bool Parameters
+        public const string JumpTriggerParameter = "PlayJump";
         public const string WalkParam = "IsWalking";
-        public const string PushingParam = "IsPushing";
+        public const string PushingCouchParam = "PushingCouch";
+        public const string PushingCabinetParam = "PushCabinPlay";
+        public const string PlacePickUpFloor = "PlaceRitualItemPlay";
+        
+        // Trigger Parameters
+        public const string LerpStepTrigger = "LerpStepPlay";
+        public const string PushFinishedTrigger = "PushFinished";
         
         // Ghost
+        // Bool Parameters
         public const string JumpParam = "IsInAir";
-        public const string PossessingParam = "IsPossessing";
-
+        
+        // Trigger Parameters
+        public const string PossessTrigger = "PossessPlay";
+        public const string UnPossessTrigger = "UnpossessPlay";
     }
 }

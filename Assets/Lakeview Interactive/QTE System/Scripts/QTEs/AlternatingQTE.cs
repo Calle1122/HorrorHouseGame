@@ -75,7 +75,6 @@ namespace QTESystem
                 overlay.gameObject.SetActive(false);
             }
 
-            previousInput = null;
 
             base.CleanUp();
         }
@@ -161,7 +160,6 @@ namespace QTESystem
             }
         }
 
-        InputData previousInput;
         private bool lastInputWasHuman;
         private bool hasStarted;
         private bool humanInputDown;

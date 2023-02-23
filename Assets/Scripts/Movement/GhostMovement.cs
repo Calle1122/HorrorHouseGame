@@ -1,3 +1,4 @@
+using System;
 using Animation;
 using GameConstants;
 using UnityEngine;
@@ -36,7 +37,7 @@ namespace Movement
 
             if (pressingJump)
             {
-                animationsHandler.SetBool(Strings.JumpParam, true);
+                animationsHandler.SetBoolParameter(Strings.JumpParam, true);
                 _desiredHeight = floatRange.y;
                 _osc._localEquilibriumPosition.y = Mathf.Lerp(_osc._localEquilibriumPosition.y, _desiredHeight,
                     Time.deltaTime * floatSpeed);
@@ -44,7 +45,7 @@ namespace Movement
 
             else
             {
-                animationsHandler.SetBool(Strings.JumpParam, false);
+                animationsHandler.SetBoolParameter(Strings.JumpParam, false);
                 _desiredHeight = floatRange.x;
                 _osc._localEquilibriumPosition.y = Mathf.Lerp(_osc._localEquilibriumPosition.y, _desiredHeight,
                     Time.deltaTime * floatSpeed);
@@ -53,16 +54,29 @@ namespace Movement
             RotatePlayer();
         }
 
+        private void LateUpdate()
+        {
+            Ray floorSeekingRay = new Ray(transform.position, -transform.up);
+            if (Physics.Raycast(floorSeekingRay, out RaycastHit hitInfo, 10f))
+            {
+                if (hitInfo.transform.gameObject.layer == 8)
+                {
+                    floatRange.x = hitInfo.transform.position.y + 1.75f;
+                    floatRange.y = hitInfo.transform.position.y + 4f;
+                }
+            }
+        }
+
         private void FixedUpdate()
         {
             MovePlayer();
             if (MovementInput == Vector3.zero)
             {
-                animationsHandler.SetBool(Strings.WalkParam, false);
+                animationsHandler.SetBoolParameter(Strings.WalkParam, false);
             }
             else if (MovementInput != Vector3.zero)
             {
-                animationsHandler.SetBool(Strings.WalkParam, true);
+                animationsHandler.SetBoolParameter(Strings.WalkParam, true);
             }
         }
 
