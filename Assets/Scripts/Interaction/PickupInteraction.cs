@@ -73,7 +73,7 @@ namespace Interaction
             }
 
             heldInteractable = closestInteractable;
-            closestInteractable.Interact(this);
+            closestInteractable.StartInteract(this);
         }
 
         private void UpdateClosestInteractable()

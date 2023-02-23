@@ -169,7 +169,6 @@ namespace QTESystem
             }
 
             CleanUp();
-            Debug.Log("QTE FAILURE");
             onFailure.Invoke();
         }
 
@@ -186,7 +185,6 @@ namespace QTESystem
             }
 
             CleanUp();
-
             onSuccess.Invoke();
         }
 

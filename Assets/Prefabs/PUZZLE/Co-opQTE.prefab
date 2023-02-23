@@ -652,6 +652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   qteComponent: {fileID: 9115475526538659908}
+  playerPosition: {fileID: 0}
 --- !u!1 &5409593000367810909
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,6 +1101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   qteComponent: {fileID: 4580298435794050402}
+  playerPosition: {fileID: 0}
 --- !u!1 &8710529377179868996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1228,6 +1230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   qteComponent: {fileID: 4580298435078037456}
+  playerPosition: {fileID: 0}
 --- !u!1001 &7552624817220286935
 PrefabInstance:
   m_ObjectHideFlags: 0
