@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &178432193
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 178432194}
+  - component: {fileID: 178432195}
+  m_Layer: 0
+  m_Name: AtticCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &178432194
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178432193}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.29, y: 0, z: 114.37}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1928600573}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &178432195
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178432193}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.71, y: 0.07, z: 16.32}
+  m_Center: {x: 1.14, y: 0.64, z: -6.31}
 --- !u!1 &180000159
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +139,131 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 1
   m_ShadowAngle: 0
+--- !u!1 &1438395209
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1438395210}
+  - component: {fileID: 1438395211}
+  m_Layer: 0
+  m_Name: AtticCollider (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1438395210
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438395209}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -1.721, y: 0, z: 109.64}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1928600573}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!65 &1438395211
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438395209}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.34856, y: 0.07000005, z: 16.32}
+  m_Center: {x: -1.1792812, y: 0.64, z: -6.3099995}
+--- !u!1 &1928600572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1928600573}
+  m_Layer: 0
+  m_Name: AtticFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1928600573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928600572}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 543450652353889326}
+  - {fileID: 178432194}
+  - {fileID: 1932012783}
+  - {fileID: 1438395210}
+  m_Father: {fileID: 4029813235374567998}
+  m_RootOrder: 57
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1932012782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1932012783}
+  - component: {fileID: 1932012784}
+  m_Layer: 0
+  m_Name: AtticCollider (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1932012783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932012782}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.45, y: 0, z: 114.37}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1928600573}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1932012784
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932012782}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.71, y: 0.07, z: 16.32}
+  m_Center: {x: 1.14, y: 0.64, z: -6.31}
 --- !u!1 &46938316195327619
 GameObject:
   m_ObjectHideFlags: 0
@@ -8887,8 +9057,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4029813233970870075}
   m_LocalRotation: {x: -0.5000373, y: -0.5000373, z: 0.4999627, w: 0.4999627}
-  m_LocalPosition: {x: 10.420099, y: 10.499999, z: 12.264709}
-  m_LocalScale: {x: 0.06746054, y: 11.910714, z: 4.9999995}
+  m_LocalPosition: {x: 10.420099, y: 10.51, z: 12.264709}
+  m_LocalScale: {x: 0.06746054, y: 16.356857, z: 4.9999995}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4029813235368178466}
@@ -9559,8 +9729,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4029813234126333121}
   m_LocalRotation: {x: -0.5000373, y: -0.5000373, z: 0.4999627, w: 0.4999627}
-  m_LocalPosition: {x: 13.438399, y: 10.499999, z: 5.695801}
-  m_LocalScale: {x: 0.06746054, y: 1.2443297, z: 11.155214}
+  m_LocalPosition: {x: 13.44, y: 10.499999, z: -0.702}
+  m_LocalScale: {x: 0.06746054, y: 13.930716, z: 11.155214}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4029813235368178466}
@@ -9627,7 +9797,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.97, z: 1}
+  m_Size: {x: 1, y: 0.82, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4029813234126722336
 GameObject:
@@ -15370,7 +15540,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 7671
+  m_VersionIndex: 7368
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -18446,6 +18616,7 @@ Transform:
   - {fileID: 3927758402550033217}
   - {fileID: 4609646934959146433}
   - {fileID: 1739369034031020022}
+  - {fileID: 1928600573}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24234,8 +24405,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6449699248681307265}
   m_LocalRotation: {x: -0.5000373, y: -0.5000373, z: 0.4999627, w: 0.4999627}
-  m_LocalPosition: {x: 16.7201, y: 10.499999, z: 12.264809}
-  m_LocalScale: {x: 0.06746054, y: 11.910714, z: 4.9999995}
+  m_LocalPosition: {x: 16.7201, y: 10.51, z: 12.264809}
+  m_LocalScale: {x: 0.06746054, y: 15.450578, z: 4.9999995}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4029813235368178466}
@@ -29687,6 +29858,86 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 309271870}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1346331589
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1928600573}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 9ea1feb935335e6408b3eb417672997d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9ea1feb935335e6408b3eb417672997d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.170864
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9ea1feb935335e6408b3eb417672997d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.621613
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9ea1feb935335e6408b3eb417672997d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 107.9978
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9ea1feb935335e6408b3eb417672997d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9ea1feb935335e6408b3eb417672997d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9ea1feb935335e6408b3eb417672997d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9ea1feb935335e6408b3eb417672997d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9ea1feb935335e6408b3eb417672997d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9ea1feb935335e6408b3eb417672997d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9ea1feb935335e6408b3eb417672997d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 9ea1feb935335e6408b3eb417672997d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ed01b20d0d6856c4589a9e876481b29c, type: 2}
+    - target: {fileID: 919132149155446097, guid: 9ea1feb935335e6408b3eb417672997d,
+        type: 3}
+      propertyPath: m_Name
+      value: FloorBoards_Attic
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9ea1feb935335e6408b3eb417672997d, type: 3}
+--- !u!4 &543450652353889326 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9ea1feb935335e6408b3eb417672997d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1346331589}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1843248174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31247,6 +31498,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FloorBoards_UpstairsHallway
+      objectReference: {fileID: 0}
+    - target: {fileID: 1959908539670258983, guid: 7fc6f3e8f1f5a4745b9dbb3a679ca2a4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fc6f3e8f1f5a4745b9dbb3a679ca2a4, type: 3}
