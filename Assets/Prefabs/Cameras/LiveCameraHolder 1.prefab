@@ -46,6 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerCamera: {fileID: 6982729367302253754}
+  isMainRoomTrigger: 0
+  roomsToReset: []
+  hasDoneMainTransition: 0
 --- !u!65 &471420475
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -59,37 +62,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &997189627
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 997189628}
-  m_Layer: 0
-  m_Name: LivingRoom1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &997189628
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 997189627}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6982729368238246706}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &259594249421784132
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,6 +108,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerCamera: {fileID: 1747396121351931685}
+  isMainRoomTrigger: 0
+  roomsToReset: []
+  hasDoneMainTransition: 0
 --- !u!65 &27204647546121404
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -798,6 +773,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerCamera: {fileID: 6982729367451603191}
+  isMainRoomTrigger: 0
+  roomsToReset: []
+  hasDoneMainTransition: 0
 --- !u!65 &2489855570709658779
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1450,6 +1428,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerCamera: {fileID: 2297954308825854607}
+  isMainRoomTrigger: 0
+  roomsToReset: []
+  hasDoneMainTransition: 0
 --- !u!65 &8343214141613998086
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1509,6 +1490,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerCamera: {fileID: 6982729368190197225}
+  isMainRoomTrigger: 0
+  roomsToReset: []
+  hasDoneMainTransition: 0
 --- !u!65 &7191432547803498192
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1624,7 +1608,7 @@ Transform:
   - {fileID: 6982729368500064944}
   - {fileID: 7065777613801208252}
   m_Father: {fileID: 6982729368238246706}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6572780070352741111
 GameObject:
@@ -3113,7 +3097,6 @@ Transform:
   m_Children:
   - {fileID: 6982729368601528191}
   - {fileID: 471420474}
-  - {fileID: 997189628}
   - {fileID: 6707959334095429349}
   m_Father: {fileID: 2489855571752388521}
   m_RootOrder: 2
@@ -3164,6 +3147,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerCamera: {fileID: 6982729368668541280}
+  isMainRoomTrigger: 0
+  roomsToReset: []
+  hasDoneMainTransition: 0
 --- !u!65 &6982729368403063166
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3318,6 +3304,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerCamera: {fileID: 6982729367787678918}
+  isMainRoomTrigger: 0
+  roomsToReset: []
+  hasDoneMainTransition: 0
 --- !u!65 &6982729368484536097
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3377,6 +3366,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerCamera: {fileID: 6982729368190197225}
+  isMainRoomTrigger: 0
+  roomsToReset: []
+  hasDoneMainTransition: 0
 --- !u!65 &6982729368500064959
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3507,6 +3499,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerCamera: {fileID: 6982729367302253754}
+  isMainRoomTrigger: 0
+  roomsToReset: []
+  hasDoneMainTransition: 0
 --- !u!65 &6982729368601528190
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3637,6 +3632,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerCamera: {fileID: 6982729369214382583}
+  isMainRoomTrigger: 0
+  roomsToReset: []
+  hasDoneMainTransition: 0
 --- !u!65 &6982729368759917702
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3825,6 +3823,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerCamera: {fileID: 6982729367189335675}
+  isMainRoomTrigger: 0
+  roomsToReset: []
+  hasDoneMainTransition: 0
 --- !u!65 &6982729368843479534
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4145,6 +4146,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerCamera: {fileID: 6982729368847660299}
+  isMainRoomTrigger: 0
+  roomsToReset: []
+  hasDoneMainTransition: 0
 --- !u!65 &6982729369150217543
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4441,6 +4445,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerCamera: {fileID: 4022220817191752666}
+  isMainRoomTrigger: 0
+  roomsToReset: []
+  hasDoneMainTransition: 0
 --- !u!65 &5154092446548747551
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4500,6 +4507,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerCamera: {fileID: 3211500194317847443}
+  isMainRoomTrigger: 0
+  roomsToReset: []
+  hasDoneMainTransition: 0
 --- !u!65 &6212503946760205828
 BoxCollider:
   m_ObjectHideFlags: 0

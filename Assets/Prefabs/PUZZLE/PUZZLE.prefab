@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 67816511}
   - component: {fileID: 67816512}
   - component: {fileID: 67816513}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StairCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12046,31 +12046,7 @@ MonoBehaviour:
         m_MethodName: OnOffObj
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2764523224531696302}
-        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.EnableDisable, Assembly-CSharp
-        m_MethodName: OnOffObj
-        m_Mode: 2
-        m_Arguments:
           m_ObjectArgument: {fileID: 6533082340928675959}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2764523224531696302}
-        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.EnableDisable, Assembly-CSharp
-        m_MethodName: OnOffObj
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -27030,17 +27006,17 @@ PrefabInstance:
     - target: {fileID: 1144378375587913378, guid: 6b8299cd67f72ba4e8fcdaf09856987a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.519
+      value: 2.494999
       objectReference: {fileID: 0}
     - target: {fileID: 1144378375587913378, guid: 6b8299cd67f72ba4e8fcdaf09856987a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.598
+      value: 6.647
       objectReference: {fileID: 0}
     - target: {fileID: 1144378375587913378, guid: 6b8299cd67f72ba4e8fcdaf09856987a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 45.046
+      value: 44.968
       objectReference: {fileID: 0}
     - target: {fileID: 1144378375587913378, guid: 6b8299cd67f72ba4e8fcdaf09856987a,
         type: 3}
@@ -29295,17 +29271,17 @@ PrefabInstance:
     - target: {fileID: 1144378375587913378, guid: 6b8299cd67f72ba4e8fcdaf09856987a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.5130005
+      value: 4.489
       objectReference: {fileID: 0}
     - target: {fileID: 1144378375587913378, guid: 6b8299cd67f72ba4e8fcdaf09856987a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.598
+      value: 6.647
       objectReference: {fileID: 0}
     - target: {fileID: 1144378375587913378, guid: 6b8299cd67f72ba4e8fcdaf09856987a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 43.127
+      value: 43.049
       objectReference: {fileID: 0}
     - target: {fileID: 1144378375587913378, guid: 6b8299cd67f72ba4e8fcdaf09856987a,
         type: 3}
@@ -30893,17 +30869,17 @@ PrefabInstance:
     - target: {fileID: 1144378375587913378, guid: 6b8299cd67f72ba4e8fcdaf09856987a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.5860004
+      value: 4.5619993
       objectReference: {fileID: 0}
     - target: {fileID: 1144378375587913378, guid: 6b8299cd67f72ba4e8fcdaf09856987a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.8300004
+      value: 6.879
       objectReference: {fileID: 0}
     - target: {fileID: 1144378375587913378, guid: 6b8299cd67f72ba4e8fcdaf09856987a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 45.584
+      value: 45.505997
       objectReference: {fileID: 0}
     - target: {fileID: 1144378375587913378, guid: 6b8299cd67f72ba4e8fcdaf09856987a,
         type: 3}
