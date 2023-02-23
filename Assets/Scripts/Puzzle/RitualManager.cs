@@ -1,3 +1,4 @@
+using Events;
 using UnityEngine;
 
 namespace Puzzle
@@ -5,7 +6,7 @@ namespace Puzzle
     public class RitualManager : MonoBehaviour
     {
         public bool item1Placed, item2Placed, item3Placed;
-        [SerializeField] private GameObject gameOverScreen;
+        [SerializeField] private PhantomTetherEvent startRitualEvent;
 
         public void PlaceItem(int itemIndex)
         {
@@ -32,7 +33,7 @@ namespace Puzzle
                 return;
             }
             
-            gameOverScreen.SetActive(true);
+            startRitualEvent.RaiseEvent();
         }
     }
 }
