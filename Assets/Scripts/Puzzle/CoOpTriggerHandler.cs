@@ -1,8 +1,6 @@
 using System.Collections;
 using Audio;
 using Events;
-using Lakeview_Interactive.QTE_System.Scripts.QTEs;
-using QTESystem;
 using UnityEngine;
 
 namespace Puzzle
@@ -10,14 +8,14 @@ namespace Puzzle
     public class CoOpTriggerHandler : MonoBehaviour
     {
         public PhantomTetherEvent eventToRaise;
-        [HideInInspector] public bool ghostIsInteracting, humanIsInteracting;
 
-        [SerializeField] private QTEHandler qteHandlerRight;
-        [SerializeField] private QTEHandler qteHandlerLeft;
-        [SerializeField] private QTEHandler qteHandlerAlternating;
-        public bool canActivate = true;
+        [HideInInspector] public bool ghostIsInteracting, humanIsInteracting;
+        [SerializeField] private QteHandler qteHandlerRight;
+        [SerializeField] private QteHandler qteHandlerLeft;
+        [SerializeField] private QteHandler qteHandlerAlternating;
         [SerializeField] private DialogueSo waitingDialogue;
 
+        private bool canActivate = true;
         private int successCounter;
 
         public void GhostInteract()
@@ -49,19 +47,22 @@ namespace Puzzle
                 return;
             }
 
+            // START CO-OP QTE
             canActivate = false;
-
             if (qteHandlerAlternating != null)
             {
+                // Start Alternating COOP QTE
                 qteHandlerAlternating.gameObject.SetActive(true);
-                qteHandlerAlternating.QTEComponent.Reset();
+                qteHandlerAlternating.QteComponent.Reset();
+                StartCoroutine(qteHandlerAlternating.StartCoopQteAnimations());
             }
             else
             {
+                // Start 2 Mashing QTEs
                 qteHandlerLeft.gameObject.SetActive(true);
                 qteHandlerRight.gameObject.SetActive(true);
-                qteHandlerRight.GetComponentInChildren<MashingQTE>().SetCharType(CharacterType.Human);
-                qteHandlerLeft.GetComponentInChildren<MashingQTE>().SetCharType(CharacterType.Ghost);
+                StartCoroutine(qteHandlerRight.StartSingleQteAnimation(true));
+                StartCoroutine(qteHandlerLeft.StartSingleQteAnimation(false));
             }
         }
 

@@ -5,7 +5,7 @@ namespace Interaction
     public interface IInteractable
     {
         Transform GetTransform();
-        void Interact(IInteraction interaction);
+        void StartInteract(IInteraction interaction);
         void StopInteract();
         void ToggleUI();
         void ToggleOnUI();

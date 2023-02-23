@@ -1,3 +1,6 @@
+using System;
+using System.Collections;
+using Animation;
 using Audio;
 using GameConstants;
 using UnityEngine;
@@ -66,6 +69,15 @@ namespace Puzzle
                 return;
             }
 
+            StartCoroutine(StartPlacingAnimation());
+        }
+
+        private IEnumerator StartPlacingAnimation()
+        {
+            Game.Input.HumanInputMode = InputMode.MovementLimited;
+            Game.Input.HumanPlayer.GetComponent<AnimationsHandler>().TriggerParameter(Strings.PlacePickUpFloor);
+            yield return new WaitForSeconds(2.4f);
+            Game.Input.HumanInputMode = InputMode.Free;
             DialogueCanvas.Instance.LockRitualItem(itemIndex);
             ritualItemInWorld.SetActive(true);
             ritMan.PlaceItem(itemIndex);

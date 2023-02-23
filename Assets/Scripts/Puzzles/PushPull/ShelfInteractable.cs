@@ -10,22 +10,30 @@ namespace Puzzles.PushPull
         [SerializeField] private bool fromRightSide;
         [SerializeField] private Shelf shelf;
         [SerializeField] private GameObject interactSprite;
+        [SerializeField] private GameObject ghostAnimationPosition;
+        [SerializeField] private GameObject humanAnimationTransform;
+        private bool ghostIsInside;
+        private bool humanIsInside;
+        private bool isInsideTrigger;
         private bool isInteractable;
 
         private bool isInteracting;
-        private bool isInsideTrigger;
-        private bool movedThisFrame;
-        private bool humanIsInside;
-        private bool ghostIsInside;
 
         public Shelf Shelf => shelf;
 
+        public GameObject GhostAnimationPosition => ghostAnimationPosition;
+
+        public GameObject HumanAnimationTransform => humanAnimationTransform;
+
         private void Start()
         {
-            if (interactSprite.activeSelf)
-            {
-                interactSprite.SetActive(false);
-            }
+            ToggleOffUI();
+        }
+
+        private void OnDisable()
+        {
+            Game.Input.OnHumanInteract.RemoveListener(Interact);
+            Game.Input.OnGhostInteract.RemoveListener(Interact);
         }
 
         private void OnTriggerEnter(Collider other)
@@ -40,7 +48,7 @@ namespace Puzzles.PushPull
                 return;
             }
 
-            interactSprite.SetActive(true);
+            ToggleOnUI();
 
             if (other.CompareTag(Tags.PlayerTag))
             {
@@ -78,7 +86,7 @@ namespace Puzzles.PushPull
 
             if (!humanIsInside && !ghostIsInside)
             {
-                interactSprite.SetActive(false);
+                ToggleOffUI();
             }
         }
 
@@ -138,7 +146,7 @@ namespace Puzzles.PushPull
 
             SoundManager.Instance.PlaySfx(puzzle.pushSfx);
             isInteracting = true;
-            interactSprite.SetActive(false);
+            ToggleOffUI();
             DisableInteractable();
             UpdatePosition();
         }
@@ -146,22 +154,15 @@ namespace Puzzles.PushPull
         public void StopInteract()
         {
             isInteracting = false;
-            movedThisFrame = false;
             EnableInteractable();
             Game.Input.HumanInputMode = InputMode.Free;
             Game.Input.GhostInputMode = InputMode.Free;
+            shelf.HumanFollowAnimation = false;
+            shelf.GhostFollowAnimation = false;
             puzzle.CheckSolved();
         }
 
-        public void ToggleUI()
-        {
-            if (interactSprite != null)
-            {
-                interactSprite.SetActive(!interactSprite.activeSelf);
-            }
-        }
-
-        public void ToggleOnUI()
+        private void ToggleOnUI()
         {
             if (interactSprite != null)
             {
@@ -169,7 +170,7 @@ namespace Puzzles.PushPull
             }
         }
 
-        public void ToggleOffUI()
+        private void ToggleOffUI()
         {
             if (interactSprite != null)
             {
@@ -177,16 +178,15 @@ namespace Puzzles.PushPull
             }
         }
 
-        public void UpdatePosition()
+        private void UpdatePosition()
         {
-            Shelf.StartLerpPosition(this);
+            Shelf.StartLerpPosition(this, humanIsInside);
         }
 
         public void EnableInteractable()
         {
             isInteractable = true;
         }
-
 
         public void DisableInteractable()
         {
