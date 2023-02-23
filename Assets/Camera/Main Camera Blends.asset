@@ -13,10 +13,109 @@ MonoBehaviour:
   m_Name: Main Camera Blends
   m_EditorClassIdentifier: 
   m_CustomBlends:
-  - m_From: '**ANY CAMERA**'
-    m_To: '**ANY CAMERA**'
+  - m_From: CM vcam3 Full Room
+    m_To: CM vcam4 Sitting Area
     m_Blend:
-      m_Style: 0
+      m_Style: 1
+      m_Time: 1
+      m_CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - m_From: CM vcam4 Sitting Area
+    m_To: CM vcam3 Full Room
+    m_Blend:
+      m_Style: 1
+      m_Time: 1
+      m_CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - m_From: CM vcam7 Full Room
+    m_To: CM vcam8 Bookshelfes
+    m_Blend:
+      m_Style: 1
+      m_Time: 1
+      m_CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - m_From: CM vcam8 Bookshelfes
+    m_To: CM vcam7 Full Room
+    m_Blend:
+      m_Style: 1
+      m_Time: 1
+      m_CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - m_From: CM vcam2 Livingroom
+    m_To: CM vcam11 Stairs
+    m_Blend:
+      m_Style: 1
+      m_Time: 1
+      m_CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - m_From: CM vcam11 Stairs
+    m_To: CM vcam2 Livingroom
+    m_Blend:
+      m_Style: 1
+      m_Time: 1
+      m_CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - m_From: CM vcam11 Stairs
+    m_To: CM vcam6 Library
+    m_Blend:
+      m_Style: 1
+      m_Time: 1
+      m_CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - m_From: CM vcam6 Library
+    m_To: CM vcam11 Stairs
+    m_Blend:
+      m_Style: 1
+      m_Time: 1
+      m_CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - m_From: CM vcam14 Full Room
+    m_To: CM vcam17 Left Corner
+    m_Blend:
+      m_Style: 1
+      m_Time: 1
+      m_CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - m_From: CM vcam17 Left Corner
+    m_To: CM vcam14 Full Room
+    m_Blend:
+      m_Style: 1
       m_Time: 1
       m_CustomCurve:
         serializedVersion: 2
