@@ -765,6 +765,65 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &733653081
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 733653082}
+  - component: {fileID: 733653084}
+  - component: {fileID: 733653083}
+  m_Layer: 0
+  m_Name: dialogueTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &733653082
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733653081}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.28, y: 0.378, z: 23.68}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2764523224606667567}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &733653084
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733653081}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 3, z: 3.5}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &733653083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733653081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a92e44f33623a3c4296f73660658e9a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToTrigger: {fileID: 11400000, guid: ea645a08a862ee24aa1c658ba55d5f9f, type: 2}
 --- !u!1 &833595525
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,6 +951,7 @@ GameObject:
   - component: {fileID: 880859633}
   - component: {fileID: 880859635}
   - component: {fileID: 880859634}
+  - component: {fileID: 982409900}
   m_Layer: 0
   m_Name: ObjectiveTrigger (1)
   m_TagString: Untagged
@@ -940,6 +1000,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newObjective: Move the Boxes
+--- !u!114 &982409900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880859632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19124cb468064bb459d97d3ba056d8ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - {fileID: 11400000, guid: 7993b5774a819024f888de49a1767a95, type: 2}
+  - {fileID: 11400000, guid: 993c8887c4c1cf247b53054ca3b6f1d5, type: 2}
+  triggerType: 0
 --- !u!1 &955756540
 GameObject:
   m_ObjectHideFlags: 0
@@ -1326,6 +1402,10 @@ MonoBehaviour:
   itemIndex: 3
   ritualItemInWorld: {fileID: 6060614555008578381}
   interactSprite: {fileID: 114690018}
+  dialogueToQueue:
+  - {fileID: 11400000, guid: d51e085f039a7234fb135ebf0d224d1d, type: 2}
+  - {fileID: 11400000, guid: 9ccbf13771e3229409a28325b19c7133, type: 2}
+  - {fileID: 11400000, guid: 11d7ec16110c9d1468922260ead879f5, type: 2}
 --- !u!1 &1098502861
 GameObject:
   m_ObjectHideFlags: 0
@@ -1564,6 +1644,8 @@ MonoBehaviour:
   itemIndex: 1
   ritualItemInWorld: {fileID: 6373154973663688988}
   interactSprite: {fileID: 1014098616}
+  dialogueToQueue:
+  - {fileID: 11400000, guid: a12a773c010fbd74587a898c98e8b1ef, type: 2}
 --- !u!1 &1221167447
 GameObject:
   m_ObjectHideFlags: 0
@@ -1656,6 +1738,70 @@ MonoBehaviour:
   qte: {fileID: 1608399984}
   startColor: {r: 0, g: 1, b: 0, a: 1}
   endColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!1 &1367578640
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1367578641}
+  - component: {fileID: 1367578642}
+  - component: {fileID: 1367578643}
+  m_Layer: 0
+  m_Name: dialogueTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1367578641
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367578640}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.608, y: 0, z: 22.342}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7278079449877205228}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1367578642
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367578640}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.72, y: 3.62, z: 3.83}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1367578643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367578640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19124cb468064bb459d97d3ba056d8ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - {fileID: 11400000, guid: d071f3d4dfa72fd4e84413e464fa3f6b, type: 2}
+  - {fileID: 11400000, guid: ea5dc626d15f35745b3cad0408ba7bac, type: 2}
+  - {fileID: 11400000, guid: 073f741314d0e68479624bc2849a5267, type: 2}
+  - {fileID: 11400000, guid: c3d4647425e47954eae9ac6a61312b02, type: 2}
+  triggerType: 0
 --- !u!1 &1481003345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1720,6 +1866,9 @@ MonoBehaviour:
   itemIndex: 2
   ritualItemInWorld: {fileID: 6609639331963919839}
   interactSprite: {fileID: 342459427}
+  dialogueToQueue:
+  - {fileID: 11400000, guid: 1bdcfed5b73fd454683ec2e3b4841740, type: 2}
+  - {fileID: 11400000, guid: 08082e55726aae24aaf4a828519c3710, type: 2}
 --- !u!1 &1523839111
 GameObject:
   m_ObjectHideFlags: 0
@@ -5072,6 +5221,7 @@ GameObject:
   - component: {fileID: 5236829697001895603}
   - component: {fileID: 2119701697}
   - component: {fileID: 490637930}
+  - component: {fileID: 854187289}
   m_Layer: 0
   m_Name: TakenVHS
   m_TagString: Untagged
@@ -5122,6 +5272,19 @@ MonoBehaviour:
           m_StringArgument: Complete the Ritual Circle
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 854187289}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.DialogueLine, Assembly-CSharp
+        m_MethodName: QueueDialogue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 3613f0f43d1e12a47a72c03aaeb9de49,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &490637930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5132,6 +5295,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b6ebc4410687244997a97099d9dc8f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &854187289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960166818006661877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea817e709e63904c9112836b73b2ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2024630026721956204
@@ -7950,8 +8125,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasToShow: {fileID: 2399235121127476178}
   animationDuration: 0.5
-  soundsToPlay:
-  - {fileID: 11400000, guid: ea9d172cf721e7141bf84afec99a8419, type: 2}
+  diaToPlay:
+  - {fileID: 11400000, guid: 8f326edcac6bcb64982468dfbc2e96dd, type: 2}
+  - {fileID: 11400000, guid: 8c7e8232d13cdc14984dee2168cc0ff4, type: 2}
   thisSoundMode: 0
 --- !u!1 &2399235122541369343
 GameObject:
@@ -8510,6 +8686,7 @@ GameObject:
   - component: {fileID: 401583942633946194}
   - component: {fileID: 4084019418874079010}
   - component: {fileID: 137369956}
+  - component: {fileID: 1315436256}
   m_Layer: 0
   m_Name: HasUnlockedLibrary
   m_TagString: Untagged
@@ -8548,6 +8725,19 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1315436256}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.DialogueLine, Assembly-CSharp
+        m_MethodName: QueueDialogue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 4d01bb3506df83047a5349ae75a46666,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 401583942633946194}
         m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.PlayAnimationOnce, Assembly-CSharp
         m_MethodName: PlayAnimation
@@ -8667,6 +8857,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b6ebc4410687244997a97099d9dc8f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1315436256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2762654698003897514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea817e709e63904c9112836b73b2ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2764523223476598314
@@ -9280,7 +9482,7 @@ MonoBehaviour:
         m_MethodName: QueueDialogue
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: cdc396907efc6464cab44e3631492c64,
+          m_ObjectArgument: {fileID: 11400000, guid: d311ceecf61732648a1efc8b4985e95d,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
           m_IntArgument: 0
@@ -10190,7 +10392,7 @@ MonoBehaviour:
         m_MethodName: QueueDialogue
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: a677399116dc99e419289ce491eb55e2,
+          m_ObjectArgument: {fileID: 11400000, guid: f9f96820c955f0943b8be8c8a06f0436,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
           m_IntArgument: 0
@@ -10203,7 +10405,7 @@ MonoBehaviour:
         m_MethodName: QueueDialogue
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 6ffb5db80c62d8845974c2fd096a51ae,
+          m_ObjectArgument: {fileID: 11400000, guid: 10e1866850b5a234896cbdf5974611a0,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
           m_IntArgument: 0
@@ -10216,33 +10418,7 @@ MonoBehaviour:
         m_MethodName: QueueDialogue
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: e7c961c1ef37a3a40aa8fafc87aa2942,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2764523224180838939}
-        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.DialogueLine, Assembly-CSharp
-        m_MethodName: QueueDialogue
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 976490f82d793b0428822377be68f556,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2764523224180838939}
-        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.DialogueLine, Assembly-CSharp
-        m_MethodName: QueueDialogue
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: fb9c48a345826444bb1c7d3282f8699c,
+          m_ObjectArgument: {fileID: 11400000, guid: 50e3ea6d927e3e6468b77494a14c66fb,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
           m_IntArgument: 0
@@ -11495,7 +11671,7 @@ MonoBehaviour:
         m_MethodName: QueueDialogue
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: ad508c435369c924293d47c30ea08a18,
+          m_ObjectArgument: {fileID: 11400000, guid: 9df9e4dd518032c419a57d6541f1fcdc,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
           m_IntArgument: 0
@@ -11508,7 +11684,7 @@ MonoBehaviour:
         m_MethodName: QueueDialogue
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c7e59c09bd7b1b740955f8b3c61b3771,
+          m_ObjectArgument: {fileID: 11400000, guid: 38893f683a1abf84f9e4a77b49b35f97,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
           m_IntArgument: 0
@@ -11521,7 +11697,7 @@ MonoBehaviour:
         m_MethodName: QueueDialogue
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: fab9dd56e2ede014ca767501870be67d,
+          m_ObjectArgument: {fileID: 11400000, guid: 2836d292a7c74e64a8e845f9cbd04400,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
           m_IntArgument: 0
@@ -11534,7 +11710,7 @@ MonoBehaviour:
         m_MethodName: QueueDialogue
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 8b8c2bd61cad36c41833af1f701f7ad7,
+          m_ObjectArgument: {fileID: 11400000, guid: b6385cd3eff37f0419badd0114cc0a90,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
           m_IntArgument: 0
@@ -11584,6 +11760,18 @@ MonoBehaviour:
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 2110144498}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2764523224531696302}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.EnableDisable, Assembly-CSharp
+        m_MethodName: OnOffObj
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1367578640}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -11854,6 +12042,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4222155465203468066}
+  - {fileID: 733653082}
   m_Father: {fileID: 2764523224176454970}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12070,46 +12259,7 @@ MonoBehaviour:
         m_MethodName: QueueDialogue
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 5e66eec790660e647931159b68e72e8d,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2764523224682558318}
-        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.DialogueLine, Assembly-CSharp
-        m_MethodName: QueueDialogue
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c842e3a89fac95649825fcb118c8195e,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2764523224682558318}
-        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.DialogueLine, Assembly-CSharp
-        m_MethodName: QueueDialogue
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 0d1ad5ae71a8fef4aa81bd383fc4721a,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2764523224682558318}
-        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.DialogueLine, Assembly-CSharp
-        m_MethodName: QueueDialogue
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 13ed072f3bd90f847b04b33e52dba518,
+          m_ObjectArgument: {fileID: 11400000, guid: ba6968b551892164ead5f2f5637ed18f,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
           m_IntArgument: 0
@@ -12711,7 +12861,7 @@ MonoBehaviour:
         m_MethodName: QueueDialogue
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: e31f5176524061143beb1bce503d49de,
+          m_ObjectArgument: {fileID: 11400000, guid: 69d1c82c1fdf87d41be0d1452c966d84,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
           m_IntArgument: 0
@@ -12724,59 +12874,7 @@ MonoBehaviour:
         m_MethodName: QueueDialogue
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: ed689f181135b3645a0bc4c5bb6f7a22,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2764523224979156742}
-        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.DialogueLine, Assembly-CSharp
-        m_MethodName: QueueDialogue
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 0c3fd168054ec7d4c9b68d5c8388c233,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2764523224979156742}
-        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.DialogueLine, Assembly-CSharp
-        m_MethodName: QueueDialogue
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 54c4ec6aa8cf59e4a885f583f3fe2e6a,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2764523224979156742}
-        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.DialogueLine, Assembly-CSharp
-        m_MethodName: QueueDialogue
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 9aea02924744a1e46858043867591766,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2764523224979156742}
-        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.DialogueLine, Assembly-CSharp
-        m_MethodName: QueueDialogue
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: d40fd364aefba9f4cbd9b87913661268,
+          m_ObjectArgument: {fileID: 11400000, guid: 9d9a0b606a106d74db13926fc3e00265,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
           m_IntArgument: 0
@@ -12926,6 +13024,7 @@ Transform:
   - {fileID: 3484198432866432008}
   - {fileID: 2438477391826488676}
   - {fileID: 2764523225017980320}
+  - {fileID: 4713969002575953531}
   m_Father: {fileID: 2764523224176454970}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13401,7 +13500,7 @@ MonoBehaviour:
         m_MethodName: QueueDialogue
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 50887e5bc1d48824fb8cb3e39e634ecf,
+          m_ObjectArgument: {fileID: 11400000, guid: 08741036860434e45a06d9a0cd9a1810,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
           m_IntArgument: 0
@@ -13414,7 +13513,7 @@ MonoBehaviour:
         m_MethodName: QueueDialogue
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: f708c359ad2f2ba4f8b9ed1f69c7e9db,
+          m_ObjectArgument: {fileID: 11400000, guid: 9f059964f4f7cd545862acb16c014b0a,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
           m_IntArgument: 0
@@ -13427,7 +13526,7 @@ MonoBehaviour:
         m_MethodName: QueueDialogue
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: b913271f30197cf4ab50d868abd1eab8,
+          m_ObjectArgument: {fileID: 11400000, guid: 49672caf47598094d972d998a0cc0e5b,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
           m_IntArgument: 0
@@ -13440,7 +13539,7 @@ MonoBehaviour:
         m_MethodName: QueueDialogue
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: e6c4aafb303a1a14a8f149ec93b8f5a5,
+          m_ObjectArgument: {fileID: 11400000, guid: 31f60cac1e47e6648bc39d17c329107d,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
           m_IntArgument: 0
@@ -13453,20 +13552,7 @@ MonoBehaviour:
         m_MethodName: QueueDialogue
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 22052388229a51f48a465f0f61f7ceef,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2764523225224098525}
-        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.DialogueLine, Assembly-CSharp
-        m_MethodName: QueueDialogue
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 20075032fb8316348b5f8e95643080c3,
+          m_ObjectArgument: {fileID: 11400000, guid: d420f5030cb74fa4e8c73be464cf9d1c,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
           m_IntArgument: 0
@@ -13559,6 +13645,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Interact with the Object at the Fireplace
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2764523225224098527}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.EnableDisable, Assembly-CSharp
+        m_MethodName: OnOffObj
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 4713969002575953534}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2764523225224098525
@@ -15514,8 +15612,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3282289254782141962}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 576.7913, y: -784.47015, z: -37.66866}
-  m_LocalScale: {x: 181.51578, y: 181.51578, z: 3.6303163}
+  m_LocalPosition: {x: 74.4, y: -227.99994, z: -4.33}
+  m_LocalScale: {x: 181.5158, y: 181.5158, z: 3.6303163}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1682752145}
@@ -15676,7 +15774,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3493136576281979801}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 576.7913, y: -784.47015, z: -37.66866}
+  m_LocalPosition: {x: 1.9, y: -228, z: -6.55}
   m_LocalScale: {x: 181.5158, y: 181.5158, z: 3.6303163}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16679,8 +16777,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4108335599555102027}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 576.7913, y: -784.47015, z: -37.66866}
-  m_LocalScale: {x: 181.51578, y: 181.51578, z: 3.6303163}
+  m_LocalPosition: {x: -79.7, y: -227.99994, z: -2.71}
+  m_LocalScale: {x: 181.5158, y: 181.5158, z: 3.6303163}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 306283711}
@@ -18192,6 +18290,7 @@ Transform:
   - {fileID: 955756545}
   - {fileID: 2106454194}
   - {fileID: 2110144499}
+  - {fileID: 1367578641}
   m_Father: {fileID: 1876252624841309019}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21270,6 +21369,7 @@ GameObject:
   - component: {fileID: 5640273373581349056}
   - component: {fileID: 3302579654625044783}
   - component: {fileID: 1570546503}
+  - component: {fileID: 193587551}
   m_Layer: 0
   m_Name: HasOpenedSesame
   m_TagString: Untagged
@@ -21308,6 +21408,19 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 193587551}
+        m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.DialogueLine, Assembly-CSharp
+        m_MethodName: QueueDialogue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: bbf749e319c8e4f4cb4d6e8459ff3357,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Audio.DialogueSo, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 3302579654625044783}
         m_TargetAssemblyTypeName: Puzzle.PuzzlePieces.EnableDisable, Assembly-CSharp
         m_MethodName: OnOffObj
@@ -21354,6 +21467,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b6ebc4410687244997a97099d9dc8f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &193587551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8835922883825765807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea817e709e63904c9112836b73b2ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8951903242226480060
@@ -21761,6 +21886,92 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8255251689620715047, guid: 0a7ee4b3c1484a842add9dd661e0a15b,
     type: 3}
   m_PrefabInstance: {fileID: 3500278}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &37259518
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2764523225025906090}
+    m_Modifications:
+    - target: {fileID: 4713969002605803136, guid: 2353b27eeb556f14cb4e5fc25876d96e,
+        type: 3}
+      propertyPath: m_Name
+      value: ToonFire_A1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713969002605803136, guid: 2353b27eeb556f14cb4e5fc25876d96e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713969002605803141, guid: 2353b27eeb556f14cb4e5fc25876d96e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713969002605803141, guid: 2353b27eeb556f14cb4e5fc25876d96e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.9558935
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713969002605803141, guid: 2353b27eeb556f14cb4e5fc25876d96e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.6193774
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713969002605803141, guid: 2353b27eeb556f14cb4e5fc25876d96e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 21.015276
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713969002605803141, guid: 2353b27eeb556f14cb4e5fc25876d96e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.949507
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713969002605803141, guid: 2353b27eeb556f14cb4e5fc25876d96e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713969002605803141, guid: 2353b27eeb556f14cb4e5fc25876d96e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.313746
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713969002605803141, guid: 2353b27eeb556f14cb4e5fc25876d96e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713969002605803141, guid: 2353b27eeb556f14cb4e5fc25876d96e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713969002605803141, guid: 2353b27eeb556f14cb4e5fc25876d96e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 323.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713969002605803141, guid: 2353b27eeb556f14cb4e5fc25876d96e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2353b27eeb556f14cb4e5fc25876d96e, type: 3}
+--- !u!4 &4713969002575953531 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4713969002605803141, guid: 2353b27eeb556f14cb4e5fc25876d96e,
+    type: 3}
+  m_PrefabInstance: {fileID: 37259518}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4713969002575953534 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4713969002605803136, guid: 2353b27eeb556f14cb4e5fc25876d96e,
+    type: 3}
+  m_PrefabInstance: {fileID: 37259518}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &143816730
 PrefabInstance:
@@ -23314,7 +23525,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2100000, guid: 086fb4d2ef89f72488718bfb8fe3bc02, type: 2}
     - target: {fileID: 8479836270210153475, guid: a20485babbc3072469f9aafaa6c76bb3,
         type: 3}
       propertyPath: m_RootOrder
@@ -23983,12 +24194,12 @@ PrefabInstance:
     - target: {fileID: 1431825131279474939, guid: ba7e0daaf15ed7447a411f091ed35965,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.522
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1431825131279474939, guid: ba7e0daaf15ed7447a411f091ed35965,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba7e0daaf15ed7447a411f091ed35965, type: 3}
@@ -24624,12 +24835,12 @@ PrefabInstance:
     - target: {fileID: 1431825131279474939, guid: ba7e0daaf15ed7447a411f091ed35965,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.522
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1431825131279474939, guid: ba7e0daaf15ed7447a411f091ed35965,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba7e0daaf15ed7447a411f091ed35965, type: 3}
@@ -25619,7 +25830,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2100000, guid: 086fb4d2ef89f72488718bfb8fe3bc02, type: 2}
     - target: {fileID: 8479836270210153475, guid: a20485babbc3072469f9aafaa6c76bb3,
         type: 3}
       propertyPath: m_RootOrder
@@ -28342,12 +28553,12 @@ PrefabInstance:
     - target: {fileID: 1431825131279474939, guid: ba7e0daaf15ed7447a411f091ed35965,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.522
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1431825131279474939, guid: ba7e0daaf15ed7447a411f091ed35965,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba7e0daaf15ed7447a411f091ed35965, type: 3}

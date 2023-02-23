@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Animation;
 using Audio;
 using GameConstants;
@@ -14,6 +15,8 @@ namespace Puzzle
         [SerializeField] private int itemIndex;
         [SerializeField] private GameObject ritualItemInWorld;
         [SerializeField] private GameObject interactSprite;
+
+        [SerializeField] private List<DialogueSo> dialogueToQueue;
 
         private bool canActivate;
 
@@ -69,6 +72,10 @@ namespace Puzzle
                 return;
             }
 
+            foreach (DialogueSo dialogue in dialogueToQueue)
+            {
+                DialogueCanvas.Instance.QueueDialogue(dialogue);
+            }
             StartCoroutine(StartPlacingAnimation());
         }
 
