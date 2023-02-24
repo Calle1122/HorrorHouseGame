@@ -104,7 +104,6 @@ namespace Puzzle
 
             const float lerpDuration = 1f;
             var currentTime = 0f;
-            
             var startPos = targetTransform.position;
             var targetXZPos = new Vector3(targetPosition.x, startPos.y, targetPosition.z);
             
