@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Events;
+using Puzzle;
 using UnityEngine;
 
 public class MainMenu : MonoBehaviour
@@ -12,6 +13,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject fetchingDevicesObject;
     [SerializeField] private GameObject aboutObject;
     [SerializeField] private GameObject settingsObject;
+
+    private Coroutine _cutsceneCoroutine;
 
     private void Start()
     {
@@ -60,18 +63,32 @@ public class MainMenu : MonoBehaviour
         menuRoot.SetActive(false);
         
         //CUTSCENE
+        Game.Input.OnHumanInteract.AddListener(ForceStopIntro);
+        
         CutsceneController.Instance.PlayIntroCutscene();
-        StartCoroutine(DelayGameStart(CutsceneController.Instance.GetIntroLength()));
+        _cutsceneCoroutine = StartCoroutine(DelayGameStart(CutsceneController.Instance.GetIntroLength()));
 
     }
 
     private IEnumerator DelayGameStart(float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
+        Game.Input.OnHumanInteract.RemoveListener(ForceStopIntro);
+        
         gameStartEvent.RaiseEvent();
         ShowMenu();
     }
-    
+
+    private void ForceStopIntro()
+    {
+        Game.Input.OnHumanInteract.RemoveListener(ForceStopIntro);
+        StopCoroutine(_cutsceneCoroutine);
+        
+        CutsceneController.Instance.ForceStopIntro();
+        gameStartEvent.RaiseEvent();
+        ShowMenu();
+    }
+
     public void PopUp()
     {
         StopAllCoroutines();

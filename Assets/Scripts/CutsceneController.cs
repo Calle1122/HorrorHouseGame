@@ -51,14 +51,18 @@ public class CutsceneController : MonoBehaviour
         DialogueCanvas.Instance.gameObject.SetActive(true);
         introCutscenePlayer.gameObject.SetActive(false);
     }
-    
-    public float GetOutroLength()
+
+    public void ForceStopIntro()
     {
-        return (float)outroCutscenePlayer.clip.length;
+        _musicSource.mute = false;
+        DialogueCanvas.Instance.gameObject.SetActive(true);
+        introCutscenePlayer.gameObject.SetActive(false);
     }
-    
+
     public void PlayOutroCutscene()
     {
+        Game.Input.OnHumanInteract.AddListener(ForceStopOutro);
+        
         _musicSource.mute = true;
         DialogueCanvas.Instance.gameObject.SetActive(false);
         
@@ -68,6 +72,18 @@ public class CutsceneController : MonoBehaviour
 
     private void StopOutroCutscene()
     {
+        Game.Input.OnHumanInteract.RemoveListener(ForceStopOutro);
+        
+        _musicSource.mute = false;
+        DialogueCanvas.Instance.gameObject.SetActive(true);
+        outroCutscenePlayer.gameObject.SetActive(false);
+        gameOverScreen.SetActive(true);
+    }
+    
+    public void ForceStopOutro()
+    {
+        Game.Input.OnHumanInteract.RemoveListener(ForceStopOutro);
+        
         _musicSource.mute = false;
         DialogueCanvas.Instance.gameObject.SetActive(true);
         outroCutscenePlayer.gameObject.SetActive(false);
