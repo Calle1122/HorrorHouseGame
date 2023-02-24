@@ -38,6 +38,8 @@ namespace UI
 
         private Coroutine _popupWindowLerp, _largeItemLerp;
 
+        private bool _canNavigate;
+
         private void Awake()
         {
             itemPosition--;
@@ -54,12 +56,14 @@ namespace UI
         {
             Game.Input.OnHumanInteract.AddListener(OnHumanInteract);
             Game.Input.OnHumanCancel.AddListener(OnHumanCancel);
+            Game.Input.OnHumanMovementInput.AddListener(OnHumanNavigate);
         }
 
         private void OnDisable()
         {
             Game.Input.OnHumanInteract.RemoveListener(OnHumanInteract);
-            Game.Input.OnHumanCancel.AddListener(OnHumanCancel);
+            Game.Input.OnHumanCancel.RemoveListener(OnHumanCancel);
+            Game.Input.OnHumanMovementInput.RemoveListener(OnHumanNavigate);
         }
 
         private void OnHumanCancel()
@@ -94,6 +98,28 @@ namespace UI
             {
                 OpenPopup();
             }
+        }
+
+        private void OnHumanNavigate(Vector3 moveInput)
+        {
+            if (_canNavigate)
+            {
+                if (moveInput.x > .75f)
+                {
+                    SelectNext();
+                    _canNavigate = false;
+                }
+                if (moveInput.x < -.75f)
+                {
+                    SelectPrevious();
+                    _canNavigate = false;
+                }
+            }
+
+            if (moveInput.x < .25f && moveInput.x > -.25f)
+            {
+                _canNavigate = true;
+            } 
         }
 
         private void ClosePopup()

@@ -312,6 +312,10 @@ PrefabInstance:
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 1546180495}
+    - target: {fileID: 1695104364, guid: b58575ae29bd2dd4b9d62fa5f3b21b37, type: 3}
+      propertyPath: ritualTime
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 800633492140341793, guid: b58575ae29bd2dd4b9d62fa5f3b21b37,
         type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgument
@@ -322,6 +326,16 @@ PrefabInstance:
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[5].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 1503545803}
+    - target: {fileID: 1816858276494662017, guid: b58575ae29bd2dd4b9d62fa5f3b21b37,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.575
+      objectReference: {fileID: 0}
+    - target: {fileID: 1816858276494662017, guid: b58575ae29bd2dd4b9d62fa5f3b21b37,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.696
+      objectReference: {fileID: 0}
     - target: {fileID: 2180115756928372987, guid: b58575ae29bd2dd4b9d62fa5f3b21b37,
         type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
