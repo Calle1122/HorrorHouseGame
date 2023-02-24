@@ -196,8 +196,8 @@ public class InputManager : MonoBehaviour
 
     private void SpawnCharacters()
     {
-        humanPlayer = Instantiate(humanPrefab, new Vector3(0, 1, 15), quaternion.identity);
-        ghostPlayer = Instantiate(ghostPrefab, new Vector3(0, 1, 15), quaternion.identity);
+        humanPlayer = Instantiate(humanPrefab, new Vector3(-1, 1, 14), quaternion.identity);
+        ghostPlayer = Instantiate(ghostPrefab, new Vector3(1, 1, 14), quaternion.identity);
 
         if (player1Input == null)
         {
