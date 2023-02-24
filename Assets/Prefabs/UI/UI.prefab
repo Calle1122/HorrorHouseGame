@@ -304,6 +304,48 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7027484326482249296, guid: fa131986915051b42ab0841e25ecca2e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 509
+      objectReference: {fileID: 0}
+    - target: {fileID: 7027484326482249297, guid: fa131986915051b42ab0841e25ecca2e,
+        type: 3}
+      propertyPath: m_text
+      value: Re-Aliving of the un-Alive
+      objectReference: {fileID: 0}
+    - target: {fileID: 7027484326482249297, guid: fa131986915051b42ab0841e25ecca2e,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 235.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 7027484326482249297, guid: fa131986915051b42ab0841e25ecca2e,
+        type: 3}
+      propertyPath: m_margin.w
+      value: 49.523132
+      objectReference: {fileID: 0}
+    - target: {fileID: 7027484326482249297, guid: fa131986915051b42ab0841e25ecca2e,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 80032f868de141e4aa94063e616fe333,
+        type: 2}
+    - target: {fileID: 7027484326482249297, guid: fa131986915051b42ab0841e25ecca2e,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 235.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 7027484326482249297, guid: fa131986915051b42ab0841e25ecca2e,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 1118207843492894261, guid: 80032f868de141e4aa94063e616fe333,
+        type: 2}
+    - target: {fileID: 7027484326855841078, guid: fa131986915051b42ab0841e25ecca2e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -37
+      objectReference: {fileID: 0}
     - target: {fileID: 7027484327891816837, guid: fa131986915051b42ab0841e25ecca2e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -414,6 +456,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainMenuUI
       objectReference: {fileID: 0}
+    - target: {fileID: 7027484328301736152, guid: fa131986915051b42ab0841e25ecca2e,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ebbc6a4a7e481a84fb1d99f59c7ba02a,
+        type: 2}
+    - target: {fileID: 7027484328301736152, guid: fa131986915051b42ab0841e25ecca2e,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8914108405093941864, guid: ebbc6a4a7e481a84fb1d99f59c7ba02a,
+        type: 2}
+    - target: {fileID: 7539389078311399440, guid: fa131986915051b42ab0841e25ecca2e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -42
+      objectReference: {fileID: 0}
     - target: {fileID: 8032608096355522094, guid: fa131986915051b42ab0841e25ecca2e,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -433,6 +492,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304308727904219650, guid: fa131986915051b42ab0841e25ecca2e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -45
       objectReference: {fileID: 0}
     - target: {fileID: 8501500857757561804, guid: fa131986915051b42ab0841e25ecca2e,
         type: 3}

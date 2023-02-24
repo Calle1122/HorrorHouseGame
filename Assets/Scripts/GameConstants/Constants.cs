@@ -29,8 +29,10 @@
         public const string AmbientVol = "AmbientVolume";
         
         // Animation Parameters
-        // Human
+        public const string PlayOnceTrigger = "playOnce";
         
+        
+        // Human
         // Bool Parameters
         public const string JumpTriggerParameter = "PlayJump";
         public const string WalkParam = "IsWalking";
@@ -41,6 +43,7 @@
         // Trigger Parameters
         public const string LerpStepTrigger = "LerpStepPlay";
         public const string PushFinishedTrigger = "PushFinished";
+        public const string GenericPickUpTrigger = "GenericPickupPlay";
         
         // Ghost
         // Bool Parameters
