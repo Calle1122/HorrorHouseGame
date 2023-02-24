@@ -1,10 +1,8 @@
-using System;
 using System.Collections;
 using Animation;
 using Events;
 using GameConstants;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Interaction
 {
