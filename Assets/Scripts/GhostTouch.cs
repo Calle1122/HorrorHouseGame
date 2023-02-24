@@ -8,7 +8,6 @@ using UnityEngine.Serialization;
 public class GhostTouch : MonoBehaviour
 {
     [FormerlySerializedAs("reference")] [SerializeField] private GameObject targetObject;
-    //[SerializeField] private float animationDuration;
     private Renderer _objectRenderer;
     
     public static int AmplitudeID = Shader.PropertyToID("_Amplitude");

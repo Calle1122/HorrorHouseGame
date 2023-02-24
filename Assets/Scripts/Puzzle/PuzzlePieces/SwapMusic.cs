@@ -7,13 +7,13 @@ namespace Puzzle.PuzzlePieces
     {
         public void NewMusic(AudioClip newMusic)
         {
-            AudioSource source = Camera.main.GetComponent<AudioSource>();
-            float orgVolume = source.volume;
+            var source = Camera.main.GetComponent<AudioSource>();
+            var startVol = source.volume;
             
-            StartCoroutine(VolumeLerp(0f, orgVolume, source, newMusic, true));
+            StartCoroutine(VolumeLerp(0f, startVol, source, newMusic, true));
         }
 
-        private IEnumerator VolumeLerp(float targetVolume, float orgVol, AudioSource source, AudioClip newMusic, bool startAgain)
+        private IEnumerator VolumeLerp(float targetVolume, float startVol, AudioSource source, AudioClip newMusic, bool startAgain)
         {
             var currentTime = 0f;
             var currentVol = source.volume;
@@ -30,7 +30,7 @@ namespace Puzzle.PuzzlePieces
             {
                 source.clip = newMusic;
                 source.Play();
-                StartCoroutine(VolumeLerp(orgVol, orgVol, source, newMusic, false));
+                StartCoroutine(VolumeLerp(startVol, startVol, source, newMusic, false));
             }
         }
     }
