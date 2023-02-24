@@ -4,6 +4,7 @@ using Animation;
 using Events;
 using GameConstants;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Interaction
 {
