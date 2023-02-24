@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Personal Folders/Gustav/Simon_Level.unity
-    guid: 647563495e7b7a74ca9d362cd3adc1ec
+    path: Assets/Scenes/MainLevel.unity
+    guid: 6524699a759b81041a139aa4e2edf174
   m_configObjects: {}
