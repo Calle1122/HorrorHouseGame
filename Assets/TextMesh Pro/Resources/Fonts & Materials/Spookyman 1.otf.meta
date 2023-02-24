@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a9f52187863dcf34788cb21ff35ada05
+guid: 97fc2965f46fd8f469c8559f809c9c2b
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -11,6 +11,8 @@ TrueTypeFontImporter:
   fontNames:
   - Spookyman
   fallbackFontReferences:
+  - {fileID: 12800000, guid: a9f52187863dcf34788cb21ff35ada05, type: 3}
+  - {fileID: 12800000, guid: 0e1b4df29b6284648a73598d12f2bf96, type: 3}
   - {fileID: 12800000, guid: fa5c458dde9fc7344b8dbb53d9b491fb, type: 3}
   customCharacters: 
   fontRenderingMode: 0
