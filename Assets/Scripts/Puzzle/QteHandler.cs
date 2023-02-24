@@ -4,14 +4,20 @@ using GameConstants;
 using Lakeview_Interactive.QTE_System.Scripts.QTEs;
 using QTESystem;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Puzzle
 {
     public class QteHandler : MonoBehaviour
     {
         [SerializeField] private QTE qteComponent;
-        [SerializeField] private GameObject ghostPosition;
-        [SerializeField] private GameObject humanPosition;
+
+        [FormerlySerializedAs("ghostPosition")] [SerializeField]
+        private GameObject ghostObject;
+
+        [FormerlySerializedAs("humanPosition")] [SerializeField]
+        private GameObject humanObject;
+
         [SerializeField] private bool playPushAnimation;
 
         public QTE QteComponent { get; private set; }
@@ -27,14 +33,14 @@ namespace Puzzle
             {
                 Game.Input.HumanInputMode = InputMode.MovementLimited;
                 qteComponent.SetCharType(CharacterType.Human);
-                yield return StartCoroutine(LerpPosition(humanPosition.transform.position,
+                yield return StartCoroutine(LerpPosition(humanObject.transform.position,
                     Game.Input.HumanPlayer.transform, Strings.LerpStepTrigger));
             }
             else if (!isHuman)
             {
                 Game.Input.GhostInputMode = InputMode.MovementLimited;
                 qteComponent.SetCharType(CharacterType.Ghost);
-                yield return StartCoroutine(LerpPosition(ghostPosition.transform.position,
+                yield return StartCoroutine(LerpPosition(ghostObject.transform.position,
                     Game.Input.GhostPlayer.transform, Strings.PossessTrigger));
             }
 
@@ -76,16 +82,18 @@ namespace Puzzle
             const float lerpDuration = 1f;
             var currentTime = 0f;
             var startPosHuman = Game.Input.HumanPlayer.transform.position;
-            var startPosGhost = Game.Input.GhostPlayer.transform.position;
+            var humanPosition = humanObject.transform.position;
+            var humanTargetPos = new Vector3(humanPosition.x, startPosHuman.y, humanPosition.z);
             while (currentTime < lerpDuration)
             {
                 currentTime += Time.deltaTime;
-                var newHumanPos = Vector3.Lerp(startPosHuman, humanPosition.transform.position,
-                    currentTime / lerpDuration);
-                var newGhostPos = Vector3.Lerp(startPosGhost, ghostPosition.transform.position,
-                    currentTime / lerpDuration);
-                Game.Input.HumanPlayer.transform.position = newHumanPos;
-                Game.Input.GhostPlayer.transform.position = newGhostPos;
+
+                var humanNewPos = Vector3.Lerp(startPosHuman, humanTargetPos, currentTime / lerpDuration);
+                var ghostNewPos = Vector3.Lerp(Game.Input.GhostPlayer.transform.position,
+                    ghostObject.transform.position, currentTime / lerpDuration);
+
+                Game.Input.HumanPlayer.transform.position = humanNewPos;
+                Game.Input.GhostPlayer.transform.position = ghostNewPos;
                 yield return null;
             }
         }
@@ -96,11 +104,13 @@ namespace Puzzle
 
             const float lerpDuration = 1f;
             var currentTime = 0f;
-            var currentPos = targetTransform.position;
+            var startPos = targetTransform.position;
+            var targetXZPos = new Vector3(targetPosition.x, startPos.y, targetPosition.z);
+            
             while (currentTime < lerpDuration)
             {
                 currentTime += Time.deltaTime;
-                var newPos = Vector3.Lerp(currentPos, targetPosition, currentTime / lerpDuration);
+                var newPos = Vector3.Lerp(startPos, targetXZPos, currentTime / lerpDuration);
                 targetTransform.transform.position = newPos;
                 yield return null;
             }

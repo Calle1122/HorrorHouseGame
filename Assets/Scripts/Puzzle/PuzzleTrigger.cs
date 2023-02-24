@@ -164,10 +164,4 @@ namespace Puzzle
             Destroy(gameObject);
         }
     }
-
-    internal enum PlayAnimation
-    {
-        PickUp,
-        Possess
-    }
 }

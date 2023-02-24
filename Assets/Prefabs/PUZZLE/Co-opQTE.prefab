@@ -652,7 +652,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   qteComponent: {fileID: 9115475526538659908}
-  playerPosition: {fileID: 0}
+  ghostObject: {fileID: 0}
+  humanObject: {fileID: 0}
+  playPushAnimation: 0
 --- !u!1 &5409593000367810909
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,7 +709,6 @@ MonoBehaviour:
   qteHandlerRight: {fileID: 1822860101897810773}
   qteHandlerLeft: {fileID: 3907182178774851005}
   qteHandlerAlternating: {fileID: 168781950573295067}
-  canActivate: 1
   waitingDialogue: {fileID: 11400000, guid: bc6db6ee1b5a79f4aa495edee51718bc, type: 2}
 --- !u!1 &8096590921592829996
 GameObject:
@@ -1101,7 +1102,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   qteComponent: {fileID: 4580298435794050402}
-  playerPosition: {fileID: 0}
+  ghostObject: {fileID: 0}
+  humanObject: {fileID: 0}
+  playPushAnimation: 0
 --- !u!1 &8710529377179868996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1230,7 +1233,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   qteComponent: {fileID: 4580298435078037456}
-  playerPosition: {fileID: 0}
+  ghostObject: {fileID: 0}
+  humanObject: {fileID: 0}
+  playPushAnimation: 0
 --- !u!1001 &7552624817220286935
 PrefabInstance:
   m_ObjectHideFlags: 0
