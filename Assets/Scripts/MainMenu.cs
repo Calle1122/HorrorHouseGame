@@ -63,13 +63,19 @@ public class MainMenu : MonoBehaviour
         menuRoot.SetActive(false);
         
         //CUTSCENE
-        Game.Input.OnHumanInteract.AddListener(ForceStopIntro);
+        StartCoroutine(DelaySkipCutsceneSubscription());
         
         CutsceneController.Instance.PlayIntroCutscene();
         _cutsceneCoroutine = StartCoroutine(DelayGameStart(CutsceneController.Instance.GetIntroLength()));
 
     }
 
+    private IEnumerator DelaySkipCutsceneSubscription()
+    {
+        yield return new WaitForSeconds(3.5f);
+        Game.Input.OnHumanInteract.AddListener(ForceStopIntro);
+    }
+    
     private IEnumerator DelayGameStart(float delayTime)
     {
         yield return new WaitForSeconds(delayTime);

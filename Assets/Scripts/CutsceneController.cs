@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Audio;
 using UnityEngine;
 using UnityEngine.Video;
@@ -61,13 +62,19 @@ public class CutsceneController : MonoBehaviour
 
     public void PlayOutroCutscene()
     {
-        Game.Input.OnHumanInteract.AddListener(ForceStopOutro);
+        StartCoroutine(DelaySkipCutsceneSubscription());
         
         _musicSource.mute = true;
         DialogueCanvas.Instance.gameObject.SetActive(false);
         
         outroCutscenePlayer.Play();
         Invoke(nameof(StopOutroCutscene), (float)outroCutscenePlayer.clip.length);
+    }
+    
+    private IEnumerator DelaySkipCutsceneSubscription()
+    {
+        yield return new WaitForSeconds(3.5f);
+        Game.Input.OnHumanInteract.AddListener(ForceStopOutro);
     }
 
     private void StopOutroCutscene()
