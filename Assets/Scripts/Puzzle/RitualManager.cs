@@ -1,3 +1,4 @@
+using System.Collections;
 using Events;
 using UnityEngine;
 
@@ -7,6 +8,9 @@ namespace Puzzle
     {
         public bool item1Placed, item2Placed, item3Placed;
         [SerializeField] private PhantomTetherEvent startRitualEvent;
+        [SerializeField] private PhantomTetherEvent ritualFinishedEvent;
+
+        [SerializeField] private float ritualTime;
 
         public void PlaceItem(int itemIndex)
         {
@@ -34,6 +38,14 @@ namespace Puzzle
             }
             
             startRitualEvent.RaiseEvent();
+            StartCoroutine(RitualTimer());
+        }
+
+        private IEnumerator RitualTimer()
+        {
+            yield return new WaitForSeconds(ritualTime);
+            
+            ritualFinishedEvent.RaiseEvent();
         }
     }
 }

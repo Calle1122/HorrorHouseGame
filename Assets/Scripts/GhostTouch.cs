@@ -8,7 +8,6 @@ using UnityEngine.Serialization;
 public class GhostTouch : MonoBehaviour
 {
     [FormerlySerializedAs("reference")] [SerializeField] private GameObject targetObject;
-    [SerializeField] private float animationDuration;
     private Renderer _objectRenderer;
     
     public static int AmplitudeID = Shader.PropertyToID("_Amplitude");
@@ -86,12 +85,12 @@ public class GhostTouch : MonoBehaviour
         _currentFre = _objectRenderer.material.GetFloat(FrequencyID);
         _currentSpe = _objectRenderer.material.GetFloat(SpeedID);
         
-        while (currentTime < animationDuration)
+        while (currentTime < .15f)
         {
             currentTime += Time.deltaTime;
-            var newAmp = Mathf.Lerp(_currentAmp, _desiredAmp, currentTime / animationDuration);
-            var newFre = Mathf.Lerp(_currentFre, _desiredFre, currentTime / animationDuration);
-            var newSpe = Mathf.Lerp(_currentSpe, _desiredSpe, currentTime / animationDuration);
+            var newAmp = Mathf.Lerp(_currentAmp, _desiredAmp, currentTime / .15f);
+            var newFre = Mathf.Lerp(_currentFre, _desiredFre, currentTime / .15f);
+            var newSpe = Mathf.Lerp(_currentSpe, _desiredSpe, currentTime / .15f);
             
             _objectRenderer.material.SetFloat(AmplitudeID, newAmp);
             _objectRenderer.material.SetFloat(FrequencyID, newFre);

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Audio;
@@ -10,7 +11,7 @@ namespace Puzzle
         [SerializeField] private Transform canvasToShow;
         [SerializeField] private float animationDuration;
 
-        [SerializeField] private List<SfxSO> soundsToPlay;
+        [SerializeField] private List<DialogueSo> diaToPlay;
 
         public enum SoundMode
         {
@@ -40,9 +41,9 @@ namespace Puzzle
 
                 if (!_hasPlayedSound)
                 {
-                    foreach (SfxSO sfx in soundsToPlay)
+                    foreach (DialogueSo dia in diaToPlay)
                     {
-                        SoundManager.Instance.PlaySfx(sfx);
+                        DialogueCanvas.Instance.QueueDialogue(dia);
                     }
 
                     if (thisSoundMode == SoundMode.PlayOnce)

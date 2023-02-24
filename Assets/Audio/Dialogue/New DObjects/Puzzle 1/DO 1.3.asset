@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueSound: {fileID: 11400000, guid: 63ab9b6f482cf324cbb829fc9675349d, type: 2}
   dialogueText: ' Harriet: ''Yup, and we''ve got a lot of work to do... I think I
-    can bring you back to life!...            But you need to let me in... The door''s
-    locked. You''re a ghost... Can''t you open it with your ghost powers for me?'' '
+    can bring you back to life!... But you need to let me in... The door''s locked.
+    You''re a ghost... Can''t you open it with your ghost powers for me?'' '

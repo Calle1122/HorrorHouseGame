@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Events;
+using Puzzle;
 using UnityEngine;
 
 public class MainMenu : MonoBehaviour
@@ -12,6 +13,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject fetchingDevicesObject;
     [SerializeField] private GameObject aboutObject;
     [SerializeField] private GameObject settingsObject;
+
+    private Coroutine _cutsceneCoroutine;
 
     private void Start()
     {
@@ -58,17 +61,40 @@ public class MainMenu : MonoBehaviour
     {
         yield return StartCoroutine(Game.Input.InitializeGame(allowKeyboard));
         menuRoot.SetActive(false);
-        //TODO: have the cutscene code play instead of gameStartEvent.RaiseEvent();
+        
+        //CUTSCENE
+        StartCoroutine(DelaySkipCutsceneSubscription());
+        
+        CutsceneController.Instance.PlayIntroCutscene();
+        _cutsceneCoroutine = StartCoroutine(DelayGameStart(CutsceneController.Instance.GetIntroLength()));
+
+    }
+
+    private IEnumerator DelaySkipCutsceneSubscription()
+    {
+        yield return new WaitForSeconds(3.5f);
+        Game.Input.OnHumanInteract.AddListener(ForceStopIntro);
+    }
+    
+    private IEnumerator DelayGameStart(float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+        Game.Input.OnHumanInteract.RemoveListener(ForceStopIntro);
+        
         gameStartEvent.RaiseEvent();
         ShowMenu();
     }
 
-    private IEnumerator DelayGameStart()
+    private void ForceStopIntro()
     {
-        yield return new WaitForSeconds(88f);
+        Game.Input.OnHumanInteract.RemoveListener(ForceStopIntro);
+        StopCoroutine(_cutsceneCoroutine);
+        
+        CutsceneController.Instance.ForceStopIntro();
         gameStartEvent.RaiseEvent();
+        ShowMenu();
     }
-    
+
     public void PopUp()
     {
         StopAllCoroutines();

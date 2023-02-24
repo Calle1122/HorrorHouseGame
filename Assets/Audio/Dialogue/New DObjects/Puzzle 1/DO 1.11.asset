@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5a6764fa3335aa45b72bb21d15f4140, type: 3}
   m_Name: DO 1.11
   m_EditorClassIdentifier: 
-  dialogueSound: {fileID: 11400000, guid: 7d0c43b7af1bef046a914cd5f003b702, type: 2}
+  dialogueSound: {fileID: 11400000, guid: d236b5aaa5b74c74eabb61c45905caa0, type: 2}
   dialogueText: 'Harriet: ''Open Sesame.'''
