@@ -15,6 +15,8 @@ namespace Puzzle
         [SerializeField] private QteHandler qteHandlerAlternating;
         [SerializeField] private DialogueSo waitingDialogue;
 
+        private bool _hasStartedDialogueTimer;
+
         private bool canActivate = true;
         private int successCounter;
 
@@ -25,7 +27,11 @@ namespace Puzzle
                 return;
             }
 
-            StartCoroutine(TimedDialogue());
+            if (!_hasStartedDialogueTimer)
+            {
+                StartCoroutine(TimedDialogue());
+            }
+            _hasStartedDialogueTimer = true;
             CheckToStartQte();
         }
 
@@ -35,8 +41,12 @@ namespace Puzzle
             {
                 return;
             }
-
-            StartCoroutine(TimedDialogue());
+            
+            if (!_hasStartedDialogueTimer)
+            {
+                StartCoroutine(TimedDialogue());
+            }
+            _hasStartedDialogueTimer = true;
             CheckToStartQte();
         }
 
@@ -129,6 +139,8 @@ namespace Puzzle
             {
                 DialogueCanvas.Instance.QueueDialogue(waitingDialogue);
             }
+            
+            _hasStartedDialogueTimer = false;
         }
     }
 }

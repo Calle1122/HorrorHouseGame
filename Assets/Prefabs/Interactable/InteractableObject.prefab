@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5668919539020825952}
   - component: {fileID: 5668919539020825966}
   - component: {fileID: 5668919539020825967}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Interactable
   m_TagString: Key
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnInteract: {fileID: 0}
-  followOffset: {x: 0, y: 0, z: 0.34}
+  followOffset: {x: 0, y: 0, z: 0.01}
   parentTransform: {fileID: 5668919539599234756}
   physicsCollider: {fileID: 5668919539569360702}
   interactSprite: {fileID: 2024630025809803613}

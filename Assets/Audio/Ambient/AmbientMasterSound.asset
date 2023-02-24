@@ -13,13 +13,18 @@ MonoBehaviour:
   m_Name: AmbientMasterSound
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: b7c876abeadb98843831655377fbd7e3, type: 3}
-  - {fileID: 8300000, guid: b0796e0032195444fb579a2e9d1f0596, type: 3}
-  - {fileID: 8300000, guid: e00c1159da14f28428b87e22df17875b, type: 3}
-  - {fileID: 8300000, guid: 7e7f99ccec68aa043bdc901b41ffc625, type: 3}
-  - {fileID: 8300000, guid: 733f3ff226a60a24c9c9c2902a923632, type: 3}
-  volume: {x: 0.01, y: 0.025}
-  pitch: {x: 0.6, y: 0.8}
-  playIndex: 2
+  - {fileID: 8300000, guid: d37f6667f082011418b83914a1272955, type: 3}
+  - {fileID: 8300000, guid: e7d9ef6c09f2de8429d4fcecd5ce6f60, type: 3}
+  - {fileID: 8300000, guid: f3b1972b6724aaa4a81bdb3ad044aab8, type: 3}
+  - {fileID: 8300000, guid: 1c9458044232cac4abf3919229652ea1, type: 3}
+  - {fileID: 8300000, guid: 5bed0b052fd322244908f4db22360627, type: 3}
+  - {fileID: 8300000, guid: 86d5cb9b977fa7a4cbee13f31f1dd442, type: 3}
+  - {fileID: 8300000, guid: 603686c6505c95f4bbb629c5e78f6c6f, type: 3}
+  - {fileID: 8300000, guid: 641d196cf6b2b4743b70ea1e3f092ff3, type: 3}
+  - {fileID: 8300000, guid: 6ec4ac524afa08843b3781fb64b0f111, type: 3}
+  - {fileID: 8300000, guid: 2146f116354f1014d888526a651be893, type: 3}
+  volume: {x: 0.05, y: 0.1}
+  pitch: {x: 0.85, y: 1}
+  playIndex: 4
   playOrder: 0
   sourceType: 3

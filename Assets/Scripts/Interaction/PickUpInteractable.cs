@@ -87,7 +87,7 @@ namespace Interaction
 
         private void FinishInteract(IInteraction interaction)
         {
-            ownerTransform = interaction.GetTransform();
+            ownerTransform = interaction.GetHandTransform();
             if (followOffset == Vector3.zero)
             {
                 ToggleCollider();

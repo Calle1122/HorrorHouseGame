@@ -6,6 +6,8 @@ namespace Interaction
 {
     public class PickupInteraction : MonoBehaviour, IInteraction
     {
+        [SerializeField] private Transform handTransform;
+        
         private readonly List<IInteractable> possibleInteractables = new List<IInteractable>();
         private IInteractable indicatedInteractable;
         private IInteractable closestInteractable;
@@ -21,6 +23,11 @@ namespace Interaction
             Game.Input.OnHumanInteract.RemoveListener(OnInteract);
         }
 
+        public Transform GetHandTransform()
+        {
+            return handTransform;
+        }
+        
         public Transform GetTransform()
         {
             return transform;

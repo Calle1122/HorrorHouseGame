@@ -41,6 +41,9 @@ public class CutsceneController : MonoBehaviour
     {
         _musicSource.mute = true;
         DialogueCanvas.Instance.gameObject.SetActive(false);
+
+        Game.Input.GhostInputMode = InputMode.MovementLimited;
+        Game.Input.HumanInputMode = InputMode.MovementLimited;
         
         introCutscenePlayer.Play();
         Invoke(nameof(StopIntroCutscene), (float)introCutscenePlayer.clip.length);
@@ -51,6 +54,9 @@ public class CutsceneController : MonoBehaviour
         _musicSource.mute = false;
         DialogueCanvas.Instance.gameObject.SetActive(true);
         introCutscenePlayer.gameObject.SetActive(false);
+        
+        Game.Input.GhostInputMode = InputMode.Free;
+        Game.Input.HumanInputMode = InputMode.Free;
     }
 
     public void ForceStopIntro()
@@ -58,6 +64,9 @@ public class CutsceneController : MonoBehaviour
         _musicSource.mute = false;
         DialogueCanvas.Instance.gameObject.SetActive(true);
         introCutscenePlayer.gameObject.SetActive(false);
+        
+        Game.Input.GhostInputMode = InputMode.Free;
+        Game.Input.HumanInputMode = InputMode.Free;
     }
 
     public void PlayOutroCutscene()
