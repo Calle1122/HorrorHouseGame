@@ -7,7 +7,7 @@ namespace Interaction
     public class PickupInteraction : MonoBehaviour, IInteraction
     {
         [SerializeField] private Transform handTransform;
-        
+
         private readonly List<IInteractable> possibleInteractables = new List<IInteractable>();
         private IInteractable indicatedInteractable;
         private IInteractable closestInteractable;
@@ -27,7 +27,7 @@ namespace Interaction
         {
             return handTransform;
         }
-        
+
         public Transform GetTransform()
         {
             return transform;
@@ -59,9 +59,11 @@ namespace Interaction
         {
             if (heldInteractable != null)
             {
+                heldInteractable.ToggleOnUI();
                 StopInteract();
                 return;
             }
+
 
             InteractClosestInteractable();
         }
@@ -80,6 +82,7 @@ namespace Interaction
             }
 
             heldInteractable = closestInteractable;
+            heldInteractable.ToggleOffUI();
             closestInteractable.StartInteract(this);
         }
 
