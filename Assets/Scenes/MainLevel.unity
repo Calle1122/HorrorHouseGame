@@ -225,7 +225,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137800551}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 23fccbc8ecbe48842b0dd01cae730ae4, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: e3634bac62f19644ba53d13eae8d627b, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 1905120985}
@@ -900,7 +900,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-49878
+  m_Name: pb_Mesh113154
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1213,6 +1213,16 @@ PrefabInstance:
         type: 3}
       propertyPath: field of view
       value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2489855571272455606, guid: 13722639f37f9064dbf24af4e21ba5a9,
+        type: 3}
+      propertyPath: far clip plane
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2489855571272455606, guid: 13722639f37f9064dbf24af4e21ba5a9,
+        type: 3}
+      propertyPath: orthographic size
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6982729368190197225, guid: 13722639f37f9064dbf24af4e21ba5a9,
         type: 3}
@@ -1791,7 +1801,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1519996701}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 1654efcbe1be710428701e736e1b6891, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 50495b3dc02dd2a4dac369467590842a, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 1905120985}
@@ -2084,7 +2094,7 @@ PrefabInstance:
     - target: {fileID: 4029813234587876979, guid: d1290bcf6856ce9448ba8684097c5255,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 8232
+      value: 8235
       objectReference: {fileID: 0}
     - target: {fileID: 4029813234587876980, guid: d1290bcf6856ce9448ba8684097c5255,
         type: 3}
