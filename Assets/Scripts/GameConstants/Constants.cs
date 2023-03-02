@@ -34,7 +34,6 @@
         
         // Human
         // Bool Parameters
-        public const string JumpTriggerParameter = "PlayJump";
         public const string WalkParam = "IsWalking";
         public const string PushingCouchParam = "PushingCouch";
         public const string PushingCabinetParam = "PushCabinPlay";
@@ -44,6 +43,8 @@
         public const string LerpStepTrigger = "LerpStepPlay";
         public const string PushFinishedTrigger = "PushFinished";
         public const string GenericPickUpTrigger = "GenericPickupPlay";
+        public const string PumpKickTriggerParameter = "DancePumpKickPlay";
+        public const string JumpTriggerParameter = "PlayJump";
         
         // Ghost
         // Bool Parameters
@@ -52,5 +53,6 @@
         // Trigger Parameters
         public const string PossessTrigger = "PossessPlay";
         public const string UnPossessTrigger = "UnpossessPlay";
+        public const string StompTrigger = "SmushSpiderPlay";
     }
 }

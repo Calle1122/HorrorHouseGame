@@ -31,14 +31,14 @@ namespace Puzzle
         {
             if (isHuman)
             {
-                Game.Input.HumanInputMode = InputMode.MovementLimited;
+                Game.Input.HumanInputMode = InputMode.Limited;
                 qteComponent.SetCharType(CharacterType.Human);
                 yield return StartCoroutine(LerpPosition(humanObject.transform.position,
                     Game.Input.HumanPlayer.transform, Strings.LerpStepTrigger));
             }
             else if (!isHuman)
             {
-                Game.Input.GhostInputMode = InputMode.MovementLimited;
+                Game.Input.GhostInputMode = InputMode.Limited;
                 qteComponent.SetCharType(CharacterType.Ghost);
                 yield return StartCoroutine(LerpPosition(ghostObject.transform.position,
                     Game.Input.GhostPlayer.transform, Strings.PossessTrigger));
@@ -59,8 +59,8 @@ namespace Puzzle
 
         public IEnumerator StartCoopQteAnimations()
         {
-            Game.Input.HumanInputMode = InputMode.MovementLimited;
-            Game.Input.GhostInputMode = InputMode.MovementLimited;
+            Game.Input.HumanInputMode = InputMode.Limited;
+            Game.Input.GhostInputMode = InputMode.Limited;
             if (playPushAnimation)
             {
                 if (Game.Input.HumanPlayer.TryGetComponent<AnimationsHandler>(out var humanAnimHandler))

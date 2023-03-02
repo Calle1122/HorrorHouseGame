@@ -136,12 +136,12 @@ namespace Puzzles.PushPull
 
             if (humanIsInside)
             {
-                Game.Input.HumanInputMode = InputMode.MovementLimited;
+                Game.Input.HumanInputMode = InputMode.Limited;
             }
 
             if (ghostIsInside)
             {
-                Game.Input.GhostInputMode = InputMode.MovementLimited;
+                Game.Input.GhostInputMode = InputMode.Limited;
             }
 
             SoundManager.Instance.PlaySfx(puzzle.pushSfx);

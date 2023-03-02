@@ -70,6 +70,11 @@ namespace Interaction
 
         public void StopInteract()
         {
+            if (heldInteractable == null)
+            {
+                return;
+            }
+        
             heldInteractable.StopInteract();
             heldInteractable = null;
         }

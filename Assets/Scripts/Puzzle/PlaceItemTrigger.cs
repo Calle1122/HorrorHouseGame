@@ -81,7 +81,7 @@ namespace Puzzle
 
         private IEnumerator StartPlacingAnimation()
         {
-            Game.Input.HumanInputMode = InputMode.MovementLimited;
+            Game.Input.HumanInputMode = InputMode.Limited;
             Game.Input.HumanPlayer.GetComponent<AnimationsHandler>().TriggerParameter(Strings.PlacePickUpFloor);
             yield return new WaitForSeconds(2.4f);
             Game.Input.HumanInputMode = InputMode.Free;

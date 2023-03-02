@@ -1,5 +1,5 @@
 ﻿public enum InputMode
 {
     Free,
-    MovementLimited
+    Limited
 }

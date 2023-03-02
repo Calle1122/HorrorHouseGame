@@ -94,7 +94,7 @@ Material:
     - _OcclusionStrength: 1
     - _Opacity: 1
     - _Parallax: 0.02
-    - _Size: 0
+    - _Size: 4.3e-44
     - _Smoothness: 0.8
     - _SmoothnessTextureChannel: 0
     - _SoftParticlesEnabled: 0
@@ -109,7 +109,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Position: {r: 0.6311691, g: 0.1069402, b: 6.741813, a: 0}
+    - _Position: {r: 0.6569107, g: 0.59136415, b: 9.933577, a: 0}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _Tint: {r: 0.5747152, g: 0.6168267, b: 0.990566, a: 0}
   m_BuildTextureStacks: []

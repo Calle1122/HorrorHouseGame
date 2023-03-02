@@ -42,8 +42,8 @@ public class CutsceneController : MonoBehaviour
         _musicSource.mute = true;
         DialogueCanvas.Instance.gameObject.SetActive(false);
 
-        Game.Input.GhostInputMode = InputMode.MovementLimited;
-        Game.Input.HumanInputMode = InputMode.MovementLimited;
+        Game.Input.GhostInputMode = InputMode.Limited;
+        Game.Input.HumanInputMode = InputMode.Limited;
         
         introCutscenePlayer.Play();
         Invoke(nameof(StopIntroCutscene), (float)introCutscenePlayer.clip.length);

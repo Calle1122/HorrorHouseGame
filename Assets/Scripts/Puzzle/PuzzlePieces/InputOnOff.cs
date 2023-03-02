@@ -14,11 +14,11 @@ namespace Puzzle.PuzzlePieces
         {
             if (player == PlayerType.Ghost)
             {
-                Game.Input.GhostInputMode = Game.Input.GhostInputMode == InputMode.Free ? InputMode.MovementLimited : InputMode.Free;
+                Game.Input.GhostInputMode = Game.Input.GhostInputMode == InputMode.Free ? InputMode.Limited : InputMode.Free;
             }
             else
             {
-                Game.Input.HumanInputMode = Game.Input.HumanInputMode == InputMode.Free ? InputMode.MovementLimited : InputMode.Free;
+                Game.Input.HumanInputMode = Game.Input.HumanInputMode == InputMode.Free ? InputMode.Limited : InputMode.Free;
             }
         }
     }

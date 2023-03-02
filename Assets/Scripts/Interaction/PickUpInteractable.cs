@@ -107,10 +107,12 @@ namespace Interaction
                 yield break;
             }
 
-            Game.Input.HumanInputMode = InputMode.MovementLimited;
+            Game.Input.HumanInputMode = InputMode.Limited;
+            Game.Input.HumanInteractMode = InputMode.Limited;
             animationsHandler.TriggerParameter(Strings.PlacePickUpFloor);
             yield return new WaitForSeconds(2.4f);
             Game.Input.HumanInputMode = InputMode.Free;
+            Game.Input.HumanInteractMode = InputMode.Free;
             FinishInteract(interaction);
         }
 

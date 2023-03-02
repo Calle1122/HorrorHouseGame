@@ -138,7 +138,7 @@ namespace UI
 
         private void OpenPopup()
         {
-            Game.Input.HumanInputMode = InputMode.MovementLimited;
+            Game.Input.HumanInputMode = InputMode.Limited;
             
             _isOpen = true;
             _targetSize = 1f;

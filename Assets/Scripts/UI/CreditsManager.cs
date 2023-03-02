@@ -17,24 +17,6 @@ namespace UI
         private void OnEnable()
         {
             PlayCredits();
-            StartCoroutine(DelayedSkipSubscribe());
-        }
-
-        private void OnDisable()
-        {
-            Game.Input.OnHumanInteract.RemoveListener(SkipCredits);
-        }
-
-        private IEnumerator DelayedSkipSubscribe()
-        {
-            yield return new WaitForSeconds(3f);
-            
-            Game.Input.OnHumanInteract.AddListener(SkipCredits);
-        } 
-        
-        private void SkipCredits()
-        {
-            Application.Quit();
         }
 
         private void PlayCredits()
@@ -51,7 +33,7 @@ namespace UI
             
             if (_currentSpriteIndex >= creditSprites.Count)
             {
-                SkipCredits();
+                Application.Quit();
             }
 
             var currentTime = 0f;

@@ -40,6 +40,7 @@ public class InputManager : MonoBehaviour
 
     public InputMode GhostInputMode { get; set; }
     public InputMode HumanInputMode { get; set; }
+    public InputMode HumanInteractMode { get; set; }
 
     public GameObject GhostPlayer => ghostPlayer;
     public GameObject HumanPlayer => humanPlayer;
@@ -186,6 +187,10 @@ public class InputManager : MonoBehaviour
 
     private void HumanInteract(InputAction.CallbackContext obj)
     {
+        if (HumanInteractMode == InputMode.Limited)
+        {
+            return;
+        }
         OnHumanInteract.Invoke();
     }
 

@@ -101,7 +101,7 @@ namespace Puzzle
                 return;
             }
 
-            Game.Input.GhostInputMode = InputMode.MovementLimited;
+            Game.Input.GhostInputMode = InputMode.Limited;
             handler.ghostIsInteracting = true;
             handler.GhostInteract();
         }
@@ -113,7 +113,7 @@ namespace Puzzle
                 return;
             }
 
-            Game.Input.HumanInputMode = InputMode.MovementLimited;
+            Game.Input.HumanInputMode = InputMode.Limited;
             handler.humanIsInteracting = true;
             handler.HumanInteract();
         }

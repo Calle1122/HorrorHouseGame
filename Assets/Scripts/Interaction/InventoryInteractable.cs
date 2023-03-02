@@ -61,12 +61,14 @@ namespace Interaction
                 animationsHandler.TriggerParameter(Strings.PlacePickUpFloor);
             }
 
-            Game.Input.HumanInputMode = InputMode.MovementLimited;
+            Game.Input.HumanInputMode = InputMode.Limited;
+            Game.Input.HumanInteractMode = InputMode.Limited;
             yield return new WaitForSeconds(2.4f);
             interactableUI.SetActive(false);
             Game.Input.OnHumanInteract.RemoveListener(OnInteract);
             onPickupEvent.RaiseEvent();
             Game.Input.HumanInputMode = InputMode.Free;
+            Game.Input.HumanInteractMode = InputMode.Free;
         }
     }
 }
